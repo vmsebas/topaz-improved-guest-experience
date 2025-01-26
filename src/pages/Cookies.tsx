@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 const Cookies = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]">
       <Navbar />
       <main className="flex-1 container py-20">
         <Breadcrumb className="mb-8">
@@ -19,48 +19,79 @@ const Cookies = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-4xl font-bold mb-8">Política de Cookies</h1>
-        
-        <div className="prose prose-lg max-w-none">
-          <p className="lead">Esta Política de Cookies explica como o Lisbon Tiles usa cookies e tecnologias similares em nosso website.</p>
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-4xl font-bold mb-4 text-gray-800">Política de Cookies</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Esta Política de Cookies explica como o Lisbon Tiles usa cookies e tecnologias similares em nosso website.
+          </p>
+        </div>
 
-          <h2>1. O que são Cookies?</h2>
-          <p>Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site.</p>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">1. O que são Cookies?</h2>
+            <p className="text-muted-foreground">
+              Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site.
+            </p>
+          </div>
 
-          <h2>2. Tipos de Cookies que Usamos</h2>
-          <h3>2.1. Cookies Essenciais</h3>
-          <p>Necessários para o funcionamento básico do site e não podem ser desativados.</p>
-          
-          <h3>2.2. Cookies de Desempenho</h3>
-          <p>Ajudam-nos a entender como os visitantes interagem com o site, coletando informações anônimas.</p>
-          
-          <h3>2.3. Cookies Funcionais</h3>
-          <p>Permitem que o site lembre suas escolhas para fornecer funcionalidades aprimoradas.</p>
-          
-          <h3>2.4. Cookies de Marketing</h3>
-          <p>Usados para rastrear visitantes em diferentes websites para exibir anúncios relevantes.</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">2. Tipos de Cookies</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-medium text-gray-700">Cookies Essenciais</h3>
+                <p className="text-muted-foreground">Necessários para o funcionamento básico do site.</p>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-700">Cookies de Desempenho</h3>
+                <p className="text-muted-foreground">Ajudam a entender como os visitantes interagem com o site.</p>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-700">Cookies Funcionais</h3>
+                <p className="text-muted-foreground">Permitem que o site lembre suas escolhas.</p>
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-700">Cookies de Marketing</h3>
+                <p className="text-muted-foreground">Usados para rastrear visitantes em diferentes websites.</p>
+              </div>
+            </div>
+          </div>
 
-          <h2>3. Como Gerenciar Cookies</h2>
-          <p>Você pode controlar e/ou excluir cookies conforme desejar:</p>
-          <ul>
-            <li>Através das configurações do seu navegador</li>
-            <li>Usando nosso painel de preferências de cookies</li>
-            <li>Visitando www.aboutcookies.org</li>
-          </ul>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">3. Como Gerenciar Cookies</h2>
+            <p className="text-muted-foreground mb-4">Você pode controlar e/ou excluir cookies conforme desejar:</p>
+            <ul className="list-disc pl-5 text-muted-foreground">
+              <li>Através das configurações do seu navegador</li>
+              <li>Usando nosso painel de preferências de cookies</li>
+              <li>Visitando www.aboutcookies.org</li>
+            </ul>
+          </div>
 
-          <h2>4. Cookies de Terceiros</h2>
-          <p>Alguns cookies são definidos por serviços de terceiros que aparecem em nossas páginas:</p>
-          <ul>
-            <li>Google Analytics - análise de uso do site</li>
-            <li>Redes sociais - botões de compartilhamento</li>
-            <li>Serviços de pagamento - processamento seguro de pagamentos</li>
-          </ul>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">4. Cookies de Terceiros</h2>
+            <ul className="list-disc pl-5 text-muted-foreground">
+              <li>Google Analytics - análise de uso do site</li>
+              <li>Redes sociais - botões de compartilhamento</li>
+              <li>Serviços de pagamento - processamento seguro</li>
+            </ul>
+          </div>
 
-          <h2>5. Atualizações à Política</h2>
-          <p>Esta política pode ser atualizada periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre quaisquer alterações.</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">5. Atualizações à Política</h2>
+            <p className="text-muted-foreground">
+              Esta política pode ser atualizada periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre quaisquer alterações.
+            </p>
+          </div>
 
-          <h2>6. Contato</h2>
-          <p>Se tiver dúvidas sobre nossa política de cookies, entre em contato conosco em cookies@lisbontiles.com</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">6. Contato</h2>
+            <p className="text-muted-foreground">
+              Se tiver dúvidas sobre nossa política de cookies, entre em contato conosco em:
+              <br />
+              <a href="mailto:cookies@lisbontiles.com" className="text-primary hover:underline">
+                cookies@lisbontiles.com
+              </a>
+            </p>
+          </div>
         </div>
       </main>
       <Footer />

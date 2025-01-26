@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 const Terms = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]">
       <Navbar />
       <main className="flex-1 container py-20">
         <Breadcrumb className="mb-8">
@@ -19,31 +19,60 @@ const Terms = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-4xl font-bold mb-8">Termos e Condições</h1>
-        
-        <div className="prose prose-lg max-w-none">
-          <h2>1. Introdução</h2>
-          <p>Bem-vindo ao Lisbon Tiles. Ao acessar e usar nosso site, você concorda com estes termos e condições de uso.</p>
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-4xl font-bold mb-4 text-gray-800">Termos e Condições</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Bem-vindo ao Lisbon Tiles. Ao acessar e usar nosso site, você concorda com estes termos e condições de uso.
+          </p>
+        </div>
 
-          <h2>2. Reservas e Pagamentos</h2>
-          <p>2.1. As reservas estão sujeitas à disponibilidade e confirmação.</p>
-          <p>2.2. O pagamento pode ser feito através dos métodos disponíveis no momento da reserva.</p>
-          <p>2.3. Podem ser aplicadas taxas de cancelamento de acordo com a política de cancelamento em vigor.</p>
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">1. Introdução</h2>
+            <p className="text-muted-foreground">
+              Estes termos e condições regem o uso do nosso site e serviços. Ao utilizar nossos serviços, você concorda em cumprir estes termos.
+            </p>
+          </div>
 
-          <h2>3. Regras de Hospedagem</h2>
-          <p>3.1. O check-in é realizado a partir das 15:00 e o check-out até às 11:00.</p>
-          <p>3.2. Os hóspedes devem respeitar as regras do condomínio e manter o ambiente tranquilo.</p>
-          <p>3.3. É proibido fumar dentro das instalações.</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">2. Reservas e Pagamentos</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>As reservas estão sujeitas à disponibilidade e confirmação.</li>
+              <li>O pagamento pode ser feito através dos métodos disponíveis no momento da reserva.</li>
+              <li>Podem ser aplicadas taxas de cancelamento de acordo com a política de cancelamento em vigor.</li>
+            </ul>
+          </div>
 
-          <h2>4. Responsabilidades</h2>
-          <p>4.1. O Lisbon Tiles não se responsabiliza por objetos pessoais deixados nas acomodações.</p>
-          <p>4.2. Os hóspedes são responsáveis por quaisquer danos causados à propriedade.</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">3. Regras de Hospedagem</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>O check-in é realizado a partir das 15:00 e o check-out até às 11:00.</li>
+              <li>Os hóspedes devem respeitar as regras do condomínio e manter o ambiente tranquilo.</li>
+              <li>É proibido fumar dentro das instalações.</li>
+            </ul>
+          </div>
 
-          <h2>5. Lei Aplicável</h2>
-          <p>Estes termos são regidos pela lei portuguesa e europeia. Qualquer disputa será resolvida nos tribunais de Lisboa, Portugal.</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">4. Responsabilidades</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>O Lisbon Tiles não se responsabiliza por objetos pessoais deixados nas acomodações.</li>
+              <li>Os hóspedes são responsáveis por quaisquer danos causados à propriedade.</li>
+            </ul>
+          </div>
 
-          <h2>6. Alterações aos Termos</h2>
-          <p>Reservamo-nos o direito de modificar estes termos a qualquer momento, publicando a versão atualizada neste site.</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">5. Lei Aplicável</h2>
+            <p className="text-muted-foreground">
+              Estes termos são regidos pela lei portuguesa e europeia. Qualquer disputa será resolvida nos tribunais de Lisboa, Portugal.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">6. Alterações aos Termos</h2>
+            <p className="text-muted-foreground">
+              Reservamo-nos o direito de modificar estes termos a qualquer momento, publicando a versão atualizada neste site.
+            </p>
+          </div>
         </div>
       </main>
       <Footer />

@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]">
       <Navbar />
       <main className="flex-1 container py-20">
         <Breadcrumb className="mb-8">
@@ -19,57 +19,76 @@ const Privacy = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-4xl font-bold mb-8">Política de Privacidade</h1>
+        <div className="text-center mb-12 animate-fade-in">
+          <h1 className="text-4xl font-bold mb-4 text-gray-800">Política de Privacidade</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Esta Política de Privacidade descreve como o Lisbon Tiles coleta, usa e protege suas informações pessoais.
+          </p>
+        </div>
         
-        <div className="prose prose-lg max-w-none">
-          <p className="lead">Esta Política de Privacidade descreve como o Lisbon Tiles coleta, usa e protege suas informações pessoais em conformidade com o RGPD (Regulamento Geral de Proteção de Dados - UE 2016/679).</p>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">1. Dados que Coletamos</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>Nome completo</li>
+              <li>Endereço de e-mail</li>
+              <li>Número de telefone</li>
+              <li>Dados do documento de identificação</li>
+              <li>Informações de pagamento</li>
+              <li>Dados de reserva</li>
+            </ul>
+          </div>
 
-          <h2>1. Dados que Coletamos</h2>
-          <p>Coletamos os seguintes tipos de informações:</p>
-          <ul>
-            <li>Nome completo</li>
-            <li>Endereço de e-mail</li>
-            <li>Número de telefone</li>
-            <li>Dados do documento de identificação</li>
-            <li>Informações de pagamento</li>
-            <li>Dados de reserva</li>
-          </ul>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">2. Como Usamos seus Dados</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>Processar suas reservas</li>
+              <li>Comunicar informações sobre sua estadia</li>
+              <li>Cumprir obrigações legais</li>
+              <li>Melhorar nossos serviços</li>
+              <li>Enviar comunicações de marketing (com seu consentimento)</li>
+            </ul>
+          </div>
 
-          <h2>2. Como Usamos seus Dados</h2>
-          <p>Utilizamos seus dados pessoais para:</p>
-          <ul>
-            <li>Processar suas reservas</li>
-            <li>Comunicar informações sobre sua estadia</li>
-            <li>Cumprir obrigações legais</li>
-            <li>Melhorar nossos serviços</li>
-            <li>Enviar comunicações de marketing (com seu consentimento)</li>
-          </ul>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">3. Base Legal para Processamento</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>Execução de contrato</li>
+              <li>Obrigações legais</li>
+              <li>Interesses legítimos</li>
+              <li>Seu consentimento</li>
+            </ul>
+          </div>
 
-          <h2>3. Base Legal para Processamento</h2>
-          <p>Processamos seus dados com base em:</p>
-          <ul>
-            <li>Execução de contrato</li>
-            <li>Obrigações legais</li>
-            <li>Interesses legítimos</li>
-            <li>Seu consentimento</li>
-          </ul>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">4. Seus Direitos</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>Acessar seus dados pessoais</li>
+              <li>Retificar dados incorretos</li>
+              <li>Apagar seus dados</li>
+              <li>Restringir o processamento</li>
+              <li>Portabilidade dos dados</li>
+              <li>Retirar consentimento</li>
+            </ul>
+          </div>
 
-          <h2>4. Seus Direitos</h2>
-          <p>Sob o RGPD, você tem direito a:</p>
-          <ul>
-            <li>Acessar seus dados pessoais</li>
-            <li>Retificar dados incorretos</li>
-            <li>Apagar seus dados</li>
-            <li>Restringir o processamento</li>
-            <li>Portabilidade dos dados</li>
-            <li>Retirar consentimento</li>
-          </ul>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">5. Segurança dos Dados</h2>
+            <p className="text-muted-foreground">
+              Implementamos medidas técnicas e organizacionais apropriadas para proteger seus dados pessoais contra acesso não autorizado, alteração, divulgação ou destruição.
+            </p>
+          </div>
 
-          <h2>5. Segurança dos Dados</h2>
-          <p>Implementamos medidas técnicas e organizacionais apropriadas para proteger seus dados pessoais.</p>
-
-          <h2>6. Contato</h2>
-          <p>Para exercer seus direitos ou esclarecer dúvidas, contate nosso DPO em privacy@lisbontiles.com</p>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate-fade-in-up">
+            <h2 className="text-xl font-semibold mb-4 text-primary">6. Contato</h2>
+            <p className="text-muted-foreground">
+              Para exercer seus direitos ou esclarecer dúvidas, contate nosso DPO em:
+              <br />
+              <a href="mailto:privacy@lisbontiles.com" className="text-primary hover:underline">
+                privacy@lisbontiles.com
+              </a>
+            </p>
+          </div>
         </div>
       </main>
       <Footer />
