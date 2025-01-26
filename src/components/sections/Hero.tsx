@@ -7,7 +7,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/6197cbf6-b48f-4002-b555-3708613a58dd.png')",
+          backgroundImage: "url('/lovable-uploads/e0d4e676-8b90-46f8-8bae-3f3263415c6a.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -15,7 +15,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, 0.2) 100%)"
+          background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0) 40%)"
         }}
       />
       <div className="container relative z-10 flex flex-col items-center text-center gap-8">
