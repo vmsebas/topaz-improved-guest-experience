@@ -112,54 +112,56 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="container px-4 pt-24 pb-8 mx-auto">
-        <Breadcrumb className="mb-8">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">
-                Inicio
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/blog">
-                Blog
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>{article.title}</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+      <main className="pt-28 pb-8">
+        <div className="container px-4 mx-auto">
+          <Breadcrumb className="mb-8">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">
+                  Inicio
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/blog">
+                  Blog
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{article.title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
-        <article className="max-w-4xl mx-auto">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight">{article.title}</h1>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>{article.date}</span>
-              <span>•</span>
-              <span>{article.readTime} de lectura</span>
+          <article className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              <h1 className="text-4xl font-bold tracking-tight">{article.title}</h1>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span>{article.date}</span>
+                <span>•</span>
+                <span>{article.readTime} de lectura</span>
+              </div>
             </div>
-          </div>
 
-          <div className="aspect-video relative overflow-hidden rounded-lg mt-8">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="object-cover w-full h-full"
-            />
-          </div>
+            <div className="aspect-video relative overflow-hidden rounded-lg mt-8">
+              <img
+                src={article.image}
+                alt={article.title}
+                className="object-cover w-full h-full"
+              />
+            </div>
 
-          <div className="mt-8 prose prose-lg max-w-none">
-            {article.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-4 text-muted-foreground">
-                {paragraph.trim()}
-              </p>
-            ))}
-          </div>
-        </article>
-      </div>
+            <div className="mt-8 prose prose-lg max-w-none">
+              {article.content.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="mb-4 text-muted-foreground">
+                  {paragraph.trim()}
+                </p>
+              ))}
+            </div>
+          </article>
+        </div>
+      </main>
       <Footer />
     </div>
   );
