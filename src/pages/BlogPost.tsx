@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -92,30 +94,35 @@ const BlogPost = () => {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold">Artículo no encontrado</h1>
-          <Link to="/blog" className="text-primary hover:underline mt-4 block">
-            Volver al blog
-          </Link>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <div className="flex items-center justify-center h-[calc(100vh-4rem)]">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold">Artículo no encontrado</h1>
+            <Link to="/blog" className="text-primary hover:underline mt-4 block">
+              Volver al blog
+            </Link>
+          </div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <div className="container px-4 py-8 mx-auto">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/">
+              <BreadcrumbLink href="/">
                 Inicio
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/blog">
+              <BreadcrumbLink href="/blog">
                 Blog
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -153,6 +160,7 @@ const BlogPost = () => {
           </div>
         </article>
       </div>
+      <Footer />
     </div>
   );
 };
