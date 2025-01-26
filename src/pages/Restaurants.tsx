@@ -1,346 +1,111 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { MapPin, Clock, Star, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Star, Phone, Euro, ExternalLink } from "lucide-react";
-import { useState } from "react";
-import { CategoryFilter } from "@/components/common/CategoryFilter";
-
-const restaurants = {
-  portuguese: [
-    {
-      id: 1,
-      name: "A Severa",
-      image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e",
-      type: "Traditional Portuguese",
-      distance: "5 min walk",
-      hours: "19:00 - 23:30",
-      phone: "+351 218 861 647",
-      price: "€€",
-      rating: 4.7,
-      specialties: ["Bacalhau à Brás", "Sardines", "Fado Music"],
-      address: "R. das Gaveas 51, 1200-206 Lisboa"
-    },
-    {
-      id: 2,
-      name: "Cantinho do Aziz",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
-      type: "Portuguese Fusion",
-      distance: "8 min walk",
-      hours: "12:00 - 23:00",
-      phone: "+351 218 879 095",
-      price: "€€",
-      rating: 4.6,
-      specialties: ["Grilled Fish", "Seafood Rice", "House Wines"],
-      address: "R. de São Pedro 4, 1100-554 Lisboa"
-    },
-    {
-      id: 3,
-      name: "Solar dos Presuntos",
-      image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b",
-      type: "Traditional Portuguese",
-      distance: "12 min walk",
-      hours: "12:00 - 23:00",
-      phone: "+351 213 424 253",
-      price: "€€€",
-      rating: 4.8,
-      specialties: ["Seafood", "Portuguese Wines", "Presunto"],
-      address: "R. das Portas de Santo Antão 150, 1150-269 Lisboa"
-    }
-  ],
-  seafood: [
-    {
-      id: 4,
-      name: "Cervejaria Ramiro",
-      image: "https://images.unsplash.com/photo-1599486761160-444ef0702f55",
-      type: "Seafood Restaurant",
-      distance: "15 min walk",
-      hours: "12:00 - 00:30",
-      phone: "+351 218 851 024",
-      price: "€€€",
-      rating: 4.9,
-      specialties: ["Tiger Prawns", "Lobster", "Giant Crab"],
-      address: "Av. Almirante Reis 1, 1150-007 Lisboa"
-    },
-    {
-      id: 5,
-      name: "Sea Me",
-      image: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62",
-      type: "Modern Seafood",
-      distance: "10 min walk",
-      hours: "12:30 - 00:00",
-      phone: "+351 213 461 564",
-      price: "€€€",
-      rating: 4.7,
-      specialties: ["Sushi", "Fresh Fish", "Seafood Pasta"],
-      address: "R. do Loreto 21, 1200-241 Lisboa"
-    },
-    {
-      id: 14,
-      name: "Cervejaria Trindade",
-      image: "/lovable-uploads/6197cbf6-b48f-4002-b555-3708613a58dd.png",
-      type: "Historic Seafood Restaurant",
-      distance: "2 min walk",
-      hours: "12:00 - 00:00",
-      phone: "+351 213 423 506",
-      price: "€€",
-      rating: 4.6,
-      specialties: ["Fresh Seafood", "Historic Venue", "Portuguese Beer"],
-      address: "R. Nova da Trindade 20C, 1200-303 Lisboa"
-    }
-  ],
-  markets: [
-    {
-      id: 10,
-      name: "Time Out Market",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
-      type: "Food Hall & Market",
-      distance: "15 min by tram",
-      hours: "10:00 - 00:00",
-      phone: "+351 215 464 030",
-      price: "€€",
-      rating: 4.8,
-      specialties: ["Local Cuisine", "Wine Bar", "Gourmet Food"],
-      address: "Av. 24 de Julho 49, 1200-479 Lisboa"
-    },
-    {
-      id: 11,
-      name: "Mercado da Ribeira",
-      image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e",
-      type: "Traditional Market",
-      distance: "12 min by bus",
-      hours: "06:00 - 14:00",
-      phone: "+351 213 461 198",
-      price: "€",
-      rating: 4.6,
-      specialties: ["Fresh Fish", "Local Produce", "Portuguese Products"],
-      address: "Av. 24 de Julho 49, 1200-479 Lisboa"
-    },
-    {
-      id: 15,
-      name: "Pingo Doce Trindade",
-      image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e",
-      type: "Supermarket",
-      distance: "1 min walk",
-      hours: "08:00 - 22:00",
-      phone: "+351 213 421 329",
-      price: "€",
-      rating: 4.3,
-      specialties: ["Groceries", "Local Products", "Ready Meals"],
-      address: "Travessa da Trindade 16, 1200-470 Lisboa"
-    },
-    {
-      id: 16,
-      name: "Mercearia da Trindade",
-      image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e",
-      type: "Local Grocery Store",
-      distance: "2 min walk",
-      hours: "07:30 - 20:00",
-      phone: "+351 213 428 765",
-      price: "€",
-      rating: 4.4,
-      specialties: ["Portuguese Products", "Fresh Bread", "Local Delicacies"],
-      address: "Travessa da Trindade 20, 1200-470 Lisboa"
-    }
-  ],
-  pizza: [
-    {
-      id: 6,
-      name: "Pizzeria Casanova",
-      image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
-      type: "Italian Pizza",
-      distance: "10 min walk",
-      hours: "12:00 - 23:00",
-      phone: "+351 218 863 949",
-      price: "€€",
-      rating: 4.6,
-      specialties: ["Wood-fired Pizza", "Italian Wines", "Homemade Pasta"],
-      address: "Av. Infante D. Henrique, Armazém B, Cais da Pedra, 1950-376 Lisboa"
-    },
-    {
-      id: 7,
-      name: "Zero Zero",
-      image: "https://images.unsplash.com/photo-1513104890138-7c749659a591",
-      type: "Neapolitan Pizza",
-      distance: "15 min walk",
-      hours: "12:30 - 23:30",
-      phone: "+351 215 852 989",
-      price: "€€",
-      rating: 4.7,
-      specialties: ["Authentic Neapolitan", "Italian Ingredients", "Craft Beer"],
-      address: "R. da Escola Politécnica 32, 1250-102 Lisboa"
-    }
-  ],
-  vegetarian: [
-    {
-      id: 8,
-      name: "PSI",
-      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-      type: "Vegetarian Restaurant",
-      distance: "20 min walk",
-      hours: "12:30 - 22:30",
-      phone: "+351 213 424 825",
-      price: "€€",
-      rating: 4.6,
-      specialties: ["Organic Bowls", "Raw Desserts", "Fresh Juices"],
-      address: "Alameda Santo António dos Capuchos, 1150-314 Lisboa"
-    },
-    {
-      id: 9,
-      name: "The Food Temple",
-      image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6",
-      type: "Vegan Fusion",
-      distance: "10 min walk",
-      hours: "19:00 - 23:00",
-      phone: "+351 218 859 022",
-      price: "€€",
-      rating: 4.7,
-      specialties: ["Daily Menu", "Natural Wines", "Vegan Desserts"],
-      address: "Beco do Jasmim 18, 1100-289 Lisboa"
-    }
-  ],
-  international: [
-    {
-      id: 12,
-      name: "Boa-Bao",
-      image: "https://images.unsplash.com/photo-1553163147-622ab57be1c7",
-      type: "Asian Fusion",
-      distance: "7 min walk",
-      hours: "12:30 - 00:00",
-      phone: "+351 213 461 311",
-      price: "€€",
-      rating: 4.6,
-      specialties: ["Dim Sum", "Asian Fusion", "Cocktails"],
-      address: "Largo Rafael Bordalo Pinheiro 30, 1200-369 Lisboa"
-    },
-    {
-      id: 13,
-      name: "Tapisco",
-      image: "https://images.unsplash.com/photo-1515443961218-a51367888e4b",
-      type: "Spanish-Portuguese Fusion",
-      distance: "10 min walk",
-      hours: "12:30 - 23:00",
-      phone: "+351 213 461 219",
-      price: "€€",
-      rating: 4.7,
-      specialties: ["Tapas", "Petiscos", "Wine Bar"],
-      address: "R. Dom Pedro V 81, 1250-093 Lisboa"
-    }
-  ]
-};
 
 const Restaurants = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-
-  const categories = [
-    { id: "all", name: "All Restaurants" },
-    { id: "portuguese", name: "Portuguese" },
-    { id: "seafood", name: "Seafood" },
-    { id: "pizza", name: "Pizza" },
-    { id: "vegetarian", name: "Vegetarian" },
-    { id: "markets", name: "Markets" },
-    { id: "international", name: "International" }
+  const restaurants = [
+    {
+      name: "Time Out Market Lisboa",
+      description: "Mercado gastronómico con los mejores chefs y restaurantes de la ciudad.",
+      image: "https://images.unsplash.com/photo-1555881400-891c0617c753",
+      cuisine: "Variada",
+      priceRange: "€€",
+      rating: 4.6,
+      location: "Cais do Sodré",
+      openHours: "10:00 - 00:00"
+    },
+    {
+      name: "Cervejaria Ramiro",
+      description: "Famoso restaurante de mariscos con décadas de tradición.",
+      image: "https://images.unsplash.com/photo-1599458252573-56ae36120de1",
+      cuisine: "Mariscos",
+      priceRange: "€€€",
+      rating: 4.8,
+      location: "Intendente",
+      openHours: "12:00 - 00:00"
+    },
+    {
+      name: "Pastéis de Belém",
+      description: "Casa original del famoso pastel de nata desde 1837.",
+      image: "https://images.unsplash.com/photo-1577057825455-0c48ccd82b94",
+      cuisine: "Pastelería",
+      priceRange: "€",
+      rating: 4.9,
+      location: "Belém",
+      openHours: "08:00 - 23:00"
+    }
   ];
 
-  const getAllRestaurants = () => {
-    return Object.values(restaurants).flat();
-  };
-
-  const getFilteredRestaurants = () => {
-    if (selectedCategory === "all") {
-      return getAllRestaurants();
-    }
-    return restaurants[selectedCategory as keyof typeof restaurants] || [];
-  };
-
-  const getGoogleMapsUrl = (name: string, address: string) => {
-    const query = encodeURIComponent(`${name}, ${address}`);
-    return `https://www.google.com/maps/search/?api=1&query=${query}`;
-  };
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-[#F1F0FB]/50">
       <Navbar />
-      <main className="flex-grow pt-16">
-        <section className="container py-12">
-          <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">Restaurants & Markets in Lisboa</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Discover the best dining spots in Lisboa, from traditional Portuguese cuisine to international flavors. 
-              Explore local markets and enjoy the city's rich culinary heritage.
+      <main className="container px-4 py-16 mx-auto">
+        <div className="space-y-8 animate-fade-in">
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight text-primary">
+              Restaurantes Recomendados
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Los mejores lugares para disfrutar de la gastronomía lisboeta
             </p>
           </div>
 
-          <CategoryFilter
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {getFilteredRestaurants().map((restaurant) => (
-              <Card key={restaurant.id} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
-                <div className="relative h-64">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {restaurants.map((restaurant, index) => (
+              <Card 
+                key={index}
+                className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in-up"
+              >
+                <div className="aspect-video relative overflow-hidden">
                   <img
                     src={restaurant.image}
                     alt={restaurant.name}
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full transition-transform duration-200 hover:scale-105"
                   />
-                  <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                    {restaurant.type}
-                  </div>
-                  <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm flex items-center">
-                    <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
-                    {restaurant.rating}
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <Badge className="bg-white/90 text-primary hover:bg-white">
+                      {restaurant.cuisine}
+                    </Badge>
+                    <Badge variant="outline" className="bg-white/90">
+                      {restaurant.priceRange}
+                    </Badge>
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{restaurant.name}</h3>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm">
-                      <MapPin className="h-4 w-4 mr-2 text-primary" />
-                      <span>{restaurant.distance}</span>
+                <CardHeader>
+                  <CardTitle className="flex justify-between items-start">
+                    <span>{restaurant.name}</span>
+                    <Badge variant="outline" className="flex items-center gap-1">
+                      <Star className="w-3 h-3 fill-current" />
+                      {restaurant.rating}
+                    </Badge>
+                  </CardTitle>
+                  <CardDescription>{restaurant.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <MapPin className="w-4 h-4" />
+                      <span>{restaurant.location}</span>
                     </div>
-                    <div className="flex items-center text-sm">
-                      <Clock className="h-4 w-4 mr-2 text-primary" />
-                      <span>{restaurant.hours}</span>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Clock className="w-4 h-4" />
+                      <span>{restaurant.openHours}</span>
                     </div>
-                    <div className="flex items-center text-sm">
-                      <Phone className="h-4 w-4 mr-2 text-primary" />
-                      <span>{restaurant.phone}</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Euro className="h-4 w-4 mr-2 text-primary" />
-                      <span>{restaurant.price}</span>
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <p className="text-sm font-semibold mb-2">Specialties:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {restaurant.specialties.map((specialty, index) => (
-                        <span
-                          key={index}
-                          className="text-xs bg-secondary text-secondary-foreground px-2 py-1 rounded-full"
-                        >
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <Button
-                      onClick={() => window.open(getGoogleMapsUrl(restaurant.name, restaurant.address), '_blank')}
-                      className="flex items-center gap-2"
+                    <Button 
+                      className="w-full mt-4 bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary"
                     >
-                      View on Maps
-                      <ExternalLink className="h-4 w-4" />
+                      <Utensils className="w-4 h-4 mr-2" />
+                      Reservar mesa
                     </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </section>
+        </div>
       </main>
       <Footer />
     </div>
