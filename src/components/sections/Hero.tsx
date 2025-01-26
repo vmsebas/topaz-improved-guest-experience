@@ -14,7 +14,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.8) 25%, rgba(255, 255, 255, 0) 100%)"
+          background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.6) 25%, rgba(255, 255, 255, 0) 100%)"
         }}
       />
       <div className="container relative z-10 flex flex-col items-center text-center gap-8">
