@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import { ComplaintsBook } from "@/components/legal/ComplaintsBook";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 export const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="bg-secondary/10">
       <div className="container py-12">
@@ -35,24 +43,36 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Links</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <Link to="/blog" className="hover:text-foreground transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/blog')} 
+                  className="hover:text-foreground transition-colors"
+                >
                   Blog
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/terms" className="hover:text-foreground transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/terms')} 
+                  className="hover:text-foreground transition-colors"
+                >
                   Terms and Conditions
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/privacy" className="hover:text-foreground transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/privacy')} 
+                  className="hover:text-foreground transition-colors"
+                >
                   Privacy Policy
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/cookies" className="hover:text-foreground transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/cookies')} 
+                  className="hover:text-foreground transition-colors"
+                >
                   Cookie Policy
-                </Link>
+                </button>
               </li>
               <li>
                 <a 
@@ -93,6 +113,7 @@ export const Footer = () => {
           </p>
         </div>
       </div>
+      <ScrollToTop />
     </footer>
   );
 }
