@@ -53,8 +53,8 @@ export const Features = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <Link to={feature.link} key={index}>
-              <Card className="border shadow-sm hover:shadow-md transition-shadow duration-200">
+            <Link to={feature.link} key={index} className="block h-full">
+              <Card className="h-full border shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
                 <CardHeader>
                   <div className="mb-4 flex items-center justify-center">{feature.icon}</div>
                   <CardTitle className="text-xl text-center">{feature.title}</CardTitle>
