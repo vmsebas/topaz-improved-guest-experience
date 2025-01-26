@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Hospital, Pharmacy, Flag, Police, Clock, Phone, MapPin, Star } from "lucide-react";
+import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star } from "lucide-react";
 
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -53,7 +53,8 @@ const Services = () => {
         hours: "9:00 - 19:00",
         contact: "+351 213 426 743",
         rating: 4.4,
-        description: "Local pharmacy with English-speaking staff."
+        description: "Local pharmacy with English-speaking staff.",
+        isEmergency: false
       },
       {
         name: "Farmácia Baião Santos",
@@ -74,7 +75,8 @@ const Services = () => {
         hours: "9:00 - 20:00",
         contact: "+351 213 472 183",
         rating: 4.5,
-        description: "Modern pharmacy near Trindade."
+        description: "Modern pharmacy near Trindade.",
+        isEmergency: false
       }
     ],
     embassies: [
@@ -86,7 +88,8 @@ const Services = () => {
         hours: "9:00 - 17:00",
         contact: "+351 213 924 000",
         rating: 4.1,
-        description: "Consular services for British citizens."
+        description: "Consular services for British citizens.",
+        isEmergency: false
       },
       {
         name: "U.S. Embassy",
@@ -96,7 +99,8 @@ const Services = () => {
         hours: "8:30 - 17:30",
         contact: "+351 217 273 300",
         rating: 4.0,
-        description: "Full consular services for U.S. citizens."
+        description: "Full consular services for U.S. citizens.",
+        isEmergency: false
       },
       {
         name: "German Embassy",
@@ -106,7 +110,8 @@ const Services = () => {
         hours: "9:00 - 17:00",
         contact: "+351 218 810 210",
         rating: 4.2,
-        description: "German consular services and visa applications."
+        description: "German consular services and visa applications.",
+        isEmergency: false
       },
       {
         name: "French Embassy",
@@ -116,7 +121,8 @@ const Services = () => {
         hours: "9:00 - 16:30",
         contact: "+351 213 939 100",
         rating: 4.1,
-        description: "French consular services and cultural center."
+        description: "French consular services and cultural center.",
+        isEmergency: false
       }
     ],
     police: [
@@ -150,11 +156,11 @@ const Services = () => {
       case "healthcare":
         return <Hospital className="h-6 w-6" />;
       case "pharmacies":
-        return <Pharmacy className="h-6 w-6" />;
+        return <Stethoscope className="h-6 w-6" />;
       case "embassies":
         return <Flag className="h-6 w-6" />;
       case "police":
-        return <Police className="h-6 w-6" />;
+        return <Shield className="h-6 w-6" />;
       default:
         return null;
     }
