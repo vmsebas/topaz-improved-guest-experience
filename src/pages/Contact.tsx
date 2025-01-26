@@ -3,9 +3,13 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 const Contact = () => {
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/351900123456', '_blank');
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -85,6 +89,18 @@ const Contact = () => {
         </section>
       </main>
       <Footer />
+      
+      {/* Botón flotante de WhatsApp */}
+      <button
+        onClick={handleWhatsAppClick}
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
+        aria-label="Contactar por WhatsApp"
+      >
+        <MessageCircle className="h-6 w-6" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
+          <span className="pl-2">WhatsApp</span>
+        </span>
+      </button>
     </div>
   );
 };
