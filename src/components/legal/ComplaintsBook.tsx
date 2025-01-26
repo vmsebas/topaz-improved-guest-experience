@@ -9,9 +9,9 @@ export const ComplaintsBook = () => {
       className="flex items-center gap-2 hover:text-primary transition-colors"
     >
       <img
-        src="https://www.livroreclamacoes.pt/img/Logo_LivroReclamacoes.png"
+        src="https://www.cm-moimenta.pt/thumbs/cmmoimentadabeira/uploads/writer_file/image/2949/LIVRO_DE_RECLAMA___ESLO_1_980_2500.png"
         alt="Livro de Reclamações"
-        className="h-8"
+        className="h-12 w-auto"
       />
       <span className="text-sm">Livro de Reclamações</span>
       <ExternalLink className="h-4 w-4" />
