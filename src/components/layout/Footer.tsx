@@ -31,8 +31,13 @@ export const Footer = () => {
           </div>
           
           <div className="text-center sm:text-left">
-            <h3 className="font-bold text-lg mb-4">Legal</h3>
+            <h3 className="font-bold text-lg mb-4">Enlaces</h3>
             <ul className="space-y-2 text-muted-foreground">
+              <li>
+                <Link to="/blog" className="hover:text-foreground transition-colors">
+                  Blog
+                </Link>
+              </li>
               <li>
                 <Link to="/terms" className="hover:text-foreground transition-colors">
                   Términos y Condiciones
