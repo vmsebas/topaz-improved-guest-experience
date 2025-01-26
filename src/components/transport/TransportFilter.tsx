@@ -8,18 +8,26 @@ interface TransportFilterProps {
 
 export const TransportFilter = ({ selectedCategory, onCategoryChange }: TransportFilterProps) => {
   return (
-    <div className="flex flex-wrap justify-center gap-2 mb-8">
+    <div className="flex flex-wrap justify-center gap-3 mb-8">
       <Button
         variant={selectedCategory === "all" ? "default" : "outline"}
         onClick={() => onCategoryChange("all")}
-        className="bg-white hover:bg-gray-100"
+        className={`${
+          selectedCategory === "all"
+            ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+            : "bg-white hover:bg-gray-50 border border-gray-200"
+        } rounded-full px-6 shadow-sm`}
       >
         All Options
       </Button>
       <Button
         variant={selectedCategory === "Public" ? "default" : "outline"}
         onClick={() => onCategoryChange("Public")}
-        className="bg-white hover:bg-gray-100"
+        className={`${
+          selectedCategory === "Public"
+            ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+            : "bg-white hover:bg-gray-50 border border-gray-200"
+        } rounded-full px-6 shadow-sm`}
       >
         <Bus className="mr-2 h-4 w-4" />
         Public Transport
@@ -27,7 +35,11 @@ export const TransportFilter = ({ selectedCategory, onCategoryChange }: Transpor
       <Button
         variant={selectedCategory === "Private" ? "default" : "outline"}
         onClick={() => onCategoryChange("Private")}
-        className="bg-white hover:bg-gray-100"
+        className={`${
+          selectedCategory === "Private"
+            ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+            : "bg-white hover:bg-gray-50 border border-gray-200"
+        } rounded-full px-6 shadow-sm`}
       >
         <Car className="mr-2 h-4 w-4" />
         Private Transport
@@ -35,7 +47,11 @@ export const TransportFilter = ({ selectedCategory, onCategoryChange }: Transpor
       <Button
         variant={selectedCategory === "Active" ? "default" : "outline"}
         onClick={() => onCategoryChange("Active")}
-        className="bg-white hover:bg-gray-100"
+        className={`${
+          selectedCategory === "Active"
+            ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+            : "bg-white hover:bg-gray-50 border border-gray-200"
+        } rounded-full px-6 shadow-sm`}
       >
         <Bike className="mr-2 h-4 w-4" />
         Active Transport
@@ -43,7 +59,11 @@ export const TransportFilter = ({ selectedCategory, onCategoryChange }: Transpor
       <Button
         variant={selectedCategory === "Airport" ? "default" : "outline"}
         onClick={() => onCategoryChange("Airport")}
-        className="bg-white hover:bg-gray-100"
+        className={`${
+          selectedCategory === "Airport"
+            ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+            : "bg-white hover:bg-gray-50 border border-gray-200"
+        } rounded-full px-6 shadow-sm`}
       >
         <Plane className="mr-2 h-4 w-4" />
         Airport
