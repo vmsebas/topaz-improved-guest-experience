@@ -13,24 +13,26 @@ export const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center gap-6">
           <Link to="/services" className="text-sm hover:text-primary transition-colors">
-            Servicios
+            Services
           </Link>
           <Link to="/attractions" className="text-sm hover:text-primary transition-colors">
-            Atracciones
+            Attractions
           </Link>
           <Link to="/transport" className="text-sm hover:text-primary transition-colors">
-            Transporte
+            Transport
+          </Link>
+          <Link to="/restaurants" className="text-sm hover:text-primary transition-colors">
+            Restaurants
           </Link>
           <Link to="/pricing" className="text-sm hover:text-primary transition-colors">
-            Precios
+            Pricing
           </Link>
           <Link to="/about" className="text-sm hover:text-primary transition-colors">
-            Nosotros
+            About
           </Link>
           <Link to="/contact" className="text-sm hover:text-primary transition-colors">
-            Contacto
+            Contact
           </Link>
-          <Button>Comenzar</Button>
         </div>
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu className="h-5 w-5" />
