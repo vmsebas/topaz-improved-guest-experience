@@ -6,7 +6,7 @@ export const ComplaintsBook = () => {
       href="https://www.livroreclamacoes.pt/inicio"
       target="_blank"
       rel="noopener noreferrer"
-      className="block hover:opacity-90 transition-opacity"
+      className="flex justify-center items-center hover:opacity-90 transition-opacity"
     >
       <img
         src="https://www.cm-moimenta.pt/thumbs/cmmoimentadabeira/uploads/writer_file/image/2949/LIVRO_DE_RECLAMA___ESLO_1_980_2500.png"
