@@ -10,15 +10,12 @@ const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const getDirectionsUrl = (name: string, address: string) => {
-    // Detectar si el dispositivo es iOS
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const destination = encodeURIComponent(`${name}, ${address}`);
     
     if (isIOS) {
-      // URL para Apple Maps
       return `maps://maps.apple.com/?daddr=${destination}&dirflg=w`;
     } else {
-      // URL para Google Maps con modo a pie por defecto
       return `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=walking`;
     }
   };
@@ -197,25 +194,31 @@ const Services = () => {
     : services[selectedCategory as keyof typeof services] || [];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]/50">
       <Navbar />
       <main className="flex-1 pt-16">
-        <section className="py-16 bg-secondary/50">
+        <section className="py-16 bg-gradient-to-b from-[#F1F0FB] to-white">
           <div className="container">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold mb-4">Essential Services</h1>
+            <div className="text-center mb-12 animate-fade-in">
+              <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">
+                Essential Services
+              </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations.
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
               {categories.map((category) => (
                 <Button
                   key={category.id}
                   variant={selectedCategory === category.id ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category.id)}
-                  className="animate-fade-in"
+                  className={`animate-fade-in transition-all duration-300 ${
+                    selectedCategory === category.id 
+                      ? 'bg-gradient-to-r from-[#E5DEFF] to-[#D3E4FD] text-primary shadow-md' 
+                      : 'hover:bg-[#F1F0FB]/50'
+                  }`}
                 >
                   {category.id !== "all" && getCategoryIcon(category.id)}
                   {category.name}
@@ -227,13 +230,13 @@ const Services = () => {
               {filteredServices.map((service, index) => (
                 <Card 
                   key={index}
-                  className={`border-none shadow-lg hover:shadow-xl transition-shadow animate-fade-in ${
-                    service.isEmergency ? "border-l-4 border-l-red-500" : ""
+                  className={`border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in bg-white/80 backdrop-blur-sm ${
+                    service.isEmergency ? 'border-l-4 border-l-[#FFDEE2]' : ''
                   }`}
                 >
-                  <CardHeader>
+                  <CardHeader className="bg-gradient-to-r from-[#F1F0FB]/50 to-transparent rounded-t-lg">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-xl">{service.name}</CardTitle>
+                      <CardTitle className="text-xl text-primary">{service.name}</CardTitle>
                       {getCategoryIcon(
                         Object.keys(services).find(key => 
                           services[key as keyof typeof services].includes(service)
@@ -244,32 +247,32 @@ const Services = () => {
                   </CardHeader>
                   <CardContent>
                     {'image' in service && (
-                      <div className="mb-4">
+                      <div className="mb-4 overflow-hidden rounded-md">
                         <img 
                           src={service.image} 
                           alt={service.name}
-                          className="w-full h-48 object-cover rounded-md"
+                          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm">
-                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-sm bg-[#F2FCE2]/50 p-2 rounded-md">
+                        <MapPin className="h-4 w-4 text-[#6B7280]" />
                         <span>{service.address}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Clock className="h-4 w-4 text-muted-foreground" />
+                      <div className="flex items-center gap-2 text-sm bg-[#FEF7CD]/50 p-2 rounded-md">
+                        <Clock className="h-4 w-4 text-[#6B7280]" />
                         <span>{service.hours}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Phone className="h-4 w-4 text-muted-foreground" />
+                      <div className="flex items-center gap-2 text-sm bg-[#D3E4FD]/50 p-2 rounded-md">
+                        <Phone className="h-4 w-4 text-[#6B7280]" />
                         <span>{service.contact}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm">
+                      <div className="flex items-center gap-2 text-sm bg-[#FFDEE2]/50 p-2 rounded-md">
                         <Star className="h-4 w-4 text-yellow-500" />
                         <span>{service.rating} / 5.0</span>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-2">
+                      <p className="text-sm text-muted-foreground mt-2 bg-[#F1F0FB]/30 p-2 rounded-md">
                         {service.description}
                       </p>
                       <div className="flex justify-between items-center mt-4">
@@ -278,10 +281,10 @@ const Services = () => {
                         </span>
                         <Button
                           onClick={() => window.open(getDirectionsUrl(service.name, service.address), '_blank')}
-                          className="flex items-center gap-2"
+                          className="bg-gradient-to-r from-[#E5DEFF] to-[#D3E4FD] text-primary hover:shadow-md transition-all duration-300"
                         >
                           Cómo llegar
-                          <ExternalLink className="h-4 w-4" />
+                          <ExternalLink className="h-4 w-4 ml-2" />
                         </Button>
                       </div>
                     </div>
