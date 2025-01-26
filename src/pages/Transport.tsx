@@ -12,7 +12,7 @@ const transportOptions = [
     description: "Lisbon's efficient metro system connects all major areas. The nearest station 'Santa Apolónia' is just 5 minutes away.",
     location: "Multiple stations across Lisbon",
     rating: 4.8,
-    price: "From €1.50",
+    price: "€€",
     schedule: "6:30 AM - 1:00 AM",
     duration: "Frequency: 5-10 min",
     category: "Public",
@@ -24,7 +24,9 @@ const transportOptions = [
     ],
     website: "https://www.metrolisboa.pt/en/",
     image: "https://images.unsplash.com/photo-1581252584837-7dd6a7c27d04",
-    icon: Train
+    icon: Train,
+    recommended: true,
+    peakHours: "8:00-10:00, 17:00-19:00"
   },
   {
     id: 2,
