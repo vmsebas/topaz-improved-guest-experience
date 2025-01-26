@@ -15,24 +15,32 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0) 40%)"
+          background: "linear-gradient(to top, rgb(241, 240, 251) 0%, rgba(241, 240, 251, 0.4) 15%, rgba(241, 240, 251, 0) 40%)"
         }}
       />
-      <div className="container relative z-10 flex flex-col items-center text-center gap-6 px-4">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+      <div className="container relative z-10 flex flex-col items-center text-center gap-6 px-4 animate-fade-in">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
           Bienvenido a Lisboa
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-[800px]">
+        <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-[800px] bg-white/80 backdrop-blur-sm p-4 rounded-lg">
           Descubre el encanto de la ciudad desde nuestro acogedor apartamento en el corazón del histórico Alfama
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/about">
-            <Button size="lg" variant="default" className="w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              variant="default" 
+              className="w-full sm:w-auto bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary-foreground transition-all duration-300 hover:scale-105"
+            >
               Descubre Más
             </Button>
           </Link>
           <Link to="/contact">
-            <Button size="lg" variant="outline" className="w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="w-full sm:w-auto border-[#D3E4FD] hover:bg-[#D3E4FD]/10 transition-all duration-300 hover:scale-105"
+            >
               Contáctanos
             </Button>
           </Link>
