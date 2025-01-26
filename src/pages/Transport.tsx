@@ -1,84 +1,111 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Train, Bus, Ship, Car, Bike, Plane } from "lucide-react";
-import { Link } from "react-router-dom";
+import { MapPin, Clock, Star, Train, Bus, Ship, Car, Bike, Plane } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+const transportOptions = [
+  {
+    id: 1,
+    title: "Metro & Train",
+    description: "Lisbon's efficient metro system connects all major areas",
+    location: "Santa Apolónia Station",
+    rating: 4.8,
+    price: "€1.50",
+    schedule: "6:30 AM - 1:00 AM",
+    duration: "5 minutes walking",
+    category: "Public",
+    image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc",
+    icon: Train,
+    link: "https://www.metrolisboa.pt/en/buy/"
+  },
+  {
+    id: 2,
+    title: "Bus Network",
+    description: "Extensive bus network operated by Carris",
+    location: "Alfama",
+    rating: 4.6,
+    price: "€2.00",
+    schedule: "24/7 service",
+    duration: "2 minutes walking",
+    category: "Public",
+    image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716",
+    icon: Bus,
+    link: "https://www.carris.pt/en/buy-tickets/"
+  },
+  {
+    id: 3,
+    title: "Ferry Services",
+    description: "Cross the Tagus River to visit the south bank",
+    location: "Terreiro do Paço",
+    rating: 4.7,
+    price: "€2.75",
+    schedule: "Regular crossings",
+    duration: "10 minutes walking",
+    category: "Public",
+    image: "https://images.unsplash.com/photo-1518877593221-1f28583780b4",
+    icon: Ship,
+    link: "https://ttsl.pt/en/tickets-and-fares/"
+  },
+  {
+    id: 4,
+    title: "Taxi & Ride-Share",
+    description: "Convenient taxi services and ride-sharing apps",
+    location: "Citywide",
+    rating: 4.8,
+    price: "Varies",
+    schedule: "24/7",
+    duration: "On-demand",
+    category: "Private",
+    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302",
+    icon: Car,
+    link: "https://uber.com"
+  },
+  {
+    id: 5,
+    title: "Bike Rental",
+    description: "Explore Lisbon on two wheels",
+    location: "Multiple locations",
+    rating: 4.6,
+    price: "From €10/day",
+    schedule: "9:00 AM - 8:00 PM",
+    duration: "Flexible",
+    category: "Active",
+    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302",
+    icon: Bike,
+    link: "https://www.gira-bicicletasdelisboa.pt/en/"
+  },
+  {
+    id: 6,
+    title: "Airport Transfer",
+    description: "Easy access to Lisbon Airport (LIS)",
+    location: "Airport",
+    rating: 4.9,
+    price: "From €4.00",
+    schedule: "First flight - Last flight",
+    duration: "25 minutes",
+    category: "Private",
+    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302",
+    icon: Plane,
+    link: "https://www.metrolisboa.pt/en/travel/airport-aeroporto/"
+  }
+];
 
 const Transport = () => {
-  const transportOptions = [
-    {
-      title: "Metro & Train",
-      description: "Lisbon's efficient metro system connects all major areas",
-      icon: Train,
-      hours: "6:30 AM - 1:00 AM",
-      prices: [
-        { type: "Single ticket", price: "€1.50" },
-        { type: "Day pass", price: "€6.40" }
-      ],
-      link: "https://www.metrolisboa.pt/en/buy/",
-      details: "The nearest station 'Santa Apolónia' is just 5 minutes away."
-    },
-    {
-      title: "Bus Network",
-      description: "Extensive bus network operated by Carris",
-      icon: Bus,
-      hours: "24-hour service on main routes",
-      prices: [
-        { type: "Single ticket", price: "€2.00" },
-        { type: "Tourist card", price: "Varies" }
-      ],
-      link: "https://www.carris.pt/en/buy-tickets/",
-      details: "Bus stop 'Alfama' is right outside your door."
-    },
-    {
-      title: "Ferry Services",
-      description: "Cross the Tagus River to visit the south bank",
-      icon: Ship,
-      hours: "Regular crossings",
-      prices: [
-        { type: "Single trip", price: "€2.75" }
-      ],
-      link: "https://ttsl.pt/en/tickets-and-fares/",
-      details: "Ferry terminal nearby at Terreiro do Paço."
-    },
-    {
-      title: "Taxi & Ride-Share",
-      description: "Convenient taxi services and ride-sharing apps",
-      icon: Car,
-      hours: "24/7 availability",
-      prices: [
-        { type: "Uber", link: "https://uber.com" },
-        { type: "Bolt", link: "https://bolt.eu" },
-        { type: "FreeNow", link: "https://free-now.com" }
-      ],
-      details: "Safe and regulated services available throughout the city."
-    },
-    {
-      title: "Bike Rental",
-      description: "Explore Lisbon on two wheels",
-      icon: Bike,
-      hours: "Daily rentals available",
-      prices: [
-        { type: "City bikes", price: "Varies" },
-        { type: "E-bikes", price: "Varies" }
-      ],
-      link: "https://www.gira-bicicletasdelisboa.pt/en/",
-      details: "E-bikes available for hilly areas."
-    },
-    {
-      title: "Airport Transfer",
-      description: "Easy access to Lisbon Airport (LIS)",
-      icon: Plane,
-      hours: "25 minutes by car",
-      prices: [
-        { type: "Metro", price: "€1.50" },
-        { type: "Aerobus", price: "€4.00" }
-      ],
-      link: "https://www.metrolisboa.pt/en/travel/airport-aeroporto/",
-      details: "Direct metro line and Aerobus service available."
-    }
-  ];
+  const { toast } = useToast();
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+  const filteredTransport = selectedCategory === "all" 
+    ? transportOptions 
+    : transportOptions.filter(option => option.category === selectedCategory);
+
+  const getGoogleMapsUrl = (title: string, location: string) => {
+    const query = encodeURIComponent(`${title}, ${location}, Lisboa, Portugal`);
+    return `https://www.google.com/maps/search/?api=1&query=${query}`;
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -93,47 +120,66 @@ const Transport = () => {
             </p>
           </div>
 
+          <Tabs defaultValue="all" className="w-full mb-8">
+            <TabsList className="flex justify-center space-x-2">
+              <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
+                All Transport
+              </TabsTrigger>
+              <TabsTrigger value="Public" onClick={() => setSelectedCategory("Public")}>
+                Public
+              </TabsTrigger>
+              <TabsTrigger value="Private" onClick={() => setSelectedCategory("Private")}>
+                Private
+              </TabsTrigger>
+              <TabsTrigger value="Active" onClick={() => setSelectedCategory("Active")}>
+                Active
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {transportOptions.map((option, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <option.icon className="h-6 w-6 text-primary" />
-                    <CardTitle>{option.title}</CardTitle>
+            {filteredTransport.map((option) => (
+              <Card key={option.id} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
+                <div className="relative h-64">
+                  <img
+                    src={option.image}
+                    alt={option.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                    {option.category}
                   </div>
-                </CardHeader>
-                <CardContent>
+                  <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                    <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
+                    {option.rating}
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{option.title}</h3>
                   <p className="text-muted-foreground mb-4">{option.description}</p>
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-medium">Hours</p>
-                      <p className="text-sm text-muted-foreground">{option.hours}</p>
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center text-sm">
+                      <MapPin className="h-4 w-4 mr-2 text-primary" />
+                      <span>{option.location}</span>
                     </div>
-                    <div>
-                      <p className="font-medium">Prices</p>
-                      <ul className="text-sm text-muted-foreground">
-                        {option.prices.map((price, idx) => (
-                          <li key={idx}>
-                            {price.type}: {price.price}
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="flex items-center text-sm">
+                      <option.icon className="h-4 w-4 mr-2 text-primary" />
+                      <span>{option.price}</span>
                     </div>
-                    <div>
-                      <p className="font-medium">Details</p>
-                      <p className="text-sm text-muted-foreground">{option.details}</p>
+                    <div className="flex items-center text-sm">
+                      <Clock className="h-4 w-4 mr-2 text-primary" />
+                      <span>{option.schedule}</span>
                     </div>
-                    {option.link && (
-                      <Button asChild className="w-full">
-                        <a 
-                          href={option.link} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          Learn More
-                        </a>
-                      </Button>
-                    )}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-sm">{option.duration}</span>
+                    <Button 
+                      onClick={() => {
+                        window.open(option.link, '_blank');
+                      }}
+                    >
+                      Learn More
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -144,13 +190,11 @@ const Transport = () => {
             <h2 className="text-3xl font-bold text-center mb-8">Travel Tips</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                     <Plane className="h-5 w-5" />
                     Getting from the Airport
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h3>
                   <p className="text-muted-foreground">
                     Take the metro (red line) directly from the airport to São Sebastião, 
                     then change to the blue line to Santa Apolónia. From there, it's a 
@@ -160,13 +204,11 @@ const Transport = () => {
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                     <Train className="h-5 w-5" />
                     Local Transport Cards
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h3>
                   <p className="text-muted-foreground">
                     We recommend getting a Viva Viagem card for unlimited travel on 
                     public transport. Valid for 24h, 48h, or 72h. Available at any 
