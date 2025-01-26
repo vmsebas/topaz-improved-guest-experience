@@ -113,17 +113,17 @@ const BlogPost = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-28 pb-8">
-        <div className="container px-4 mx-auto">
+        <div className="container max-w-[1000px] px-4 mx-auto">
           <Breadcrumb className="mb-8">
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/">
+                <BreadcrumbLink as={Link} to="/" className="text-muted-foreground hover:text-foreground">
                   Inicio
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/blog">
+                <BreadcrumbLink as={Link} to="/blog" className="text-muted-foreground hover:text-foreground">
                   Blog
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -136,15 +136,17 @@ const BlogPost = () => {
 
           <article className="max-w-4xl mx-auto">
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight">{article.title}</h1>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                {article.title}
+              </h1>
+              <div className="flex items-center gap-2 text-base text-muted-foreground">
                 <span>{article.date}</span>
                 <span>•</span>
                 <span>{article.readTime} de lectura</span>
               </div>
             </div>
 
-            <div className="aspect-video relative overflow-hidden rounded-lg mt-8">
+            <div className="aspect-[16/9] relative overflow-hidden rounded-lg mt-8">
               <img
                 src={article.image}
                 alt={article.title}
@@ -154,7 +156,7 @@ const BlogPost = () => {
 
             <div className="mt-8 prose prose-lg max-w-none">
               {article.content.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 text-muted-foreground">
+                <p key={index} className="mb-6 text-lg text-muted-foreground leading-relaxed">
                   {paragraph.trim()}
                 </p>
               ))}
