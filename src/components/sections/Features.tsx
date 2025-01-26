@@ -43,7 +43,7 @@ export const Features = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-12 md:py-16 bg-[#F1F0FB]">
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Your Guide to Lisboa</h2>
@@ -54,7 +54,7 @@ export const Features = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <Link to={feature.link} key={index} className="block h-full">
-              <Card className="h-full border shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+              <Card className="h-full border shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 bg-white">
                 <CardHeader>
                   <div className="mb-4 flex items-center justify-center">{feature.icon}</div>
                   <CardTitle className="text-xl text-center">{feature.title}</CardTitle>
