@@ -26,6 +26,7 @@ export const Footer = () => {
               <p>1200-469 Lisboa</p>
               <p>Portugal</p>
               <p>Tel: +351 123 456 789</p>
+              <p className="text-xs">Cost of a call to the national landline network</p>
               <p>Email: info@lisbontiles.com</p>
             </address>
           </div>
@@ -94,4 +95,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+}

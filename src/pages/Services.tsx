@@ -33,7 +33,7 @@ const Services = () => {
         distance: "10 min walk",
         address: "R. José António Serrano, 1150-199 Lisboa",
         hours: "24/7",
-        contact: "+351 218 841 000",
+        contact: "+351 218 841 000 (Cost of a call to the national landline network)",
         rating: 4.2,
         description: "Main public hospital with full emergency services.",
         isEmergency: true
@@ -44,7 +44,7 @@ const Services = () => {
         distance: "15 min by taxi",
         address: "R. Mário Botas, 1998-018 Lisboa",
         hours: "24/7",
-        contact: "+351 210 025 200",
+        contact: "+351 210 025 200 (Cost of a call to the national landline network)",
         rating: 4.5,
         description: "Private hospital with English-speaking staff.",
         isEmergency: true
@@ -55,7 +55,7 @@ const Services = () => {
         distance: "12 min by taxi",
         address: "Av. Lusíada 100, 1500-650 Lisboa",
         hours: "24/7",
-        contact: "+351 217 104 400",
+        contact: "+351 217 104 400 (Cost of a call to the national landline network)",
         rating: 4.6,
         description: "Modern private hospital with multilingual staff.",
         isEmergency: true
@@ -68,7 +68,7 @@ const Services = () => {
         distance: "5 min walk",
         address: "R. do Loreto 24, 1200-242 Lisboa",
         hours: "9:00 - 19:00",
-        contact: "+351 213 426 743",
+        contact: "+351 213 426 743 (Cost of a call to the national landline network)",
         rating: 4.4,
         description: "Local pharmacy with English-speaking staff.",
         isEmergency: false,
@@ -80,7 +80,7 @@ const Services = () => {
         distance: "6 min walk",
         address: "R. do Loreto 59, 1200-241 Lisboa",
         hours: "9:00 - 19:30",
-        contact: "+351 213 425 625",
+        contact: "+351 213 425 625 (Cost of a call to the national landline network)",
         rating: 4.4,
         description: "Historic pharmacy with traditional Portuguese architecture.",
         isEmergency: false,
@@ -92,7 +92,7 @@ const Services = () => {
         distance: "4 min walk",
         address: "R. do Carmo 51A, 1200-093 Lisboa",
         hours: "9:00 - 20:00",
-        contact: "+351 213 460 271",
+        contact: "+351 213 460 271 (Cost of a call to the national landline network)",
         rating: 4.3,
         description: "Modern pharmacy in the heart of Chiado with multilingual staff.",
         isEmergency: false,
@@ -106,7 +106,7 @@ const Services = () => {
         distance: "20 min walk",
         address: "R. de São Bernardo 33, 1249-082 Lisboa",
         hours: "9:00 - 17:00",
-        contact: "+351 213 924 000",
+        contact: "+351 213 924 000 (Cost of a call to the national landline network)",
         rating: 4.1,
         description: "Consular services for British citizens.",
         isEmergency: false
@@ -117,7 +117,7 @@ const Services = () => {
         distance: "25 min by taxi",
         address: "Av. das Forças Armadas, 1600-081 Lisboa",
         hours: "8:30 - 17:30",
-        contact: "+351 217 273 300",
+        contact: "+351 217 273 300 (Cost of a call to the national landline network)",
         rating: 4.0,
         description: "Full consular services for U.S. citizens.",
         isEmergency: false
@@ -128,7 +128,7 @@ const Services = () => {
         distance: "15 min walk",
         address: "Campo dos Mártires da Pátria 38, 1169-043 Lisboa",
         hours: "9:00 - 17:00",
-        contact: "+351 218 810 210",
+        contact: "+351 218 810 210 (Cost of a call to the national landline network)",
         rating: 4.2,
         description: "German consular services and visa applications.",
         isEmergency: false
@@ -139,7 +139,7 @@ const Services = () => {
         distance: "18 min walk",
         address: "R. Santos-o-Velho 5, 1200-811 Lisboa",
         hours: "9:00 - 16:30",
-        contact: "+351 213 939 100",
+        contact: "+351 213 939 100 (Cost of a call to the national landline network)",
         rating: 4.1,
         description: "French consular services and cultural center.",
         isEmergency: false
@@ -152,7 +152,7 @@ const Services = () => {
         distance: "7 min walk",
         address: "R. do Ouro 140, 1100-065 Lisboa",
         hours: "24/7",
-        contact: "112 (Emergency) / +351 213 421 634",
+        contact: "112 (Emergency) / +351 213 421 634 (Cost of a call to the national landline network)",
         rating: 4.0,
         description: "Local police station with tourist police service.",
         isEmergency: true
@@ -163,7 +163,7 @@ const Services = () => {
         distance: "5 min walk",
         address: "Praça da Alegria 17, 1250-004 Lisboa",
         hours: "24/7",
-        contact: "112 (Emergency) / +351 213 421 300",
+        contact: "112 (Emergency) / +351 213 421 300 (Cost of a call to the national landline network)",
         rating: 4.1,
         description: "Central police station with English-speaking officers.",
         isEmergency: true
