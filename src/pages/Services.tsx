@@ -2,10 +2,10 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Star, Phone, Shield, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Star, Phone, Shield, MessageCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Service } from "@/types/services"; // Add this import
+import { Service } from "@/types/services";
 
 const Services = () => {
   const { toast } = useToast();
@@ -23,11 +23,35 @@ const Services = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+351123456789"; // Replace with your actual WhatsApp number
+    const phoneNumber = "+351123456789";
     const message = "Hola, necesito información sobre servicios esenciales.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
+
+  const emergencyServices = [
+    {
+      name: "Número de Emergencia Europeo",
+      number: "112",
+      description: "Policía, Bomberos, Ambulancia",
+      icon: <AlertCircle className="h-8 w-8" />,
+      isEmergency: true
+    },
+    {
+      name: "Bombeiros Sapadores de Lisboa",
+      number: "808 215 215",
+      description: "Bomberos de Lisboa",
+      icon: <Shield className="h-8 w-8" />,
+      isEmergency: true
+    },
+    {
+      name: "INEM (Emergencias Médicas)",
+      number: "112",
+      description: "Instituto Nacional de Emergencia Médica",
+      icon: <AlertCircle className="h-8 w-8" />,
+      isEmergency: true
+    }
+  ];
 
   const services: Record<string, Service[]> = {
     healthcare: [
@@ -183,11 +207,31 @@ const Services = () => {
     <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
       <main className="flex-grow pt-16">
-        <section className="container py-12">
+        <section className="container py-8">
+          <div className="bg-red-50 p-6 rounded-lg mb-12 animate-fade-in">
+            <h2 className="text-2xl font-bold text-red-700 mb-4">Números de Emergencia</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {emergencyServices.map((service) => (
+                <button
+                  key={service.name}
+                  onClick={() => handlePhoneClick(service.number, service.name)}
+                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all flex flex-col items-center text-center space-y-3 border-2 border-red-200 hover:border-red-400"
+                >
+                  {service.icon}
+                  <h3 className="font-bold text-xl text-red-700">{service.number}</h3>
+                  <div>
+                    <p className="font-semibold text-gray-800">{service.name}</p>
+                    <p className="text-sm text-gray-600">{service.description}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Essential Services</h1>
+            <h1 className="text-4xl font-bold mb-4">Servicios Esenciales</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations.
+              Encuentra servicios importantes cerca de Travessa da Trindade, incluyendo hospitales, farmacias, embajadas y comisarías.
             </p>
           </div>
 
