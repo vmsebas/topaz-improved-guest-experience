@@ -76,15 +76,16 @@ const Services = () => {
         image: "https://lh5.googleusercontent.com/p/AF1QipOnpCBv4fzLnqCrk5By7ClIEth7l-gArikUyZ0H=w408-h726-k-no"
       },
       {
-        name: "Farmácia Normal",
+        name: "Farmácia Sacoor do Chiado",
         type: "Pharmacy",
-        distance: "3 min walk",
-        address: "R. da Trindade 1, 1200-467 Lisboa",
+        distance: "4 min walk",
+        address: "R. do Carmo 51A, 1200-093 Lisboa",
         hours: "9:00 - 20:00",
-        contact: "+351 213 472 183",
-        rating: 4.5,
-        description: "Modern pharmacy near Trindade.",
-        isEmergency: false
+        contact: "+351 213 460 271",
+        rating: 4.3,
+        description: "Modern pharmacy in the heart of Chiado with multilingual staff.",
+        isEmergency: false,
+        image: "https://lh5.googleusercontent.com/p/AF1QipOo4I-cWmoE_mXoICuGPVe9LBurMqP7L7ec7pOM=w408-h544-k-no"
       }
     ],
     embassies: [
