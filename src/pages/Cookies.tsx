@@ -1,6 +1,8 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Badge } from "@/components/ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Shield, Info, Cookie, ChevronRight } from "lucide-react";
 
 const Cookies = () => {
   return (
@@ -10,9 +12,11 @@ const Cookies = () => {
         <Breadcrumb className="mb-8 animate-fade-in">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Início</BreadcrumbLink>
+              <BreadcrumbLink href="/" className="hover:text-primary transition-colors">Início</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            <BreadcrumbSeparator>
+              <ChevronRight className="h-4 w-4" />
+            </BreadcrumbSeparator>
             <BreadcrumbItem>
               <BreadcrumbPage>Política de Cookies</BreadcrumbPage>
             </BreadcrumbItem>
@@ -20,33 +24,58 @@ const Cookies = () => {
         </Breadcrumb>
 
         <div className="bg-white p-8 rounded-lg shadow-lg animate-fade-in hover:shadow-xl transition-all duration-300">
-          <h1 className="text-4xl font-bold mb-8 text-primary bg-gradient-to-r from-[#D3E4FD] to-[#F1F0FB] bg-clip-text text-transparent">
-            Política de Cookies
-          </h1>
+          <div className="flex items-center gap-3 mb-8">
+            <Cookie className="h-8 w-8 text-[#FEC6A1]" />
+            <h1 className="text-4xl font-bold text-primary bg-gradient-to-r from-[#D3E4FD] to-[#F1F0FB] bg-clip-text text-transparent">
+              Política de Cookies
+            </h1>
+          </div>
           
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-8">
-            <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <p className="lead">Esta Política de Cookies explica como o Lisbon Tiles usa cookies e tecnologias similares em nosso website.</p>
+            <div className="bg-[#F1F0FB]/30 p-6 rounded-lg transform hover:scale-[1.01] transition-transform duration-300">
+              <div className="flex items-center gap-2 mb-4">
+                <Info className="h-5 w-5 text-[#E5DEFF]" />
+                <Badge variant="secondary" className="bg-[#E5DEFF] text-primary">Información General</Badge>
+              </div>
+              <p className="lead">Esta Política de Cookies explica como el Lisbon Tiles usa cookies y tecnologías similares en nuestro website.</p>
             </div>
 
-            <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">1. O que são Cookies?</h2>
-              <p>Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site.</p>
+            <div className="bg-[#F1F0FB]/30 p-6 rounded-lg transform hover:scale-[1.01] transition-transform duration-300">
+              <div className="flex items-center gap-2 mb-4">
+                <Cookie className="h-5 w-5 text-[#FEC6A1]" />
+                <Badge variant="secondary" className="bg-[#FEC6A1]/20 text-primary">Definición</Badge>
+              </div>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">1. ¿Qué son Cookies?</h2>
+              <p>Cookies son pequeños archivos de texto almacenados en su dispositivo cuando visita nuestro sitio.</p>
             </div>
 
-            <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
+            <div className="bg-[#F1F0FB]/30 p-6 rounded-lg transform hover:scale-[1.01] transition-transform duration-300">
+              <div className="flex items-center gap-2 mb-4">
+                <Shield className="h-5 w-5 text-[#F2FCE2]" />
+                <Badge variant="secondary" className="bg-[#F2FCE2] text-primary">Tipos de Cookies</Badge>
+              </div>
               <h2 className="text-2xl font-semibold mb-4 text-primary">2. Tipos de Cookies que Usamos</h2>
-              <h3 className="text-xl font-semibold text-primary">2.1. Cookies Essenciais</h3>
-              <p>Necessários para o funcionamento básico do site e não podem ser desativados.</p>
-              
-              <h3 className="text-xl font-semibold text-primary mt-4">2.2. Cookies de Desempenho</h3>
-              <p>Ajudam-nos a entender como os visitantes interagem com o site, coletando informações anônimas.</p>
-              
-              <h3 className="text-xl font-semibold text-primary mt-4">2.3. Cookies Funcionais</h3>
-              <p>Permitem que o site lembre suas escolhas para fornecer funcionalidades aprimoradas.</p>
-              
-              <h3 className="text-xl font-semibold text-primary mt-4">2.4. Cookies de Marketing</h3>
-              <p>Usados para rastrear visitantes em diferentes websites para exibir anúncios relevantes.</p>
+              <div className="space-y-4">
+                <div className="pl-4 border-l-2 border-[#D3E4FD]">
+                  <h3 className="text-xl font-semibold text-primary">2.1. Cookies Esenciales</h3>
+                  <p>Necesarios para el funcionamiento básico del sitio y no pueden ser desactivados.</p>
+                </div>
+                
+                <div className="pl-4 border-l-2 border-[#F1F0FB]">
+                  <h3 className="text-xl font-semibold text-primary">2.2. Cookies de Desempeño</h3>
+                  <p>Ayudan a entender cómo los visitantes interactúan con el sitio, recolectando información anónima.</p>
+                </div>
+                
+                <div className="pl-4 border-l-2 border-[#FEF7CD]">
+                  <h3 className="text-xl font-semibold text-primary">2.3. Cookies Funcionales</h3>
+                  <p>Permiten que el sitio recuerde sus elecciones para proporcionar funcionalidades mejoradas.</p>
+                </div>
+                
+                <div className="pl-4 border-l-2 border-[#FFDEE2]">
+                  <h3 className="text-xl font-semibold text-primary">2.4. Cookies de Marketing</h3>
+                  <p>Usados para rastrear visitantes en diferentes websites para mostrar anuncios relevantes.</p>
+                </div>
+              </div>
             </div>
 
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
