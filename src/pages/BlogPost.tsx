@@ -112,8 +112,8 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="container px-4 py-8 mx-auto">
-        <Breadcrumb>
+      <div className="container px-4 pt-24 pb-8 mx-auto">
+        <Breadcrumb className="mb-8">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">
@@ -133,7 +133,7 @@ const BlogPost = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <article className="max-w-4xl mx-auto mt-8">
+        <article className="max-w-4xl mx-auto">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tight">{article.title}</h1>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
