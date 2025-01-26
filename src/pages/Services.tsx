@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Star, Phone, Shield, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Service } from "@/types/services"; // Add this import
 
 const Services = () => {
   const { toast } = useToast();
@@ -19,6 +20,13 @@ const Services = () => {
       description: cleanNumber,
       duration: 3000,
     });
+  };
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "+351123456789"; // Replace with your actual WhatsApp number
+    const message = "Hola, necesito información sobre servicios esenciales.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const services: Record<string, Service[]> = {
@@ -225,11 +233,13 @@ const Services = () => {
             {filteredServices.map((service) => (
               <Card key={service.name} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
                 <div className="relative h-64">
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="w-full h-full object-cover"
-                  />
+                  {service.image && (
+                    <img
+                      src={service.image}
+                      alt={service.name}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                   <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
                     {service.type}
                   </div>
