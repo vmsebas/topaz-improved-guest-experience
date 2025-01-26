@@ -10,17 +10,17 @@ export const Footer = () => {
           <div className="text-center sm:text-left">
             <h3 className="font-bold text-lg mb-4">Lisbon Tiles</h3>
             <div className="text-muted-foreground space-y-2">
-              <p>Su hogar portugués auténtico en el corazón del barrio histórico de Alfama en Lisboa.</p>
-              <p className="font-medium">Información Legal:</p>
+              <p>Your authentic Portuguese home in the heart of Lisbon's historic Alfama district.</p>
+              <p className="font-medium">Legal Information:</p>
               <p>**Lisbon Tiles, Lda.**</p>
               <p>NIPC: **513456789**</p>
-              <p>Capital Social: **50.000€**</p>
-              <p>Reg. Comercial: **Lisboa**</p>
+              <p>Share Capital: **50.000€**</p>
+              <p>Commercial Registry: **Lisbon**</p>
             </div>
           </div>
           
           <div className="text-center sm:text-left">
-            <h3 className="font-bold text-lg mb-4">Contacto</h3>
+            <h3 className="font-bold text-lg mb-4">Contact</h3>
             <address className="text-muted-foreground not-italic space-y-2">
               <p>Travessa da Trindade 18</p>
               <p>1200-469 Lisboa</p>
@@ -32,7 +32,7 @@ export const Footer = () => {
           </div>
           
           <div className="text-center sm:text-left">
-            <h3 className="font-bold text-lg mb-4">Enlaces</h3>
+            <h3 className="font-bold text-lg mb-4">Links</h3>
             <ul className="space-y-2 text-muted-foreground">
               <li>
                 <Link to="/blog" className="hover:text-foreground transition-colors">
@@ -41,17 +41,17 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/terms" className="hover:text-foreground transition-colors">
-                  Términos y Condiciones
+                  Terms and Conditions
                 </Link>
               </li>
               <li>
                 <Link to="/privacy" className="hover:text-foreground transition-colors">
-                  Política de Privacidad
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link to="/cookies" className="hover:text-foreground transition-colors">
-                  Política de Cookies
+                  Cookie Policy
                 </Link>
               </li>
               <li>
@@ -61,25 +61,25 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
-                  Resolución de Litigios
+                  Dispute Resolution
                 </a>
               </li>
             </ul>
           </div>
 
           <div className="text-center sm:text-left">
-            <h3 className="font-bold text-lg mb-4">Certificaciones</h3>
+            <h3 className="font-bold text-lg mb-4">Certifications</h3>
             <div className="space-y-4">
               <ComplaintsBook />
               <div>
-                <p className="text-sm text-muted-foreground mb-2">Entidad RAL competente:</p>
+                <p className="text-sm text-muted-foreground mb-2">Competent ADR entity:</p>
                 <a 
                   href="https://www.centroarbitragemlisboa.pt/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
                 >
-                  Centro de Arbitragem de Lisboa
+                  Lisbon Arbitration Center
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
@@ -89,7 +89,7 @@ export const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Lisbon Tiles, Lda. Todos los derechos reservados.
+            © {new Date().getFullYear()} Lisbon Tiles, Lda. All rights reserved.
           </p>
         </div>
       </div>
