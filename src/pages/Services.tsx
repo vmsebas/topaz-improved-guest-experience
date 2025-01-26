@@ -3,10 +3,15 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star } from "lucide-react";
+import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star, ExternalLink } from "lucide-react";
 
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+  const getGoogleMapsUrl = (name: string, address: string) => {
+    const query = encodeURIComponent(`${name}, ${address}`);
+    return `https://www.google.com/maps/search/?api=1&query=${query}`;
+  };
 
   const services = {
     healthcare: [
@@ -245,8 +250,17 @@ const Services = () => {
                       <p className="text-sm text-muted-foreground mt-2">
                         {service.description}
                       </p>
-                      <div className="text-sm text-primary font-medium mt-2">
-                        {service.distance}
+                      <div className="flex justify-between items-center mt-4">
+                        <span className="text-sm text-primary font-medium">
+                          {service.distance}
+                        </span>
+                        <Button
+                          onClick={() => window.open(getGoogleMapsUrl(service.name, service.address), '_blank')}
+                          className="flex items-center gap-2"
+                        >
+                          View on Maps
+                          <ExternalLink className="h-4 w-4" />
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
