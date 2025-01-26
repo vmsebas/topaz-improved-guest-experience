@@ -18,7 +18,7 @@ const transportOptions = [
     schedule: "6:30 AM - 1:00 AM",
     duration: "Frecuencia: 5-10 min",
     category: "Public",
-    image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc",
+    image: "https://images.unsplash.com/photo-1581252584837-7dd6a7c27d04",
     icon: Train
   },
   {
@@ -31,7 +31,7 @@ const transportOptions = [
     schedule: "24/7 service",
     duration: "Frecuencia variable",
     category: "Public",
-    image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716",
+    image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e",
     icon: Bus
   },
   {
@@ -44,7 +44,7 @@ const transportOptions = [
     schedule: "7:00 AM - 10:00 PM",
     duration: "10-15 minutos",
     category: "Public",
-    image: "https://images.unsplash.com/photo-1518877593221-1f28583780b4",
+    image: "https://images.unsplash.com/photo-1569263900347-06b1e8c825ab",
     icon: Ship
   },
   {
@@ -57,7 +57,7 @@ const transportOptions = [
     schedule: "24/7",
     duration: "Según destino",
     category: "Private",
-    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302",
+    image: "https://images.unsplash.com/photo-1621963458148-db0d0a7e2a4e",
     icon: Car
   },
   {
@@ -70,7 +70,7 @@ const transportOptions = [
     schedule: "24/7",
     duration: "Uso ilimitado",
     category: "Active",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
+    image: "https://images.unsplash.com/photo-1556316384-12c35d30afa4",
     icon: Bike
   }
 ];
