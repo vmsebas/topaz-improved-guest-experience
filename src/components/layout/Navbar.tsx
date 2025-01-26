@@ -6,12 +6,10 @@ import { useState, useEffect } from "react";
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  // Cerrar menú al cambiar de ruta
   useEffect(() => {
     setIsMenuOpen(false);
   }, []);
 
-  // Prevenir scroll cuando el menú está abierto
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -37,7 +35,7 @@ export const Navbar = () => {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="md:hidden z-50"
+          className="md:hidden z-50 bg-background hover:bg-accent"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -71,7 +69,7 @@ export const Navbar = () => {
 
         {/* Menú móvil */}
         {isMenuOpen && (
-          <div className="fixed inset-0 top-16 bg-background/95 backdrop-blur-sm md:hidden">
+          <div className="fixed inset-0 top-16 bg-background md:hidden">
             <div className="flex flex-col items-center justify-start pt-8 space-y-6">
               <Link 
                 to="/services" 
