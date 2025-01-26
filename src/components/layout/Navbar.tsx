@@ -1,8 +1,11 @@
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
       <div className="container flex h-16 items-center justify-between">
@@ -15,7 +18,7 @@ export const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="hidden md:flex items-center gap-6">
+        <div className={`md:flex items-center gap-6 ${isMenuOpen ? 'flex flex-col absolute top-16 left-0 w-full bg-background border-b p-4 space-y-4' : 'hidden'}`}>
           <Link to="/services" className="text-sm hover:text-primary transition-colors">
             Services
           </Link>
@@ -35,7 +38,12 @@ export const Navbar = () => {
             Contact
           </Link>
         </div>
-        <Button variant="ghost" size="icon" className="md:hidden">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <Menu className="h-5 w-5" />
         </Button>
       </div>

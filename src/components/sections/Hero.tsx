@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -18,21 +18,21 @@ export const Hero = () => {
           background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0) 40%)"
         }}
       />
-      <div className="container relative z-10 flex flex-col items-center text-center gap-8">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
+      <div className="container relative z-10 flex flex-col items-center text-center gap-6 px-4">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
           Bienvenido a Lisboa
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-[800px]">
+        <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-[800px]">
           Descubre el encanto de la ciudad desde nuestro acogedor apartamento en el corazón del histórico Alfama
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/about">
-            <Button size="lg" variant="default">
+            <Button size="lg" variant="default" className="w-full sm:w-auto">
               Descubre Más
             </Button>
           </Link>
           <Link to="/contact">
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto">
               Contáctanos
             </Button>
           </Link>
