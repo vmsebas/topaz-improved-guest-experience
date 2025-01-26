@@ -43,7 +43,7 @@ export const Features = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-[#F1F0FB]">
+    <section className="py-12 md:py-16 bg-[#FDE1D3]">
       <div className="container px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Your Guide to Lisboa</h2>
