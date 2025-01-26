@@ -59,7 +59,8 @@ const Services = () => {
         contact: "+351 213 426 743",
         rating: 4.4,
         description: "Local pharmacy with English-speaking staff.",
-        isEmergency: false
+        isEmergency: false,
+        image: "https://lh5.googleusercontent.com/p/AF1QipP2UTEcBr7r1F02LWYoCTjtAjcmkBAN_TmoOr2a=w408-h544-k-no"
       },
       {
         name: "Farmácia Baião Santos",
@@ -230,6 +231,15 @@ const Services = () => {
                     <CardDescription>{service.type}</CardDescription>
                   </CardHeader>
                   <CardContent>
+                    {'image' in service && (
+                      <div className="mb-4">
+                        <img 
+                          src={service.image} 
+                          alt={service.name}
+                          className="w-full h-48 object-cover rounded-md"
+                        />
+                      </div>
+                    )}
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-sm">
                         <MapPin className="h-4 w-4 text-muted-foreground" />
