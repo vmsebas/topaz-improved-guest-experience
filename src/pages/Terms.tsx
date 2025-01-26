@@ -4,10 +4,10 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 const Terms = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]/50">
       <Navbar />
       <main className="flex-1 container py-20">
-        <Breadcrumb className="mb-8">
+        <Breadcrumb className="mb-8 animate-fade-in">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Início</BreadcrumbLink>
@@ -19,16 +19,17 @@ const Terms = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-4xl font-bold mb-8">Termos e Condições</h1>
-        
-        <div className="prose prose-lg max-w-none">
-          <h2>1. Introdução</h2>
-          <p>Bem-vindo ao Lisbon Tiles. Ao acessar e usar nosso site, você concorda com estes termos e condições de uso.</p>
+        <div className="bg-white p-8 rounded-lg shadow-lg animate-fade-in">
+          <h1 className="text-4xl font-bold mb-8 text-primary">Termos e Condições</h1>
+          
+          <div className="prose prose-lg max-w-none text-muted-foreground">
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">1. Introdução</h2>
+            <p>Bem-vindo ao Lisbon Tiles. Ao acessar e usar nosso site, você concorda com estes termos e condições de uso.</p>
 
-          <h2>2. Reservas e Pagamentos</h2>
-          <p>2.1. As reservas estão sujeitas à disponibilidade e confirmação.</p>
-          <p>2.2. O pagamento pode ser feito através dos métodos disponíveis no momento da reserva.</p>
-          <p>2.3. Podem ser aplicadas taxas de cancelamento de acordo com a política de cancelamento em vigor.</p>
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">2. Reservas e Pagamentos</h2>
+            <p>2.1. As reservas estão sujeitas à disponibilidade e confirmação.</p>
+            <p>2.2. O pagamento pode ser feito através dos métodos disponíveis no momento da reserva.</p>
+            <p>2.3. Podem ser aplicadas taxas de cancelamento de acordo com a política de cancelamento em vigor.</p>
 
           <h2>3. Regras de Hospedagem</h2>
           <p>3.1. O check-in é realizado a partir das 15:00 e o check-out até às 11:00.</p>
@@ -44,6 +45,7 @@ const Terms = () => {
 
           <h2>6. Alterações aos Termos</h2>
           <p>Reservamo-nos o direito de modificar estes termos a qualquer momento, publicando a versão atualizada neste site.</p>
+          </div>
         </div>
       </main>
       <Footer />

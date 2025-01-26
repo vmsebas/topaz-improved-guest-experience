@@ -4,10 +4,10 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 const Cookies = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]/50">
       <Navbar />
       <main className="flex-1 container py-20">
-        <Breadcrumb className="mb-8">
+        <Breadcrumb className="mb-8 animate-fade-in">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Início</BreadcrumbLink>
@@ -19,48 +19,50 @@ const Cookies = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-4xl font-bold mb-8">Política de Cookies</h1>
-        
-        <div className="prose prose-lg max-w-none">
-          <p className="lead">Esta Política de Cookies explica como o Lisbon Tiles usa cookies e tecnologias similares em nosso website.</p>
-
-          <h2>1. O que são Cookies?</h2>
-          <p>Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site.</p>
-
-          <h2>2. Tipos de Cookies que Usamos</h2>
-          <h3>2.1. Cookies Essenciais</h3>
-          <p>Necessários para o funcionamento básico do site e não podem ser desativados.</p>
+        <div className="bg-white p-8 rounded-lg shadow-lg animate-fade-in">
+          <h1 className="text-4xl font-bold mb-8 text-primary">Política de Cookies</h1>
           
-          <h3>2.2. Cookies de Desempenho</h3>
-          <p>Ajudam-nos a entender como os visitantes interagem com o site, coletando informações anônimas.</p>
-          
-          <h3>2.3. Cookies Funcionais</h3>
-          <p>Permitem que o site lembre suas escolhas para fornecer funcionalidades aprimoradas.</p>
-          
-          <h3>2.4. Cookies de Marketing</h3>
-          <p>Usados para rastrear visitantes em diferentes websites para exibir anúncios relevantes.</p>
+          <div className="prose prose-lg max-w-none text-muted-foreground">
+            <p className="lead">Esta Política de Cookies explica como o Lisbon Tiles usa cookies e tecnologias similares em nosso website.</p>
 
-          <h2>3. Como Gerenciar Cookies</h2>
-          <p>Você pode controlar e/ou excluir cookies conforme desejar:</p>
-          <ul>
-            <li>Através das configurações do seu navegador</li>
-            <li>Usando nosso painel de preferências de cookies</li>
-            <li>Visitando www.aboutcookies.org</li>
-          </ul>
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">1. O que são Cookies?</h2>
+            <p>Cookies são pequenos arquivos de texto armazenados em seu dispositivo quando você visita nosso site.</p>
 
-          <h2>4. Cookies de Terceiros</h2>
-          <p>Alguns cookies são definidos por serviços de terceiros que aparecem em nossas páginas:</p>
-          <ul>
-            <li>Google Analytics - análise de uso do site</li>
-            <li>Redes sociais - botões de compartilhamento</li>
-            <li>Serviços de pagamento - processamento seguro de pagamentos</li>
-          </ul>
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">2. Tipos de Cookies que Usamos</h2>
+            <h3 className="text-xl font-semibold text-primary">2.1. Cookies Essenciais</h3>
+            <p>Necessários para o funcionamento básico do site e não podem ser desativados.</p>
+            
+            <h3 className="text-xl font-semibold text-primary">2.2. Cookies de Desempenho</h3>
+            <p>Ajudam-nos a entender como os visitantes interagem com o site, coletando informações anônimas.</p>
+            
+            <h3 className="text-xl font-semibold text-primary">2.3. Cookies Funcionais</h3>
+            <p>Permitem que o site lembre suas escolhas para fornecer funcionalidades aprimoradas.</p>
+            
+            <h3 className="text-xl font-semibold text-primary">2.4. Cookies de Marketing</h3>
+            <p>Usados para rastrear visitantes em diferentes websites para exibir anúncios relevantes.</p>
 
-          <h2>5. Atualizações à Política</h2>
-          <p>Esta política pode ser atualizada periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre quaisquer alterações.</p>
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">3. Como Gerenciar Cookies</h2>
+            <p>Você pode controlar e/ou excluir cookies conforme desejar:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Através das configurações do seu navegador</li>
+              <li>Usando nosso painel de preferências de cookies</li>
+              <li>Visitando www.aboutcookies.org</li>
+            </ul>
 
-          <h2>6. Contato</h2>
-          <p>Se tiver dúvidas sobre nossa política de cookies, entre em contato conosco em cookies@lisbontiles.com</p>
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">4. Cookies de Terceiros</h2>
+            <p>Alguns cookies são definidos por serviços de terceiros que aparecem em nossas páginas:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Google Analytics - análise de uso do site</li>
+              <li>Redes sociais - botões de compartilhamento</li>
+              <li>Serviços de pagamento - processamento seguro de pagamentos</li>
+            </ul>
+
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">5. Atualizações à Política</h2>
+            <p>Esta política pode ser atualizada periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre quaisquer alterações.</p>
+
+            <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">6. Contato</h2>
+            <p>Se tiver dúvidas sobre nossa política de cookies, entre em contato conosco em cookies@lisbontiles.com</p>
+          </div>
         </div>
       </main>
       <Footer />
