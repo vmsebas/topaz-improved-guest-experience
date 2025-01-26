@@ -1,41 +1,50 @@
-import { CheckCircle, Shield, Zap } from "lucide-react";
-
-const features = [
-  {
-    icon: CheckCircle,
-    title: "Easy Check-in",
-    description: "Streamline your guest check-in process with our intuitive interface."
-  },
-  {
-    icon: Zap,
-    title: "Fast & Reliable",
-    description: "Lightning-fast performance ensures smooth operation at all times."
-  },
-  {
-    icon: Shield,
-    title: "Secure",
-    description: "Enterprise-grade security to protect your guests' data."
-  }
-];
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Users, Shield, Zap, MessageSquare } from "lucide-react";
 
 export const Features = () => {
+  const features = [
+    {
+      title: "Gestión de Huéspedes",
+      description: "Administra fácilmente los registros y perfiles de tus huéspedes.",
+      icon: <Users className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Seguridad Avanzada",
+      description: "Protección de datos y privacidad garantizada para ti y tus huéspedes.",
+      icon: <Shield className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Respuesta Rápida",
+      description: "Sistema de respuesta inmediata para atender solicitudes de huéspedes.",
+      icon: <Zap className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Comunicación Efectiva",
+      description: "Mantén una comunicación fluida con tus huéspedes en todo momento.",
+      icon: <MessageSquare className="h-8 w-8 text-primary" />,
+    },
+  ];
+
   return (
-    <section id="features" className="py-16 bg-muted/50">
+    <section className="py-16 bg-secondary/50">
       <div className="container">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Everything you need
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Características Principales</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Descubre todas las herramientas que tenemos para hacer tu gestión más eficiente
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className="flex flex-col items-center text-center p-6 rounded-lg bg-background shadow-sm hover:shadow-md transition-shadow animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <feature.icon className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </div>
+            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="mb-4 flex items-center justify-center">{feature.icon}</div>
+                <CardTitle className="text-xl text-center">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-center">{feature.description}</CardDescription>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
