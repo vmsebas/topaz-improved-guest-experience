@@ -4,7 +4,6 @@ import { useState } from "react";
 import { TransportFilter } from "@/components/transport/TransportFilter";
 import { TransportCard } from "@/components/transport/TransportCard";
 import { Bus, Car, Train, Plane, Bike, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Transport = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -192,15 +191,7 @@ const Transport = () => {
       <Navbar />
       <main className="flex-1 container mx-auto px-4 pt-32 pb-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="text-4xl font-bold text-center">Transport in Lisbon</h1>
-            <Link 
-              to="/blog" 
-              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-            >
-              Visit our Blog
-            </Link>
-          </div>
+          <h1 className="text-4xl font-bold text-center mb-4">Transport in Lisbon</h1>
           <p className="text-muted-foreground text-center mb-8">
             Discover the best ways to move around the city
           </p>
