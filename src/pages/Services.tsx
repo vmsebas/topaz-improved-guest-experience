@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star, ExternalLink } from "lucide-react";
 import { Service } from "@/types/services";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -198,7 +199,19 @@ const Services = () => {
       <Navbar />
       <main className="flex-1 pt-16">
         <section className="py-16 bg-gradient-to-b from-[#F1F0FB] to-white">
-          <div className="container">
+          <div className="container px-4">
+            <Breadcrumb className="mb-8 animate-fade-in">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Essential Services</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+
             <div className="text-center mb-12 animate-fade-in">
               <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">
                 Essential Services
@@ -216,7 +229,7 @@ const Services = () => {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`animate-fade-in transition-all duration-300 ${
                     selectedCategory === category.id 
-                      ? 'bg-gradient-to-r from-[#E5DEFF] to-[#D3E4FD] text-primary shadow-md' 
+                      ? 'bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary' 
                       : 'hover:bg-[#F1F0FB]/50'
                   }`}
                 >
@@ -230,11 +243,11 @@ const Services = () => {
               {filteredServices.map((service, index) => (
                 <Card 
                   key={index}
-                  className={`border-none shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in bg-white/80 backdrop-blur-sm ${
+                  className={`animate-fade-in border border-[#D3E4FD] shadow-sm hover:shadow-md transition-all duration-300 ${
                     service.isEmergency ? 'border-l-4 border-l-[#FFDEE2]' : ''
                   }`}
                 >
-                  <CardHeader className="bg-gradient-to-r from-[#F1F0FB]/50 to-transparent rounded-t-lg">
+                  <CardHeader className="bg-[#F1F0FB]/30">
                     <div className="flex items-center justify-between">
                       <CardTitle className="text-xl text-primary">{service.name}</CardTitle>
                       {getCategoryIcon(
@@ -245,9 +258,9 @@ const Services = () => {
                     </div>
                     <CardDescription>{service.type}</CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="space-y-4">
                     {'image' in service && (
-                      <div className="mb-4 overflow-hidden rounded-md">
+                      <div className="overflow-hidden rounded-md">
                         <img 
                           src={service.image} 
                           alt={service.name}
@@ -256,34 +269,34 @@ const Services = () => {
                       </div>
                     )}
                     <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-sm bg-[#F2FCE2]/50 p-2 rounded-md">
-                        <MapPin className="h-4 w-4 text-[#6B7280]" />
+                      <div className="flex items-center gap-2 text-sm">
+                        <MapPin className="h-4 w-4 text-muted-foreground" />
                         <span>{service.address}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm bg-[#FEF7CD]/50 p-2 rounded-md">
-                        <Clock className="h-4 w-4 text-[#6B7280]" />
+                      <div className="flex items-center gap-2 text-sm">
+                        <Clock className="h-4 w-4 text-muted-foreground" />
                         <span>{service.hours}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm bg-[#D3E4FD]/50 p-2 rounded-md">
-                        <Phone className="h-4 w-4 text-[#6B7280]" />
+                      <div className="flex items-center gap-2 text-sm">
+                        <Phone className="h-4 w-4 text-muted-foreground" />
                         <span>{service.contact}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm bg-[#FFDEE2]/50 p-2 rounded-md">
+                      <div className="flex items-center gap-2 text-sm">
                         <Star className="h-4 w-4 text-yellow-500" />
                         <span>{service.rating} / 5.0</span>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-2 bg-[#F1F0FB]/30 p-2 rounded-md">
+                      <p className="text-sm text-muted-foreground">
                         {service.description}
                       </p>
-                      <div className="flex justify-between items-center mt-4">
-                        <span className="text-sm text-primary font-medium">
+                      <div className="flex justify-between items-center pt-4">
+                        <span className="text-sm text-muted-foreground">
                           {service.distance}
                         </span>
                         <Button
                           onClick={() => window.open(getDirectionsUrl(service.name, service.address), '_blank')}
-                          className="bg-gradient-to-r from-[#E5DEFF] to-[#D3E4FD] text-primary hover:shadow-md transition-all duration-300"
+                          className="bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary"
                         >
-                          Cómo llegar
+                          Get Directions
                           <ExternalLink className="h-4 w-4 ml-2" />
                         </Button>
                       </div>
