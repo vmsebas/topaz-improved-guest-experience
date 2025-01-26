@@ -9,9 +9,18 @@ import { Service } from "@/types/services";
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const getGoogleMapsUrl = (name: string, address: string) => {
-    const query = encodeURIComponent(`${name}, ${address}`);
-    return `https://www.google.com/maps/search/?api=1&query=${query}`;
+  const getDirectionsUrl = (name: string, address: string) => {
+    // Detectar si el dispositivo es iOS
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const destination = encodeURIComponent(`${name}, ${address}`);
+    
+    if (isIOS) {
+      // URL para Apple Maps
+      return `maps://maps.apple.com/?daddr=${destination}&dirflg=w`;
+    } else {
+      // URL para Google Maps con modo a pie por defecto
+      return `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=walking`;
+    }
   };
 
   const services: Record<string, Service[]> = {
@@ -268,10 +277,10 @@ const Services = () => {
                           {service.distance}
                         </span>
                         <Button
-                          onClick={() => window.open(getGoogleMapsUrl(service.name, service.address), '_blank')}
+                          onClick={() => window.open(getDirectionsUrl(service.name, service.address), '_blank')}
                           className="flex items-center gap-2"
                         >
-                          View on Maps
+                          Cómo llegar
                           <ExternalLink className="h-4 w-4" />
                         </Button>
                       </div>
