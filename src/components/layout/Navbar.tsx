@@ -8,33 +8,33 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
-      <div className="container flex h-20 items-center justify-between">
-        <div className="flex items-center gap-6">
+      <div className="container flex h-24 items-center justify-between">
+        <div className="flex items-center gap-8">
           <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/0bfef87d-4b78-4e81-933f-2f3c2de2fe6c.png" 
               alt="Lizbon Tiles Suites Logo" 
-              className="h-16 w-auto"
+              className="h-20 w-auto"
             />
           </Link>
         </div>
-        <div className={`md:flex items-center gap-6 ${isMenuOpen ? 'flex flex-col absolute top-20 left-0 w-full bg-background border-b p-4 space-y-4' : 'hidden'}`}>
-          <Link to="/services" className="text-sm hover:text-primary transition-colors">
+        <div className={`md:flex items-center gap-8 ${isMenuOpen ? 'flex flex-col absolute top-24 left-0 w-full bg-background border-b p-6 space-y-4' : 'hidden'}`}>
+          <Link to="/services" className="text-base font-medium hover:text-primary transition-colors">
             Services
           </Link>
-          <Link to="/attractions" className="text-sm hover:text-primary transition-colors">
+          <Link to="/attractions" className="text-base font-medium hover:text-primary transition-colors">
             Attractions
           </Link>
-          <Link to="/transport" className="text-sm hover:text-primary transition-colors">
+          <Link to="/transport" className="text-base font-medium hover:text-primary transition-colors">
             Transport
           </Link>
-          <Link to="/restaurants" className="text-sm hover:text-primary transition-colors">
+          <Link to="/restaurants" className="text-base font-medium hover:text-primary transition-colors">
             Food
           </Link>
-          <Link to="/about" className="text-sm hover:text-primary transition-colors">
+          <Link to="/about" className="text-base font-medium hover:text-primary transition-colors">
             About
           </Link>
-          <Link to="/contact" className="text-sm hover:text-primary transition-colors">
+          <Link to="/contact" className="text-base font-medium hover:text-primary transition-colors">
             Contact
           </Link>
         </div>
@@ -44,7 +44,7 @@ export const Navbar = () => {
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <Menu className="h-5 w-5" />
+          <Menu className="h-6 w-6" />
         </Button>
       </div>
     </nav>
