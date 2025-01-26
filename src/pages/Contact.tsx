@@ -11,7 +11,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
       <main className="flex-1 pt-16">
         <section className="py-16">
@@ -90,7 +90,6 @@ const Contact = () => {
       </main>
       <Footer />
       
-      {/* Botón flotante de WhatsApp */}
       <button
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
