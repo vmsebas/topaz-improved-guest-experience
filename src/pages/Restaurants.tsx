@@ -78,7 +78,7 @@ const restaurants = {
     {
       id: 14,
       name: "Cervejaria Trindade",
-      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
+      image: "/lovable-uploads/6197cbf6-b48f-4002-b555-3708613a58dd.png",
       type: "Historic Seafood Restaurant",
       distance: "2 min walk",
       hours: "12:00 - 00:00",
@@ -358,3 +358,4 @@ const Restaurants = () => {
 };
 
 export default Restaurants;
+
