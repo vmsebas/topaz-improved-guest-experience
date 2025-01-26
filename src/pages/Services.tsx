@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star, ExternalLink } from "lucide-react";
-import { Service } from "@/types/services";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { ServiceHeader } from "@/components/services/ServiceHeader";
+import { ServiceGrid } from "@/components/services/ServiceGrid";
+import { CategoryFilter } from "@/components/common/CategoryFilter";
+import { Hospital, Stethoscope, Flag, Shield } from "lucide-react";
+import { Service } from "@/types/services";
 
 const services: Record<string, Service[]> = {
   healthcare: [
@@ -156,38 +157,12 @@ const services: Record<string, Service[]> = {
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const getDirectionsUrl = (name: string, address: string) => {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const destination = encodeURIComponent(`${name}, ${address}`);
-    
-    if (isIOS) {
-      return `maps://maps.apple.com/?daddr=${destination}&dirflg=w`;
-    } else {
-      return `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=walking`;
-    }
-  };
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "healthcare":
-        return <Hospital className="h-6 w-6" />;
-      case "pharmacies":
-        return <Stethoscope className="h-6 w-6" />;
-      case "embassies":
-        return <Flag className="h-6 w-6" />;
-      case "police":
-        return <Shield className="h-6 w-6" />;
-      default:
-        return null;
-    }
-  };
-
   const categories = [
     { id: "all", name: "All Services" },
-    { id: "healthcare", name: "Hospitals" },
-    { id: "pharmacies", name: "Pharmacies" },
-    { id: "embassies", name: "Embassies" },
-    { id: "police", name: "Police" }
+    { id: "healthcare", name: "Hospitals", icon: Hospital },
+    { id: "pharmacies", name: "Pharmacies", icon: Stethoscope },
+    { id: "embassies", name: "Embassies", icon: Flag },
+    { id: "police", name: "Police", icon: Shield }
   ];
 
   const filteredServices = selectedCategory === "all"
@@ -198,116 +173,34 @@ const Services = () => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#F1F0FB] to-white">
       <Navbar />
       <main className="flex-grow pt-16">
-        <section className="py-16">
-          <div className="container px-4">
-            <Breadcrumb className="mb-8 animate-fade-in">
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="/" className="text-primary hover:text-primary/80">
-                    Home
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Essential Services</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+        <section className="container px-4 py-16">
+          <Breadcrumb className="mb-8 animate-fade-in">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/" className="text-primary hover:text-primary/80">
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Essential Services</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
-            <div className="text-center mb-12 animate-fade-in">
-              <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#8B5CF6]">
-                Essential Services
-              </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations.
-              </p>
-            </div>
+          <ServiceHeader 
+            title="Essential Services"
+            description="Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations."
+          />
 
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`animate-fade-in transition-all duration-300 ${
-                    selectedCategory === category.id 
-                      ? 'bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary' 
-                      : 'hover:bg-[#F1F0FB]/50'
-                  }`}
-                >
-                  {category.id !== "all" && getCategoryIcon(category.id)}
-                  <span className="ml-2">{category.name}</span>
-                </Button>
-              ))}
-            </div>
+          <CategoryFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            className="mb-8"
+          />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredServices.map((service, index) => (
-                <Card 
-                  key={index}
-                  className={`animate-fade-in-up border border-[#D3E4FD] shadow-sm hover:shadow-md transition-all duration-300 ${
-                    service.isEmergency ? 'border-l-4 border-l-[#FFDEE2]' : ''
-                  }`}
-                >
-                  <CardHeader className="bg-gradient-to-r from-[#F1F0FB] to-white">
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-xl text-primary font-semibold">{service.name}</CardTitle>
-                      {getCategoryIcon(
-                        Object.keys(services).find(key => 
-                          services[key as keyof typeof services].includes(service)
-                        ) || ""
-                      )}
-                    </div>
-                    <CardDescription className="text-muted-foreground">{service.type}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {'image' in service && (
-                      <div className="overflow-hidden rounded-md">
-                        <img 
-                          src={service.image} 
-                          alt={service.name}
-                          className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    )}
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-sm">
-                        <MapPin className="h-4 w-4 text-primary/60" />
-                        <span>{service.address}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Clock className="h-4 w-4 text-primary/60" />
-                        <span>{service.hours}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Phone className="h-4 w-4 text-primary/60" />
-                        <span>{service.contact}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Star className="h-4 w-4 text-yellow-500" />
-                        <span>{service.rating} / 5.0</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        {service.description}
-                      </p>
-                      <div className="flex justify-between items-center pt-4">
-                        <span className="text-sm text-muted-foreground">
-                          {service.distance}
-                        </span>
-                        <Button
-                          onClick={() => window.open(getDirectionsUrl(service.name, service.address), '_blank')}
-                          className="bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary"
-                        >
-                          Get Directions
-                          <ExternalLink className="h-4 w-4 ml-2" />
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+          <ServiceGrid services={filteredServices} />
         </section>
       </main>
       <Footer />
