@@ -6,7 +6,7 @@ import { CookieBanner } from "@/components/legal/CookieBanner";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
       <main>
         <Hero />
