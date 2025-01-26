@@ -255,18 +255,26 @@ const Attractions = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             <Button
               variant={selectedCategory === "all" ? "default" : "outline"}
               onClick={() => setSelectedCategory("all")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "all"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               All Attractions
             </Button>
             <Button
               variant={selectedCategory === "Historical" ? "default" : "outline"}
               onClick={() => setSelectedCategory("Historical")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "Historical"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Landmark className="mr-2 h-4 w-4" />
               Historical
@@ -274,7 +282,11 @@ const Attractions = () => {
             <Button
               variant={selectedCategory === "Cultural" ? "default" : "outline"}
               onClick={() => setSelectedCategory("Cultural")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "Cultural"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Palette className="mr-2 h-4 w-4" />
               Cultural
@@ -282,7 +294,11 @@ const Attractions = () => {
             <Button
               variant={selectedCategory === "Viewpoints" ? "default" : "outline"}
               onClick={() => setSelectedCategory("Viewpoints")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "Viewpoints"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Mountain className="mr-2 h-4 w-4" />
               Viewpoints
@@ -290,7 +306,11 @@ const Attractions = () => {
             <Button
               variant={selectedCategory === "Museums" ? "default" : "outline"}
               onClick={() => setSelectedCategory("Museums")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "Museums"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Building className="mr-2 h-4 w-4" />
               Museums

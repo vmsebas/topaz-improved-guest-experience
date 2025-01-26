@@ -264,18 +264,26 @@ const Restaurants = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             <Button
               variant={selectedCategory === "all" ? "default" : "outline"}
               onClick={() => setSelectedCategory("all")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "all"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               All Restaurants
             </Button>
             <Button
               variant={selectedCategory === "portuguese" ? "default" : "outline"}
               onClick={() => setSelectedCategory("portuguese")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "portuguese"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <UtensilsCrossed className="mr-2 h-4 w-4" />
               Portuguese
@@ -283,7 +291,11 @@ const Restaurants = () => {
             <Button
               variant={selectedCategory === "seafood" ? "default" : "outline"}
               onClick={() => setSelectedCategory("seafood")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "seafood"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Fish className="mr-2 h-4 w-4" />
               Seafood
@@ -291,7 +303,11 @@ const Restaurants = () => {
             <Button
               variant={selectedCategory === "markets" ? "default" : "outline"}
               onClick={() => setSelectedCategory("markets")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "markets"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Building2 className="mr-2 h-4 w-4" />
               Markets
@@ -299,7 +315,11 @@ const Restaurants = () => {
             <Button
               variant={selectedCategory === "pizza" ? "default" : "outline"}
               onClick={() => setSelectedCategory("pizza")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "pizza"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Pizza className="mr-2 h-4 w-4" />
               Pizza
@@ -307,7 +327,11 @@ const Restaurants = () => {
             <Button
               variant={selectedCategory === "vegetarian" ? "default" : "outline"}
               onClick={() => setSelectedCategory("vegetarian")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "vegetarian"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Leaf className="mr-2 h-4 w-4" />
               Vegetarian
@@ -315,7 +339,11 @@ const Restaurants = () => {
             <Button
               variant={selectedCategory === "international" ? "default" : "outline"}
               onClick={() => setSelectedCategory("international")}
-              className="bg-white hover:bg-gray-100"
+              className={`${
+                selectedCategory === "international"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm`}
             >
               <Globe className="mr-2 h-4 w-4" />
               International
