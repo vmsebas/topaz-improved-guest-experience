@@ -7,8 +7,12 @@ export const Navbar = () => {
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link to="/" className="text-xl font-bold">
-            WebGuest
+          <Link to="/" className="flex items-center">
+            <img 
+              src="https://github.com/vmsebas/webGuest/blob/main/public/logo.png?raw=true" 
+              alt="Lizbon Tiles Suites Logo" 
+              className="h-8"
+            />
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-6">
