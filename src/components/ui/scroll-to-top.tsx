@@ -33,7 +33,7 @@ export const ScrollToTop = () => {
         <Button
           variant="secondary"
           size="icon"
-          className="fixed bottom-20 right-6 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          className="fixed left-1/2 -translate-x-1/2 bottom-20 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           onClick={scrollToTop}
           aria-label="Scroll to top"
         >
