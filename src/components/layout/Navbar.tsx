@@ -45,7 +45,7 @@ export const Navbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          <Menu className="h-8 w-8" />
+          <Menu className="h-10 w-10" />
         </Button>
       </div>
     </nav>
