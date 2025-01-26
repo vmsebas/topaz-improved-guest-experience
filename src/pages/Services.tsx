@@ -1,28 +1,24 @@
-import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star, ExternalLink, MessageCircle } from "lucide-react";
-import { Service } from "@/types/services";
+import { MapPin, Clock, Star, Phone, Shield, MessageCircle } from "lucide-react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 const Services = () => {
   const { toast } = useToast();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  const getDirectionsUrl = (name: string, address: string) => {
-    // Detectar si el dispositivo es iOS
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const destination = encodeURIComponent(`${name}, ${address}`);
-    
-    if (isIOS) {
-      // URL para Apple Maps
-      return `maps://maps.apple.com/?daddr=${destination}&dirflg=w`;
-    } else {
-      // URL para Google Maps con modo a pie por defecto
-      return `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=walking`;
-    }
+  const handlePhoneClick = (phoneNumber: string, serviceName: string) => {
+    const cleanNumber = phoneNumber.split('(')[0].trim();
+    const telLink = `tel:${cleanNumber}`;
+    window.location.href = telLink;
+    toast({
+      title: "Llamando a " + serviceName,
+      description: cleanNumber,
+      duration: 3000,
+    });
   };
 
   const services: Record<string, Service[]> = {
@@ -171,130 +167,102 @@ const Services = () => {
     ]
   };
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "healthcare":
-        return <Hospital className="h-6 w-6" />;
-      case "pharmacies":
-        return <Stethoscope className="h-6 w-6" />;
-      case "embassies":
-        return <Flag className="h-6 w-6" />;
-      case "police":
-        return <Shield className="h-6 w-6" />;
-      default:
-        return null;
-    }
-  };
-
-  const categories = [
-    { id: "all", name: "All Services" },
-    { id: "healthcare", name: "Hospitals" },
-    { id: "pharmacies", name: "Pharmacies" },
-    { id: "embassies", name: "Embassies" },
-    { id: "police", name: "Police" }
-  ];
-
   const filteredServices = selectedCategory === "all"
     ? Object.values(services).flat()
     : services[selectedCategory as keyof typeof services] || [];
 
-  const handleWhatsAppClick = () => {
-    window.open('https://wa.me/351900123456', '_blank');
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
-      <main className="flex-1 pt-16">
-        <section className="py-16 bg-secondary/50">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold mb-4">Essential Services</h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations.
-              </p>
-            </div>
+      <main className="flex-grow pt-16">
+        <section className="container py-12">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold mb-4">Essential Services</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations.
+            </p>
+          </div>
 
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className="animate-fade-in"
-                >
-                  {category.id !== "all" && getCategoryIcon(category.id)}
-                  {category.name}
-                </Button>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <Button
+              variant={selectedCategory === "all" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("all")}
+              className="animate-fade-in"
+            >
+              All Services
+            </Button>
+            <Button
+              variant={selectedCategory === "healthcare" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("healthcare")}
+              className="animate-fade-in"
+            >
+              Healthcare
+            </Button>
+            <Button
+              variant={selectedCategory === "pharmacies" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("pharmacies")}
+              className="animate-fade-in"
+            >
+              Pharmacies
+            </Button>
+            <Button
+              variant={selectedCategory === "embassies" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("embassies")}
+              className="animate-fade-in"
+            >
+              Embassies
+            </Button>
+            <Button
+              variant={selectedCategory === "police" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("police")}
+              className="animate-fade-in"
+            >
+              Police
+            </Button>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredServices.map((service, index) => (
-                <Card 
-                  key={index}
-                  className={`border-none shadow-lg hover:shadow-xl transition-shadow animate-fade-in ${
-                    service.isEmergency ? "border-l-4 border-l-red-500" : ""
-                  }`}
-                >
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="text-xl">{service.name}</CardTitle>
-                      {getCategoryIcon(
-                        Object.keys(services).find(key => 
-                          services[key as keyof typeof services].includes(service)
-                        ) || ""
-                      )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredServices.map((service) => (
+              <Card key={service.name} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
+                <div className="relative h-64">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                    {service.type}
+                  </div>
+                  <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                    <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
+                    {service.rating}
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center text-sm">
+                      <MapPin className="h-4 w-4 mr-2 text-primary" />
+                      <span>{service.address}</span>
                     </div>
-                    <CardDescription>{service.type}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    {'image' in service && (
-                      <div className="mb-4">
-                        <img 
-                          src={service.image} 
-                          alt={service.name}
-                          className="w-full h-48 object-cover rounded-md"
-                        />
-                      </div>
-                    )}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm">
-                        <MapPin className="h-4 w-4 text-muted-foreground" />
-                        <span>{service.address}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Clock className="h-4 w-4 text-muted-foreground" />
-                        <span>{service.hours}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Phone className="h-4 w-4 text-muted-foreground" />
-                        <span>{service.contact}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Star className="h-4 w-4 text-yellow-500" />
-                        <span>{service.rating} / 5.0</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        {service.description}
-                      </p>
-                      <div className="flex justify-between items-center mt-4">
-                        <span className="text-sm text-primary font-medium">
-                          {service.distance}
-                        </span>
-                        <Button
-                          onClick={() => window.open(getDirectionsUrl(service.name, service.address), '_blank')}
-                          className="flex items-center gap-2"
-                        >
-                          Cómo llegar
-                          <ExternalLink className="h-4 w-4" />
-                        </Button>
-                      </div>
+                    <div className="flex items-center text-sm">
+                      <Clock className="h-4 w-4 mr-2 text-primary" />
+                      <span>{service.hours}</span>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                    <button
+                      onClick={() => handlePhoneClick(service.contact, service.name)}
+                      className="flex items-center text-sm text-primary hover:text-primary/80 transition-colors w-full"
+                    >
+                      <Phone className="h-4 w-4 mr-2" />
+                      <span className="underline">{service.contact}</span>
+                    </button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
       </main>
