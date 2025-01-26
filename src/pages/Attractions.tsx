@@ -18,7 +18,7 @@ const attractions = [
     schedule: "10:00 - 18:30 (Oct-May) / 10:00 - 19:30 (May-Sep)",
     duration: "15 minutes by tram",
     category: "Historical",
-    image: "https://images.unsplash.com/photo-1466442929976-97f336a657be"
+    image: "/lovable-uploads/9ca4d75d-f08e-4dfb-abb1-9d98bd0c42b7.png"
   },
   {
     id: 2,
