@@ -234,22 +234,9 @@ const Attractions = () => {
     ? attractions 
     : attractions.filter(attraction => attraction.category === selectedCategory);
 
-  const handleViewDetails = (attraction: typeof attractions[0]) => {
-    toast({
-      title: `Detalles de ${attraction.title}`,
-      description: (
-        <div className="mt-2 space-y-2">
-          <p><strong>Ubicación:</strong> {attraction.location}</p>
-          <p><strong>Categoría:</strong> {attraction.category}</p>
-          <p><strong>Precio:</strong> {attraction.price}</p>
-          <p><strong>Horario:</strong> {attraction.schedule}</p>
-          <p><strong>Duración:</strong> {attraction.duration}</p>
-          <p><strong>Valoración:</strong> {attraction.rating} ⭐</p>
-          <p><strong>Descripción:</strong> {attraction.description}</p>
-        </div>
-      ),
-      duration: 5000,
-    });
+  const getGoogleMapsUrl = (title: string, location: string) => {
+    const query = encodeURIComponent(`${title}, ${location}, Lisboa, Portugal`);
+    return `https://www.google.com/maps/search/?api=1&query=${query}`;
   };
 
   return (
@@ -322,26 +309,12 @@ const Attractions = () => {
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-lg">{attraction.price}</span>
                     <Button 
-  onClick={() => {
-    toast({
-      title: `Ubicación de ${attraction.title}`,
-      description: (
-        <div className="mt-2 space-y-2">
-          <p><strong>Zona:</strong> {attraction.location}</p>
-          <p><strong>Tiempo estimado:</strong> {attraction.duration}</p>
-          <p className="text-sm text-muted-foreground">
-            Todas las atracciones se encuentran en Lisboa y alrededores. 
-            {attraction.location === 'Sintra' && ' Sintra es una ciudad histórica cercana a Lisboa.'}
-            {attraction.location === 'Colares' && ' Colares es una región costera cerca de Lisboa.'}
-          </p>
-        </div>
-      ),
-      duration: 3000,
-    });
-  }}
->
-  Ir al lugar
-</Button>
+                      onClick={() => {
+                        window.open(getGoogleMapsUrl(attraction.title, attraction.location), '_blank');
+                      }}
+                    >
+                      Go to Maps
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
