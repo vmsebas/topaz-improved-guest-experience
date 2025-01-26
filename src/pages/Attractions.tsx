@@ -321,7 +321,27 @@ const Attractions = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-lg">{attraction.price}</span>
-                    <Button onClick={() => handleViewDetails(attraction)}>Ver detalles</Button>
+                    <Button 
+  onClick={() => {
+    toast({
+      title: `Ubicación de ${attraction.title}`,
+      description: (
+        <div className="mt-2 space-y-2">
+          <p><strong>Zona:</strong> {attraction.location}</p>
+          <p><strong>Tiempo estimado:</strong> {attraction.duration}</p>
+          <p className="text-sm text-muted-foreground">
+            Todas las atracciones se encuentran en Lisboa y alrededores. 
+            {attraction.location === 'Sintra' && ' Sintra es una ciudad histórica cercana a Lisboa.'}
+            {attraction.location === 'Colares' && ' Colares es una región costera cerca de Lisboa.'}
+          </p>
+        </div>
+      ),
+      duration: 3000,
+    });
+  }}
+>
+  Ir al lugar
+</Button>
                   </div>
                 </CardContent>
               </Card>
