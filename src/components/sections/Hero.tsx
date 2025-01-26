@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Hero = () => {
+  const isMobile = useIsMobile();
+  const titleSize = isMobile ? "text-5xl md:text-6xl lg:text-7xl" : "text-4xl md:text-6xl lg:text-7xl";
+  const descriptionSize = isMobile ? "text-xl md:text-2xl lg:text-3xl" : "text-lg md:text-xl lg:text-2xl";
+
   return (
     <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
       <div 
@@ -19,10 +24,10 @@ export const Hero = () => {
         }}
       />
       <div className="container relative z-10 flex flex-col items-center text-center gap-6 px-4">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+        <h1 className={`${titleSize} font-bold tracking-tighter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]`}>
           Welcome to Lisbon
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl text-white font-medium max-w-[800px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
+        <p className={`${descriptionSize} text-white font-medium max-w-[800px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]`}>
           Discover the charm of the city from our cozy apartment in the heart of historic Alfama
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">

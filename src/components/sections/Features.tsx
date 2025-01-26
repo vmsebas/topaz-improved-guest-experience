@@ -1,8 +1,14 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, Landmark, Utensils, Bus, Heart, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Features = () => {
+  const isMobile = useIsMobile();
+  const titleSize = isMobile ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl";
+  const descriptionSize = isMobile ? "text-lg" : "text-base";
+  const cardTitleSize = isMobile ? "text-2xl" : "text-xl";
+
   const features = [
     {
       title: "About Lisbon Tiles",
@@ -46,8 +52,8 @@ export const Features = () => {
     <section className="py-12 md:py-16 bg-[#faf6ee]">
       <div className="container px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Your Guide to Lisboa</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className={`${titleSize} font-bold mb-4`}>Your Guide to Lisboa</h2>
+          <p className={`${descriptionSize} text-muted-foreground max-w-2xl mx-auto`}>
             Everything you need to know about your stay and the city's treasures
           </p>
         </div>
@@ -57,12 +63,12 @@ export const Features = () => {
               <Card className="h-full border shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 bg-white">
                 <CardHeader>
                   <div className="mb-4 flex items-center justify-center">{feature.icon}</div>
-                  <CardTitle className="text-xl text-center">{feature.title}</CardTitle>
+                  <CardTitle className={`${cardTitleSize} text-center`}>{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-center">{feature.description}</CardDescription>
+                  <CardDescription className={`${descriptionSize} text-center`}>{feature.description}</CardDescription>
                   <div className="mt-4 text-center">
-                    <span className="text-primary hover:underline">Learn More →</span>
+                    <span className={`${descriptionSize} text-primary hover:underline`}>Learn More →</span>
                   </div>
                 </CardContent>
               </Card>
