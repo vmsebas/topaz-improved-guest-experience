@@ -20,10 +20,10 @@ export const Hero = () => {
       />
       <div className="container relative z-10 flex flex-col items-center text-center gap-6 px-4">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
-          Bienvenido a Lisboa
+          Welcome to Lisbon
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl text-white font-medium max-w-[800px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
-          Descubre el encanto de la ciudad desde nuestro acogedor apartamento en el corazón del histórico Alfama
+          Discover the charm of the city from our cozy apartment in the heart of historic Alfama
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Link to="/about">
@@ -32,7 +32,7 @@ export const Hero = () => {
               variant="default" 
               className="w-full sm:w-auto bg-white text-black hover:bg-white/90 transition-all duration-300"
             >
-              Descubre Más
+              Discover More
             </Button>
           </Link>
           <Link to="/contact">
@@ -41,7 +41,7 @@ export const Hero = () => {
               variant="outline" 
               className="w-full sm:w-auto bg-transparent border-white text-white hover:bg-white/20 transition-all duration-300"
             >
-              Contáctanos
+              Contact Us
             </Button>
           </Link>
         </div>

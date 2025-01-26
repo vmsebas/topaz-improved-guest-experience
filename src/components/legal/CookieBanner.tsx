@@ -17,8 +17,8 @@ export const CookieBanner = () => {
     localStorage.setItem("cookieConsent", "accepted");
     setShowBanner(false);
     toast({
-      title: "Preferencias guardadas",
-      description: "Has aceptado el uso de cookies",
+      title: "Preferences saved",
+      description: "You have accepted all cookies",
     });
   };
 
@@ -26,8 +26,8 @@ export const CookieBanner = () => {
     localStorage.setItem("cookieConsent", "rejected");
     setShowBanner(false);
     toast({
-      title: "Preferencias guardadas",
-      description: "Has rechazado las cookies no esenciales",
+      title: "Preferences saved",
+      description: "You have rejected non-essential cookies",
     });
   };
 
@@ -37,19 +37,19 @@ export const CookieBanner = () => {
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-lg z-50">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm text-gray-600 flex-1">
-          Utilizamos cookies propias y de terceros para mejorar nuestros servicios. 
-          Puede aceptar todas las cookies o configurar sus preferencias.
-          Para más información, consulte nuestra{" "}
+          We use our own and third-party cookies to improve our services.
+          You can accept all cookies or configure your preferences.
+          For more information, please check our{" "}
           <a href="/cookies" className="text-primary hover:underline">
-            Política de Cookies
+            Cookie Policy
           </a>
         </p>
         <div className="flex gap-2">
           <Button variant="outline" onClick={handleReject}>
-            Rechazar no esenciales
+            Reject non-essential
           </Button>
           <Button onClick={handleAccept}>
-            Aceptar todas
+            Accept all
           </Button>
         </div>
       </div>
