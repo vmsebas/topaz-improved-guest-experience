@@ -74,6 +74,73 @@ const restaurants = {
       rating: 4.7,
       specialties: ["Sushi", "Fresh Fish", "Seafood Pasta"],
       address: "R. do Loreto 21, 1200-241 Lisboa"
+    },
+    {
+      id: 14,
+      name: "Cervejaria Trindade",
+      image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
+      type: "Historic Seafood Restaurant",
+      distance: "2 min walk",
+      hours: "12:00 - 00:00",
+      phone: "+351 213 423 506",
+      price: "€€",
+      rating: 4.6,
+      specialties: ["Fresh Seafood", "Historic Venue", "Portuguese Beer"],
+      address: "R. Nova da Trindade 20C, 1200-303 Lisboa"
+    }
+  ],
+  markets: [
+    {
+      id: 10,
+      name: "Time Out Market",
+      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+      type: "Food Hall & Market",
+      distance: "15 min by tram",
+      hours: "10:00 - 00:00",
+      phone: "+351 215 464 030",
+      price: "€€",
+      rating: 4.8,
+      specialties: ["Local Cuisine", "Wine Bar", "Gourmet Food"],
+      address: "Av. 24 de Julho 49, 1200-479 Lisboa"
+    },
+    {
+      id: 11,
+      name: "Mercado da Ribeira",
+      image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e",
+      type: "Traditional Market",
+      distance: "12 min by bus",
+      hours: "06:00 - 14:00",
+      phone: "+351 213 461 198",
+      price: "€",
+      rating: 4.6,
+      specialties: ["Fresh Fish", "Local Produce", "Portuguese Products"],
+      address: "Av. 24 de Julho 49, 1200-479 Lisboa"
+    },
+    {
+      id: 15,
+      name: "Pingo Doce Trindade",
+      image: "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e",
+      type: "Supermarket",
+      distance: "1 min walk",
+      hours: "08:00 - 22:00",
+      phone: "+351 213 421 329",
+      price: "€",
+      rating: 4.3,
+      specialties: ["Groceries", "Local Products", "Ready Meals"],
+      address: "Travessa da Trindade 16, 1200-470 Lisboa"
+    },
+    {
+      id: 16,
+      name: "Mercearia da Trindade",
+      image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e",
+      type: "Local Grocery Store",
+      distance: "2 min walk",
+      hours: "07:30 - 20:00",
+      phone: "+351 213 428 765",
+      price: "€",
+      rating: 4.4,
+      specialties: ["Portuguese Products", "Fresh Bread", "Local Delicacies"],
+      address: "Travessa da Trindade 20, 1200-470 Lisboa"
     }
   ],
   pizza: [
@@ -130,34 +197,6 @@ const restaurants = {
       rating: 4.7,
       specialties: ["Daily Menu", "Natural Wines", "Vegan Desserts"],
       address: "Beco do Jasmim 18, 1100-289 Lisboa"
-    }
-  ],
-  markets: [
-    {
-      id: 10,
-      name: "Time Out Market",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
-      type: "Food Hall & Market",
-      distance: "15 min by tram",
-      hours: "10:00 - 00:00",
-      phone: "+351 215 464 030",
-      price: "€€",
-      rating: 4.8,
-      specialties: ["Local Cuisine", "Wine Bar", "Gourmet Food"],
-      address: "Av. 24 de Julho 49, 1200-479 Lisboa"
-    },
-    {
-      id: 11,
-      name: "Mercado da Ribeira",
-      image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e",
-      type: "Traditional Market",
-      distance: "12 min by bus",
-      hours: "06:00 - 14:00",
-      phone: "+351 213 461 198",
-      price: "€",
-      rating: 4.6,
-      specialties: ["Fresh Fish", "Local Produce", "Portuguese Products"],
-      address: "Av. 24 de Julho 49, 1200-479 Lisboa"
     }
   ],
   international: [

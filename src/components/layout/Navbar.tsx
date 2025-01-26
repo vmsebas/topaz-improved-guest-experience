@@ -22,7 +22,7 @@ export const Navbar = () => {
             Transport
           </Link>
           <Link to="/restaurants" className="text-sm hover:text-primary transition-colors">
-            Restaurants
+            Food
           </Link>
           <Link to="/pricing" className="text-sm hover:text-primary transition-colors">
             Pricing
