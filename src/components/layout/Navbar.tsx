@@ -8,17 +8,17 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/0bfef87d-4b78-4e81-933f-2f3c2de2fe6c.png" 
               alt="Lizbon Tiles Suites Logo" 
-              className="h-8"
+              className="h-16 w-auto"
             />
           </Link>
         </div>
-        <div className={`md:flex items-center gap-6 ${isMenuOpen ? 'flex flex-col absolute top-16 left-0 w-full bg-background border-b p-4 space-y-4' : 'hidden'}`}>
+        <div className={`md:flex items-center gap-6 ${isMenuOpen ? 'flex flex-col absolute top-20 left-0 w-full bg-background border-b p-4 space-y-4' : 'hidden'}`}>
           <Link to="/services" className="text-sm hover:text-primary transition-colors">
             Services
           </Link>
