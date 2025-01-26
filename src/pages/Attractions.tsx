@@ -5,6 +5,172 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Clock, Star, Landmark, Palette, Mountain, Building, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+
+const Attractions = () => {
+  const { toast } = useToast();
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const isMobile = useIsMobile();
+
+  const titleSize = isMobile ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl";
+  const descriptionSize = isMobile ? "text-lg md:text-xl" : "text-base md:text-lg";
+  const cardTitleSize = isMobile ? "text-2xl" : "text-xl";
+  const cardTextSize = isMobile ? "text-base" : "text-sm";
+
+  const filteredAttractions = selectedCategory === "all" 
+    ? attractions 
+    : attractions.filter(attraction => attraction.category === selectedCategory);
+
+  const getGoogleMapsUrl = (title: string, location: string) => {
+    const query = encodeURIComponent(`${title}, ${location}, Lisboa, Portugal`);
+    return `https://www.google.com/maps/search/?api=1&query=${query}`;
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/351900123456', '_blank');
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
+      <Navbar />
+      <main className="flex-grow pt-16">
+        <section className="container py-12">
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className={`${titleSize} font-bold mb-4`}>Discover Lisboa's Treasures</h1>
+            <p className={`${descriptionSize} text-muted-foreground max-w-2xl mx-auto`}>
+              Explore the rich history, stunning viewpoints, and cultural gems that make Lisboa unique. 
+              From ancient castles to modern museums, find your next adventure here.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <Button
+              variant={selectedCategory === "all" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("all")}
+              className={`${
+                selectedCategory === "all"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm ${cardTextSize}`}
+            >
+              All Attractions
+            </Button>
+            <Button
+              variant={selectedCategory === "Historical" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Historical")}
+              className={`${
+                selectedCategory === "Historical"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm ${cardTextSize}`}
+            >
+              <Landmark className="mr-2 h-4 w-4" />
+              Historical
+            </Button>
+            <Button
+              variant={selectedCategory === "Cultural" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Cultural")}
+              className={`${
+                selectedCategory === "Cultural"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm ${cardTextSize}`}
+            >
+              <Palette className="mr-2 h-4 w-4" />
+              Cultural
+            </Button>
+            <Button
+              variant={selectedCategory === "Viewpoints" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Viewpoints")}
+              className={`${
+                selectedCategory === "Viewpoints"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm ${cardTextSize}`}
+            >
+              <Mountain className="mr-2 h-4 w-4" />
+              Viewpoints
+            </Button>
+            <Button
+              variant={selectedCategory === "Museums" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Museums")}
+              className={`${
+                selectedCategory === "Museums"
+                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
+                  : "bg-white hover:bg-gray-50 border border-gray-200"
+              } rounded-full px-6 shadow-sm ${cardTextSize}`}
+            >
+              <Building className="mr-2 h-4 w-4" />
+              Museums
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredAttractions.map((attraction) => (
+              <Card key={attraction.id} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
+                <div className="relative h-64">
+                  <img
+                    src={attraction.image}
+                    alt={attraction.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                    {attraction.category}
+                  </div>
+                  <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                    <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
+                    {attraction.rating}
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className={`${cardTitleSize} font-semibold mb-2`}>{attraction.title}</h3>
+                  <p className={`text-muted-foreground mb-4 ${cardTextSize}`}>{attraction.description}</p>
+                  <div className="space-y-2 mb-4">
+                    <div className={`flex items-center ${cardTextSize}`}>
+                      <MapPin className="h-4 w-4 mr-2 text-primary" />
+                      <span>{attraction.location}</span>
+                    </div>
+                    <div className={`flex items-center ${cardTextSize}`}>
+                      <Calendar className="h-4 w-4 mr-2 text-primary" />
+                      <span>{attraction.schedule}</span>
+                    </div>
+                    <div className={`flex items-center ${cardTextSize}`}>
+                      <Clock className="h-4 w-4 mr-2 text-primary" />
+                      <span>{attraction.duration}</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className={`font-semibold ${cardTitleSize}`}>{attraction.price}</span>
+                    <Button 
+                      onClick={() => {
+                        window.open(getGoogleMapsUrl(attraction.title, attraction.location), '_blank');
+                      }}
+                      className={cardTextSize}
+                    >
+                      Go to Maps
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </main>
+      <Footer />
+      
+      <button
+        onClick={handleWhatsAppClick}
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
+        aria-label="Contactar por WhatsApp"
+      >
+        <MessageCircle className="h-6 w-6" />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
+          <span className="pl-2">WhatsApp</span>
+        </span>
+      </button>
+    </div>
+  );
+};
 
 const attractions = [
   {
@@ -224,163 +390,5 @@ const attractions = [
     image: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e"
   }
 ];
-
-const Attractions = () => {
-  const { toast } = useToast();
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-
-  const filteredAttractions = selectedCategory === "all" 
-    ? attractions 
-    : attractions.filter(attraction => attraction.category === selectedCategory);
-
-  const getGoogleMapsUrl = (title: string, location: string) => {
-    const query = encodeURIComponent(`${title}, ${location}, Lisboa, Portugal`);
-    return `https://www.google.com/maps/search/?api=1&query=${query}`;
-  };
-
-  const handleWhatsAppClick = () => {
-    window.open('https://wa.me/351900123456', '_blank');
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
-      <Navbar />
-      <main className="flex-grow pt-16">
-        <section className="container py-12">
-          <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">Discover Lisboa's Treasures</h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore the rich history, stunning viewpoints, and cultural gems that make Lisboa unique. 
-              From ancient castles to modern museums, find your next adventure here.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <Button
-              variant={selectedCategory === "all" ? "default" : "outline"}
-              onClick={() => setSelectedCategory("all")}
-              className={`${
-                selectedCategory === "all"
-                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
-                  : "bg-white hover:bg-gray-50 border border-gray-200"
-              } rounded-full px-6 shadow-sm`}
-            >
-              All Attractions
-            </Button>
-            <Button
-              variant={selectedCategory === "Historical" ? "default" : "outline"}
-              onClick={() => setSelectedCategory("Historical")}
-              className={`${
-                selectedCategory === "Historical"
-                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
-                  : "bg-white hover:bg-gray-50 border border-gray-200"
-              } rounded-full px-6 shadow-sm`}
-            >
-              <Landmark className="mr-2 h-4 w-4" />
-              Historical
-            </Button>
-            <Button
-              variant={selectedCategory === "Cultural" ? "default" : "outline"}
-              onClick={() => setSelectedCategory("Cultural")}
-              className={`${
-                selectedCategory === "Cultural"
-                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
-                  : "bg-white hover:bg-gray-50 border border-gray-200"
-              } rounded-full px-6 shadow-sm`}
-            >
-              <Palette className="mr-2 h-4 w-4" />
-              Cultural
-            </Button>
-            <Button
-              variant={selectedCategory === "Viewpoints" ? "default" : "outline"}
-              onClick={() => setSelectedCategory("Viewpoints")}
-              className={`${
-                selectedCategory === "Viewpoints"
-                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
-                  : "bg-white hover:bg-gray-50 border border-gray-200"
-              } rounded-full px-6 shadow-sm`}
-            >
-              <Mountain className="mr-2 h-4 w-4" />
-              Viewpoints
-            </Button>
-            <Button
-              variant={selectedCategory === "Museums" ? "default" : "outline"}
-              onClick={() => setSelectedCategory("Museums")}
-              className={`${
-                selectedCategory === "Museums"
-                  ? "bg-[#1A1F2C] text-white hover:bg-[#1A1F2C]/90"
-                  : "bg-white hover:bg-gray-50 border border-gray-200"
-              } rounded-full px-6 shadow-sm`}
-            >
-              <Building className="mr-2 h-4 w-4" />
-              Museums
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredAttractions.map((attraction) => (
-              <Card key={attraction.id} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
-                <div className="relative h-64">
-                  <img
-                    src={attraction.image}
-                    alt={attraction.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                    {attraction.category}
-                  </div>
-                  <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm flex items-center">
-                    <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
-                    {attraction.rating}
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{attraction.title}</h3>
-                  <p className="text-muted-foreground mb-4">{attraction.description}</p>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm">
-                      <MapPin className="h-4 w-4 mr-2 text-primary" />
-                      <span>{attraction.location}</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Calendar className="h-4 w-4 mr-2 text-primary" />
-                      <span>{attraction.schedule}</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Clock className="h-4 w-4 mr-2 text-primary" />
-                      <span>{attraction.duration}</span>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-lg">{attraction.price}</span>
-                    <Button 
-                      onClick={() => {
-                        window.open(getGoogleMapsUrl(attraction.title, attraction.location), '_blank');
-                      }}
-                    >
-                      Go to Maps
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-      </main>
-      <Footer />
-      
-      <button
-        onClick={handleWhatsAppClick}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
-        aria-label="Contactar por WhatsApp"
-      >
-        <MessageCircle className="h-6 w-6" />
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
-          <span className="pl-2">WhatsApp</span>
-        </span>
-      </button>
-    </div>
-  );
-};
 
 export default Attractions;
