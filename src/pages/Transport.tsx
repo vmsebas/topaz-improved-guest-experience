@@ -4,6 +4,7 @@ import { useState } from "react";
 import { TransportFilter } from "@/components/transport/TransportFilter";
 import { TransportCard } from "@/components/transport/TransportCard";
 import { Bus, Car, Train, Plane, Bike, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Transport = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -11,9 +12,9 @@ const Transport = () => {
   const transportOptions = [
     {
       id: 1,
-      title: "Metro de Lisboa",
-      description: "Red moderna de metro que conecta las principales zonas de Lisboa. Incluye 4 líneas que cubren gran parte de la ciudad y áreas metropolitanas. Tarjeta Viva Viagem recargable necesaria para todos los viajes.",
-      location: "56 estaciones por toda Lisboa",
+      title: "Lisbon Metro",
+      description: "Modern metro network connecting main areas of Lisbon. Includes 4 lines covering most of the city and metropolitan areas. Viva Viagem card required for all journeys.",
+      location: "56 stations across Lisbon",
       rating: 4.5,
       price: {
         single: "€1.80",
@@ -21,18 +22,18 @@ const Transport = () => {
         tourist: {
           "24h": "€6.85",
           "72h": "€16.50",
-          "7 días": "€27.00"
+          "7 days": "€27.00"
         }
       },
       schedule: "06:30 - 01:00",
-      duration: "Frecuencia: 3-8 min",
+      duration: "Frequency: 3-8 min",
       category: "Public",
       features: [
-        "Tarjeta Viva Viagem obligatoria (€0.50)",
-        "Zapping disponible",
-        "Wifi gratuito",
-        "Aire acondicionado",
-        "Accesible"
+        "Viva Viagem card required (€0.50)",
+        "Zapping available",
+        "Free WiFi",
+        "Air conditioning",
+        "Accessible"
       ],
       website: "https://www.metrolisboa.pt",
       image: "/lovable-uploads/97ce7175-ae56-4a36-b585-877b7c9704c1.png",
@@ -191,30 +192,38 @@ const Transport = () => {
       <Navbar />
       <main className="flex-1 container mx-auto px-4 pt-32 pb-8">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-4">Transporte en Lisboa</h1>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-4xl font-bold text-center">Transport in Lisbon</h1>
+            <Link 
+              to="/blog" 
+              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Visit our Blog
+            </Link>
+          </div>
           <p className="text-muted-foreground text-center mb-8">
-            Descubre las mejores opciones para moverte por la ciudad
+            Discover the best ways to move around the city
           </p>
           
           <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <h2 className="text-2xl font-semibold mb-4">Tarjetas de Transporte</h2>
+            <h2 className="text-2xl font-semibold mb-4">Transport Cards</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-lg font-medium mb-2">Tarjeta Viva Viagem</h3>
+                <h3 className="text-lg font-medium mb-2">Viva Viagem Card</h3>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li>Coste de la tarjeta: €0.50 (recargable)</li>
-                  <li>Válida para metro, autobús, tranvía y trenes CP</li>
-                  <li>Opción Zapping: recarga desde €3.00 hasta €40.00</li>
-                  <li>Viajes individuales más económicos con Zapping (€1.80)</li>
+                  <li>Card cost: €0.50 (rechargeable)</li>
+                  <li>Valid for metro, bus, tram and CP trains</li>
+                  <li>Zapping option: top up from €3.00 to €40.00</li>
+                  <li>Cheaper single trips with Zapping (€1.80)</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-2">Pases Turísticos</h3>
+                <h3 className="text-lg font-medium mb-2">Tourist Passes</h3>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li>Pase 24h: €6.85 (ilimitado en red Carris/Metro)</li>
-                  <li>Pase 72h: €16.50 (ilimitado en red Carris/Metro)</li>
-                  <li>Lisboa Card: desde €20.00 (incluye museos y atracciones)</li>
-                  <li>Pase 7 días: €27.00 (ideal para estancias largas)</li>
+                  <li>24h Pass: €6.85 (unlimited on Carris/Metro network)</li>
+                  <li>72h Pass: €16.50 (unlimited on Carris/Metro network)</li>
+                  <li>Lisboa Card: from €20.00 (includes museums and attractions)</li>
+                  <li>7-day Pass: €27.00 (ideal for longer stays)</li>
                 </ul>
               </div>
             </div>
@@ -237,7 +246,7 @@ const Transport = () => {
       <button
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
-        aria-label="Contactar por WhatsApp"
+        aria-label="Contact via WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
