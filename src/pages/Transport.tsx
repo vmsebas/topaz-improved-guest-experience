@@ -2,91 +2,159 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Star, Train, Bus, Ship, Car, Bike } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { MapPin, Clock, Star, Train, Bus, Ship, Car, Bike, Plane, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const transportOptions = [
   {
     id: 1,
-    title: "Metro de Lisboa",
-    description: "Red moderna y eficiente que conecta los principales puntos de la ciudad",
-    location: "Red metropolitana",
+    title: "Metro & Train",
+    description: "Lisbon's efficient metro system connects all major areas. The nearest station 'Santa Apolónia' is just 5 minutes away.",
+    location: "Multiple stations across Lisbon",
     rating: 4.8,
-    price: "€1.50",
+    price: "From €1.50",
     schedule: "6:30 AM - 1:00 AM",
-    duration: "Frecuencia: 5-10 min",
+    duration: "Frequency: 5-10 min",
     category: "Public",
+    features: [
+      "Single ticket: €1.50",
+      "Day pass: €6.40",
+      "4 metro lines",
+      "Connection to train services"
+    ],
+    website: "https://www.metrolisboa.pt/en/",
     image: "https://images.unsplash.com/photo-1581252584837-7dd6a7c27d04",
     icon: Train
   },
   {
     id: 2,
-    title: "Red de Autobuses Carris",
-    description: "Extensa red de autobuses que cubre toda la ciudad",
-    location: "Lisboa",
+    title: "Bus Network (Carris)",
+    description: "Extensive bus network operated by Carris. Bus stops available throughout the city with frequent services.",
+    location: "Citywide coverage",
     rating: 4.6,
-    price: "€2.00",
-    schedule: "24/7 service",
-    duration: "Frecuencia variable",
+    price: "From €2.00",
+    schedule: "24/7 service on main routes",
+    duration: "Variable frequency",
     category: "Public",
+    features: [
+      "Single ticket: €2.00",
+      "Tourist cards available",
+      "Night service available",
+      "Real-time tracking"
+    ],
+    website: "https://www.carris.pt/en/",
     image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e",
     icon: Bus
   },
   {
     id: 3,
-    title: "Transbordador del Tajo",
-    description: "Conexión marítima con la orilla sur del río Tajo",
+    title: "Ferry Services",
+    description: "Cross the Tagus River to visit the south bank. Regular services from multiple terminals.",
     location: "Terreiro do Paço",
     rating: 4.7,
-    price: "€2.75",
+    price: "From €2.75",
     schedule: "7:00 AM - 10:00 PM",
-    duration: "10-15 minutos",
+    duration: "10-15 minutes crossing",
     category: "Public",
+    features: [
+      "Beautiful river views",
+      "Multiple terminals",
+      "Integrated with public transport",
+      "Bicycle transport allowed"
+    ],
+    website: "https://ttsl.pt/en/",
     image: "https://images.unsplash.com/photo-1569263900347-06b1e8c825ab",
     icon: Ship
   },
   {
     id: 4,
-    title: "Taxis y Ride-Sharing",
-    description: "Servicios de taxi tradicional y aplicaciones de transporte",
-    location: "Toda la ciudad",
-    rating: 4.5,
-    price: "Desde €3.25",
+    title: "Uber",
+    description: "Convenient ride-hailing service available throughout Lisbon with multiple vehicle options.",
+    location: "Citywide coverage",
+    rating: 4.8,
+    price: "Variable rates",
     schedule: "24/7",
-    duration: "Según destino",
+    duration: "On-demand",
     category: "Private",
+    features: [
+      "Multiple vehicle options",
+      "Fixed pricing",
+      "Real-time tracking",
+      "Cashless payment"
+    ],
+    website: "https://www.uber.com/pt/en/",
     image: "https://images.unsplash.com/photo-1621963458148-db0d0a7e2a4e",
     icon: Car
   },
   {
     id: 5,
-    title: "Gira - Bicicletas compartidas",
-    description: "Sistema de bicicletas públicas para recorrer la ciudad",
-    location: "Múltiples estaciones",
-    rating: 4.4,
-    price: "€2/día",
+    title: "Bolt",
+    description: "Popular ride-hailing and micro-mobility service with competitive rates.",
+    location: "Citywide coverage",
+    rating: 4.7,
+    price: "Variable rates",
     schedule: "24/7",
-    duration: "Uso ilimitado",
+    duration: "On-demand",
+    category: "Private",
+    features: [
+      "Rides and scooters",
+      "Competitive pricing",
+      "Easy booking",
+      "Multiple payment options"
+    ],
+    website: "https://bolt.eu/en/cities/lisbon/",
+    image: "https://images.unsplash.com/photo-1549360783-830a4433d24e",
+    icon: Car
+  },
+  {
+    id: 6,
+    title: "Gira Bikes",
+    description: "Lisbon's bike-sharing system perfect for exploring the city.",
+    location: "Multiple stations",
+    rating: 4.5,
+    price: "From €2/day",
+    schedule: "24/7",
+    duration: "Unlimited use",
     category: "Active",
+    features: [
+      "Regular and e-bikes",
+      "Multiple pickup points",
+      "Easy mobile app",
+      "Tourist passes available"
+    ],
+    website: "https://www.gira-bicicletasdelisboa.pt/en/",
     image: "https://images.unsplash.com/photo-1556316384-12c35d30afa4",
     icon: Bike
+  },
+  {
+    id: 7,
+    title: "Airport Transfer",
+    description: "Multiple options to reach Lisbon Airport (LIS), including private transfers, metro, and bus services.",
+    location: "Lisbon Airport",
+    rating: 4.6,
+    price: "From €4.00",
+    schedule: "24/7",
+    duration: "25-40 minutes",
+    category: "Airport",
+    features: [
+      "Metro direct line",
+      "Aerobus service",
+      "Private transfers",
+      "Taxi fixed rates"
+    ],
+    website: "https://www.ana.pt/en/lis/home",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05",
+    icon: Plane
   }
 ];
 
 const Transport = () => {
-  const { toast } = useToast();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const filteredTransport = selectedCategory === "all" 
     ? transportOptions 
     : transportOptions.filter(option => option.category === selectedCategory);
-
-  const getGoogleMapsUrl = (title: string, location: string) => {
-    const query = encodeURIComponent(`${title}, ${location}, Lisboa, Portugal`);
-    return `https://www.google.com/maps/search/?api=1&query=${query}`;
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -94,26 +162,29 @@ const Transport = () => {
       <main className="flex-grow pt-16">
         <section className="container py-12">
           <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">Transporte en Lisboa</h1>
+            <h1 className="text-4xl font-bold mb-4">Transport Options in Lisbon</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Descubre las mejores opciones para moverte por Lisboa. Desde el histórico 
-              tranvía hasta el moderno metro, encuentra la forma más conveniente de explorar la ciudad.
+              Discover the best ways to navigate Lisbon. From historic trams to modern metro lines, 
+              find the most convenient way to explore the city.
             </p>
           </div>
 
           <Tabs defaultValue="all" className="w-full mb-8">
             <TabsList className="flex justify-center space-x-2">
               <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
-                Todos
+                All Options
               </TabsTrigger>
               <TabsTrigger value="Public" onClick={() => setSelectedCategory("Public")}>
-                Público
+                Public Transport
               </TabsTrigger>
               <TabsTrigger value="Private" onClick={() => setSelectedCategory("Private")}>
-                Privado
+                Private Transport
               </TabsTrigger>
               <TabsTrigger value="Active" onClick={() => setSelectedCategory("Active")}>
-                Activo
+                Active Transport
+              </TabsTrigger>
+              <TabsTrigger value="Airport" onClick={() => setSelectedCategory("Airport")}>
+                Airport
               </TabsTrigger>
             </TabsList>
           </Tabs>
@@ -151,52 +222,26 @@ const Transport = () => {
                       <span>{option.schedule}</span>
                     </div>
                   </div>
+                  <div className="space-y-2 mb-4">
+                    {option.features.map((feature, index) => (
+                      <div key={index} className="text-sm text-muted-foreground">
+                        • {feature}
+                      </div>
+                    ))}
+                  </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-lg">{option.price}</span>
                     <Button 
-                      onClick={() => {
-                        window.open(getGoogleMapsUrl(option.title, option.location), '_blank');
-                      }}
+                      onClick={() => window.open(option.website, '_blank')}
+                      className="flex items-center gap-2"
                     >
-                      Ver en Mapa
+                      Learn More
+                      <ExternalLink className="h-4 w-4" />
                     </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          <div className="mt-12 space-y-6">
-            <h2 className="text-3xl font-bold text-center mb-8">Consejos de Transporte</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Train className="h-5 w-5" />
-                    Tarjeta Viva Viagem
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Obtén una tarjeta Viva Viagem para viajes ilimitados en transporte 
-                    público. Válida por 24h, 48h o 72h. Disponible en cualquier 
-                    estación de metro o terminal de autobuses.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Bus className="h-5 w-5" />
-                    Horarios y Rutas
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Descarga la aplicación oficial de transporte de Lisboa para 
-                    consultar horarios en tiempo real y planificar tus rutas. 
-                    Disponible para iOS y Android.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </section>
       </main>
