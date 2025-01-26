@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Hospital, Stethoscope, Flag, Shield, Clock, Phone, MapPin, Star, ExternalLink } from "lucide-react";
+import { Service } from "@/types/services";
 
 const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -13,7 +14,7 @@ const Services = () => {
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
   };
 
-  const services = {
+  const services: Record<string, Service[]> = {
     healthcare: [
       {
         name: "Hospital de São José",
@@ -63,15 +64,16 @@ const Services = () => {
         image: "https://lh5.googleusercontent.com/p/AF1QipP2UTEcBr7r1F02LWYoCTjtAjcmkBAN_TmoOr2a=w408-h544-k-no"
       },
       {
-        name: "Farmácia Baião Santos",
-        type: "24h Pharmacy",
-        distance: "8 min walk",
-        address: "R. do Telhal 12, 1150-346 Lisboa",
-        hours: "24/7",
-        contact: "+351 213 557 484",
-        rating: 4.3,
-        description: "24-hour pharmacy for emergency needs.",
-        isEmergency: true
+        name: "Farmácia Barreto",
+        type: "Historic Pharmacy",
+        distance: "6 min walk",
+        address: "R. do Loreto 59, 1200-241 Lisboa",
+        hours: "9:00 - 19:30",
+        contact: "+351 213 425 625",
+        rating: 4.4,
+        description: "Historic pharmacy with traditional Portuguese architecture.",
+        isEmergency: false,
+        image: "https://lh5.googleusercontent.com/p/AF1QipOnpCBv4fzLnqCrk5By7ClIEth7l-gArikUyZ0H=w408-h726-k-no"
       },
       {
         name: "Farmácia Normal",
