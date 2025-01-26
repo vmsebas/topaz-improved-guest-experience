@@ -2,10 +2,10 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Clock, Star, Filter } from "lucide-react";
+import { MapPin, Calendar, Clock, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CategoryFilter } from "@/components/common/CategoryFilter";
 
 const attractions = [
   {
@@ -230,6 +230,14 @@ const Attractions = () => {
   const { toast } = useToast();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
+  const categories = [
+    { id: "all", name: "All Attractions" },
+    { id: "Historical", name: "Historical" },
+    { id: "Cultural", name: "Cultural" },
+    { id: "Viewpoints", name: "Viewpoints" },
+    { id: "Museums", name: "Museums" }
+  ];
+
   const filteredAttractions = selectedCategory === "all" 
     ? attractions 
     : attractions.filter(attraction => attraction.category === selectedCategory);
@@ -252,25 +260,11 @@ const Attractions = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full mb-8">
-            <TabsList className="flex justify-center space-x-2">
-              <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
-                All Attractions
-              </TabsTrigger>
-              <TabsTrigger value="Historical" onClick={() => setSelectedCategory("Historical")}>
-                Historical
-              </TabsTrigger>
-              <TabsTrigger value="Cultural" onClick={() => setSelectedCategory("Cultural")}>
-                Cultural
-              </TabsTrigger>
-              <TabsTrigger value="Viewpoints" onClick={() => setSelectedCategory("Viewpoints")}>
-                Viewpoints
-              </TabsTrigger>
-              <TabsTrigger value="Museums" onClick={() => setSelectedCategory("Museums")}>
-                Museums
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <CategoryFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredAttractions.map((attraction) => (

@@ -232,6 +232,16 @@ const restaurants = {
 const Restaurants = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
+  const categories = [
+    { id: "all", name: "All Restaurants" },
+    { id: "portuguese", name: "Portuguese" },
+    { id: "seafood", name: "Seafood" },
+    { id: "pizza", name: "Pizza" },
+    { id: "vegetarian", name: "Vegetarian" },
+    { id: "markets", name: "Markets" },
+    { id: "international", name: "International" }
+  ];
+
   const getAllRestaurants = () => {
     return Object.values(restaurants).flat();
   };
@@ -261,31 +271,11 @@ const Restaurants = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full mb-8">
-            <TabsList className="flex justify-center space-x-2 flex-wrap">
-              <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
-                All Restaurants
-              </TabsTrigger>
-              <TabsTrigger value="portuguese" onClick={() => setSelectedCategory("portuguese")}>
-                Portuguese
-              </TabsTrigger>
-              <TabsTrigger value="seafood" onClick={() => setSelectedCategory("seafood")}>
-                Seafood
-              </TabsTrigger>
-              <TabsTrigger value="pizza" onClick={() => setSelectedCategory("pizza")}>
-                Pizza
-              </TabsTrigger>
-              <TabsTrigger value="vegetarian" onClick={() => setSelectedCategory("vegetarian")}>
-                Vegetarian
-              </TabsTrigger>
-              <TabsTrigger value="markets" onClick={() => setSelectedCategory("markets")}>
-                Markets
-              </TabsTrigger>
-              <TabsTrigger value="international" onClick={() => setSelectedCategory("international")}>
-                International
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <CategoryFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {getFilteredRestaurants().map((restaurant) => (
@@ -358,4 +348,3 @@ const Restaurants = () => {
 };
 
 export default Restaurants;
-
