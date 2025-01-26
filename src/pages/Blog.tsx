@@ -1,7 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
 const Blog = () => {
   const articles = [
@@ -48,12 +46,11 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F1F0FB]/50">
-      <Navbar />
+    <div className="min-h-screen bg-background">
       <div className="container px-4 py-16 mx-auto">
         <div className="space-y-8">
-          <div className="text-center space-y-4 animate-fade-in">
-            <h1 className="text-4xl font-bold tracking-tight text-primary">Blog de Lisboa</h1>
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight">Blog de Lisboa</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Descubre los secretos, la historia y la cultura de una de las ciudades más hermosas de Europa
             </p>
@@ -62,7 +59,7 @@ const Blog = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
               <Link key={article.id} to={`/blog/${article.id}`} className="group">
-                <Card className="overflow-hidden transition-all duration-200 hover:shadow-lg bg-white border-none animate-fade-in">
+                <Card className="overflow-hidden transition-all duration-200 hover:shadow-lg">
                   <div className="aspect-video relative overflow-hidden">
                     <img
                       src={article.image}
@@ -87,7 +84,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

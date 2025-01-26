@@ -4,25 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
-  const { toast } = useToast();
-  
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/351900123456', '_blank');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Mensaje enviado",
-      description: "Nos pondremos en contacto contigo pronto.",
-    });
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#F1F0FB]/50">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1 pt-16">
         <section className="py-16">
@@ -30,30 +19,30 @@ const Contact = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-8 animate-fade-in">
                 <div>
-                  <h1 className="text-4xl font-bold mb-4 text-primary">Contacta con Nosotros</h1>
+                  <h1 className="text-4xl font-bold mb-4">Contacta con Nosotros</h1>
                   <p className="text-muted-foreground">
                     Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos lo antes posible.
                   </p>
                 </div>
-                <div className="space-y-6 bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div className="space-y-6 bg-card p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4">
-                    <Mail className="h-5 w-5 text-[#D3E4FD] shrink-0" />
+                    <Mail className="h-5 w-5 text-primary shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-primary">Email</h3>
+                      <h3 className="font-semibold">Email</h3>
                       <p className="text-muted-foreground">info@lisbontiles.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <Phone className="h-5 w-5 text-[#F2FCE2] shrink-0" />
+                    <Phone className="h-5 w-5 text-primary shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-primary">Teléfono</h3>
+                      <h3 className="font-semibold">Teléfono</h3>
                       <p className="text-muted-foreground">+351 900 123 456</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <MapPin className="h-5 w-5 text-[#FDE1D3] shrink-0" />
+                    <MapPin className="h-5 w-5 text-primary shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-primary">Dirección</h3>
+                      <h3 className="font-semibold">Dirección</h3>
                       <p className="text-muted-foreground">
                         Travessa da Trindade 18<br />
                         1200-469 Lisboa<br />
@@ -63,8 +52,8 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up">
-                <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up">
+                <form className="space-y-6">
                   <div>
                     <Input 
                       placeholder="Nombre" 
@@ -90,7 +79,7 @@ const Contact = () => {
                       className="min-h-[150px] bg-background/50 backdrop-blur-sm"
                     />
                   </div>
-                  <Button className="w-full bg-[#D3E4FD] hover:bg-[#D3E4FD]/80 text-primary">
+                  <Button className="w-full">
                     Enviar Mensaje
                   </Button>
                 </form>
@@ -104,7 +93,7 @@ const Contact = () => {
       {/* Botón flotante de WhatsApp */}
       <button
         onClick={handleWhatsAppClick}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group animate-fade-in"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
         aria-label="Contactar por WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />

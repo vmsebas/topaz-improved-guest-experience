@@ -1,5 +1,4 @@
-import { Bus, Car, Bike, Plane } from "lucide-react";
-import { CategoryFilter } from "@/components/common/CategoryFilter";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface TransportFilterProps {
   selectedCategory: string;
@@ -7,20 +6,45 @@ interface TransportFilterProps {
 }
 
 export const TransportFilter = ({ selectedCategory, onCategoryChange }: TransportFilterProps) => {
-  const categories = [
-    { id: "all", name: "All Options" },
-    { id: "Public", name: "Public Transport", icon: Bus },
-    { id: "Private", name: "Private Transport", icon: Car },
-    { id: "Active", name: "Active Transport", icon: Bike },
-    { id: "Airport", name: "Airport", icon: Plane },
-  ];
-
   return (
-    <CategoryFilter
-      categories={categories}
-      selectedCategory={selectedCategory}
-      onCategoryChange={onCategoryChange}
-      className="mb-8"
-    />
+    <Tabs defaultValue={selectedCategory} className="w-full mb-8">
+      <TabsList className="flex justify-center space-x-2 bg-[#F1F0FB] p-1">
+        <TabsTrigger 
+          value="all" 
+          onClick={() => onCategoryChange("all")}
+          className="data-[state=active]:bg-white"
+        >
+          All Options
+        </TabsTrigger>
+        <TabsTrigger 
+          value="Public" 
+          onClick={() => onCategoryChange("Public")}
+          className="data-[state=active]:bg-white"
+        >
+          Public Transport
+        </TabsTrigger>
+        <TabsTrigger 
+          value="Private" 
+          onClick={() => onCategoryChange("Private")}
+          className="data-[state=active]:bg-white"
+        >
+          Private Transport
+        </TabsTrigger>
+        <TabsTrigger 
+          value="Active" 
+          onClick={() => onCategoryChange("Active")}
+          className="data-[state=active]:bg-white"
+        >
+          Active Transport
+        </TabsTrigger>
+        <TabsTrigger 
+          value="Airport" 
+          onClick={() => onCategoryChange("Airport")}
+          className="data-[state=active]:bg-white"
+        >
+          Airport
+        </TabsTrigger>
+      </TabsList>
+    </Tabs>
   );
 };
