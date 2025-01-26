@@ -12,17 +12,16 @@ const About = () => {
           <div 
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1513735492246-483525079686')",
+              backgroundImage: "linear-gradient(109.6deg, rgba(223,234,247,1) 11.2%, rgba(244,248,252,1) 91.1%)",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              filter: "brightness(0.6)"
             }}
           />
           <div className="container relative z-10 animate-fade-in">
-            <h1 className="text-5xl font-bold text-white mb-4">
+            <h1 className="text-5xl font-bold text-primary mb-4">
               Sobre Lisbon Tiles
             </h1>
-            <p className="text-xl text-gray-200">
+            <p className="text-xl text-muted-foreground">
               Tu auténtico hogar portugués en el corazón del histórico Alfama
             </p>
           </div>
@@ -36,7 +35,7 @@ const About = () => {
         </section>
 
         {/* Main Content */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gradient-to-b from-[#F1F0FB] to-white">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="animate-fade-in">
