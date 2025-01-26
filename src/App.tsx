@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Attractions from "./pages/Attractions";
 import Transport from "./pages/Transport";
 import Restaurants from "./pages/Restaurants";
+import Blog from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/attractions" element={<Attractions />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/restaurants" element={<Restaurants />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
