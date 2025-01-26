@@ -197,7 +197,7 @@ const Services = () => {
     : services[selectedCategory as keyof typeof services] || [];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
       <main className="flex-1 pt-16">
         <section className="py-16 bg-secondary/50">

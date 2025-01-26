@@ -156,7 +156,7 @@ const Transport = () => {
     : transportOptions.filter(option => option.category === selectedCategory);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F1F0FB]">
+    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
       <main className="flex-grow pt-16">
         <section className="container py-12">

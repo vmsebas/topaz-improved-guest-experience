@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 
 const Terms = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F1F0FB]">
+    <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
       <main className="flex-1 container py-20">
         <Breadcrumb className="mb-8">
