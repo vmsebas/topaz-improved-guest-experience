@@ -10,54 +10,54 @@ const Terms = () => {
         <Breadcrumb className="mb-8 animate-fade-in">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/">Início</BreadcrumbLink>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Termos e Condições</BreadcrumbPage>
+              <BreadcrumbPage>Terms & Conditions</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
 
         <div className="bg-white p-8 rounded-lg shadow-lg animate-fade-in hover:shadow-xl transition-all duration-300">
           <h1 className="text-4xl font-bold mb-8 text-primary bg-gradient-to-r from-[#D3E4FD] to-[#F1F0FB] bg-clip-text text-transparent">
-            Termos e Condições
+            Terms & Conditions
           </h1>
           
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-8">
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">1. Introdução</h2>
-              <p>Bem-vindo ao Lisbon Tiles. Ao acessar e usar nosso site, você concorda com estes termos e condições de uso.</p>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">1. Introduction</h2>
+              <p>Welcome to Lisbon Tiles. By accessing and using our site, you agree to these terms and conditions of use.</p>
             </div>
 
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">2. Reservas e Pagamentos</h2>
-              <p>2.1. As reservas estão sujeitas à disponibilidade e confirmação.</p>
-              <p>2.2. O pagamento pode ser feito através dos métodos disponíveis no momento da reserva.</p>
-              <p>2.3. Podem ser aplicadas taxas de cancelamento de acordo com a política de cancelamento em vigor.</p>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">2. Reservations and Payments</h2>
+              <p>2.1. All reservations are subject to availability and confirmation.</p>
+              <p>2.2. Payment can be made through available methods at the time of booking.</p>
+              <p>2.3. Cancellation fees may apply according to the current cancellation policy.</p>
             </div>
 
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">3. Regras de Hospedagem</h2>
-              <p>3.1. O check-in é realizado a partir das 15:00 e o check-out até às 11:00.</p>
-              <p>3.2. Os hóspedes devem respeitar as regras do condomínio e manter o ambiente tranquilo.</p>
-              <p>3.3. É proibido fumar dentro das instalações.</p>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">3. House Rules</h2>
+              <p>3.1. Check-in is from 3:00 PM and check-out is until 11:00 AM.</p>
+              <p>3.2. Guests must respect building rules and maintain a quiet environment.</p>
+              <p>3.3. Smoking is not permitted inside the premises.</p>
             </div>
 
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">4. Responsabilidades</h2>
-              <p>4.1. O Lisbon Tiles não se responsabiliza por objetos pessoais deixados nas acomodações.</p>
-              <p>4.2. Os hóspedes são responsáveis por quaisquer danos causados à propriedade.</p>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">4. Responsibilities</h2>
+              <p>4.1. Lisbon Tiles is not responsible for personal items left in the accommodations.</p>
+              <p>4.2. Guests are responsible for any damage caused to the property.</p>
             </div>
 
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">5. Lei Aplicável</h2>
-              <p>Estes termos são regidos pela lei portuguesa e europeia. Qualquer disputa será resolvida nos tribunais de Lisboa, Portugal.</p>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">5. Applicable Law</h2>
+              <p>These terms are governed by Portuguese and European law. Any disputes will be resolved in the courts of Lisbon, Portugal.</p>
             </div>
 
             <div className="bg-[#F1F0FB]/30 p-6 rounded-lg">
-              <h2 className="text-2xl font-semibold mb-4 text-primary">6. Alterações aos Termos</h2>
-              <p>Reservamo-nos o direito de modificar estes termos a qualquer momento, publicando a versão atualizada neste site.</p>
+              <h2 className="text-2xl font-semibold mb-4 text-primary">6. Changes to Terms</h2>
+              <p>We reserve the right to modify these terms at any time by posting the updated version on this website.</p>
             </div>
           </div>
         </div>
