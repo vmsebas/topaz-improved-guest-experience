@@ -12,7 +12,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center">
             <img 
-              src="https://github.com/vmsebas/webGuest/blob/main/public/logo.png?raw=true" 
+              src="/lovable-uploads/0bfef87d-4b78-4e81-933f-2f3c2de2fe6c.png" 
               alt="Lizbon Tiles Suites Logo" 
               className="h-8"
             />
