@@ -112,7 +112,7 @@ const Transport = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
-      <main className="flex-1 container mx-auto px-4 py-8">
+      <main className="flex-1 container mx-auto px-4 pt-32 pb-8"> {/* Aumentado el padding top a 32 (8rem) */}
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-4">Transporte en Lisboa</h1>
           <p className="text-muted-foreground text-center mb-8">
