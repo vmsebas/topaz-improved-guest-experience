@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Star, Phone, Euro, ExternalLink } from "lucide-react";
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CategoryFilter } from "@/components/common/CategoryFilter";
 
 const restaurants = {
   portuguese: [
