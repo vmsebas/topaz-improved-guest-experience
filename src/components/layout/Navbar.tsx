@@ -41,10 +41,11 @@ export const Navbar = () => {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="md:hidden"
+          className="md:hidden p-4 h-14 w-14 touch-manipulation"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
         >
-          <Menu className="h-6 w-6" />
+          <Menu className="h-8 w-8" />
         </Button>
       </div>
     </nav>
