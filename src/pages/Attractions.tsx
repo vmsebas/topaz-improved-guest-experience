@@ -3,8 +3,11 @@ import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Calendar, Users, Star } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const Attractions = () => {
+  const { toast } = useToast();
+
   const attractions = [
     {
       id: 1,
@@ -52,6 +55,24 @@ const Attractions = () => {
     }
   ];
 
+  const handleReserve = (attraction: typeof attractions[0]) => {
+    console.log("Información de la atracción:", attraction);
+    toast({
+      title: `Detalles de ${attraction.title}`,
+      description: (
+        <div className="mt-2 space-y-2">
+          <p><strong>Ubicación:</strong> {attraction.location}</p>
+          <p><strong>Precio:</strong> {attraction.price}</p>
+          <p><strong>Capacidad:</strong> {attraction.capacity}</p>
+          <p><strong>Duración:</strong> {attraction.duration}</p>
+          <p><strong>Valoración:</strong> {attraction.rating} ⭐</p>
+          <p><strong>Descripción:</strong> {attraction.description}</p>
+        </div>
+      ),
+      duration: 5000,
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -98,7 +119,7 @@ const Attractions = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-lg">{attraction.price}</span>
-                    <Button>Reservar ahora</Button>
+                    <Button onClick={() => handleReserve(attraction)}>Reservar ahora</Button>
                   </div>
                 </CardContent>
               </Card>
