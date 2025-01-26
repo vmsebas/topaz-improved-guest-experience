@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Clock, Star, Landmark, Palette, Mountain, Building, Museum, MessageCircle } from "lucide-react";
+import { MapPin, Calendar, Clock, Star, Landmark, Palette, Mountain, Building, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -292,7 +292,7 @@ const Attractions = () => {
               onClick={() => setSelectedCategory("Museums")}
               className="bg-white hover:bg-gray-100"
             >
-              <Museum className="mr-2 h-4 w-4" />
+              <Building className="mr-2 h-4 w-4" />
               Museums
             </Button>
           </div>
