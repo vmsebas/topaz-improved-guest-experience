@@ -154,15 +154,15 @@ const attractions = [
   },
   {
     id: 13,
-    title: "Cabo da Roca",
-    description: "Westernmost point of continental Europe",
-    location: "Colares",
+    title: "Tranvía 28",
+    description: "Histórico tranvía amarillo que recorre las calles más emblemáticas de Lisboa",
+    location: "Varias paradas por el centro histórico",
     rating: 4.8,
-    price: "Free",
-    schedule: "Always open",
-    duration: "45 minutes by car",
-    category: "Viewpoints",
-    image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff"
+    price: "€3.00",
+    schedule: "6:00 - 23:00",
+    duration: "40 minutos (ruta completa)",
+    category: "Cultural",
+    image: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b"
   },
   {
     id: 14,
