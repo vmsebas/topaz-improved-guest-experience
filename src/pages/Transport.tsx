@@ -1,10 +1,9 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Star, Train, Bus, Ship, Car, Bike, Plane, ExternalLink } from "lucide-react";
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Train, Bus, Ship, Car, Bike, Plane } from "lucide-react";
+import { TransportCard } from "@/components/transport/TransportCard";
+import { TransportFilter } from "@/components/transport/TransportFilter";
 
 const transportOptions = [
   {
@@ -157,90 +156,26 @@ const Transport = () => {
     : transportOptions.filter(option => option.category === selectedCategory);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F1F0FB]">
       <Navbar />
       <main className="flex-grow pt-16">
         <section className="container py-12">
           <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">Transport Options in Lisbon</h1>
+            <h1 className="text-4xl font-bold mb-4 text-gray-800">Transport Options in Lisbon</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Discover the best ways to navigate Lisbon. From historic trams to modern metro lines, 
               find the most convenient way to explore the city.
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full mb-8">
-            <TabsList className="flex justify-center space-x-2">
-              <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
-                All Options
-              </TabsTrigger>
-              <TabsTrigger value="Public" onClick={() => setSelectedCategory("Public")}>
-                Public Transport
-              </TabsTrigger>
-              <TabsTrigger value="Private" onClick={() => setSelectedCategory("Private")}>
-                Private Transport
-              </TabsTrigger>
-              <TabsTrigger value="Active" onClick={() => setSelectedCategory("Active")}>
-                Active Transport
-              </TabsTrigger>
-              <TabsTrigger value="Airport" onClick={() => setSelectedCategory("Airport")}>
-                Airport
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <TransportFilter 
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTransport.map((option) => (
-              <Card key={option.id} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
-                <div className="relative h-64">
-                  <img
-                    src={option.image}
-                    alt={option.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
-                    {option.category}
-                  </div>
-                  <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm flex items-center">
-                    <Star className="h-4 w-4 mr-1 text-yellow-400 fill-current" />
-                    {option.rating}
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <option.icon className="h-5 w-5 text-primary" />
-                    <h3 className="text-xl font-semibold">{option.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-4">{option.description}</p>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm">
-                      <MapPin className="h-4 w-4 mr-2 text-primary" />
-                      <span>{option.location}</span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <Clock className="h-4 w-4 mr-2 text-primary" />
-                      <span>{option.schedule}</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2 mb-4">
-                    {option.features.map((feature, index) => (
-                      <div key={index} className="text-sm text-muted-foreground">
-                        • {feature}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-lg">{option.price}</span>
-                    <Button 
-                      onClick={() => window.open(option.website, '_blank')}
-                      className="flex items-center gap-2"
-                    >
-                      Learn More
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              <TransportCard key={option.id} option={option} />
             ))}
           </div>
         </section>
