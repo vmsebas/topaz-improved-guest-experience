@@ -210,7 +210,7 @@ const attractions = [
     schedule: "10:00 - 20:00 (Last entry 19:00)",
     duration: "25 minutes by metro",
     category: "Museums",
-    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302"
+    image: "/lovable-uploads/61e76d2d-c3dc-44fe-87bf-37e750cd24bd.png"
   },
   {
     id: 18,
