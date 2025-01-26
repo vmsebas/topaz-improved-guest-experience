@@ -12,14 +12,28 @@ const Transport = () => {
     {
       id: 1,
       title: "Metro de Lisboa",
-      description: "Red moderna de metro que conecta las principales zonas de Lisboa. Incluye 4 líneas que cubren gran parte de la ciudad y áreas metropolitanas.",
+      description: "Red moderna de metro que conecta las principales zonas de Lisboa. Incluye 4 líneas que cubren gran parte de la ciudad y áreas metropolitanas. Tarjeta Viva Viagem recargable necesaria para todos los viajes.",
       location: "56 estaciones por toda Lisboa",
       rating: 4.5,
-      price: "€1.65/viaje | €6.45/día | €30.00/mes",
+      price: {
+        single: "€1.80",
+        daily: "€6.85",
+        tourist: {
+          "24h": "€6.85",
+          "72h": "€16.50",
+          "7 días": "€27.00"
+        }
+      },
       schedule: "06:30 - 01:00",
       duration: "Frecuencia: 3-8 min",
       category: "Public",
-      features: ["Accesible", "Wifi gratuito", "Aire acondicionado", "Viajar con bicicleta permitido"],
+      features: [
+        "Tarjeta Viva Viagem obligatoria (€0.50)",
+        "Zapping disponible",
+        "Wifi gratuito",
+        "Aire acondicionado",
+        "Accesible"
+      ],
       website: "https://www.metrolisboa.pt",
       image: "/lovable-uploads/97ce7175-ae56-4a36-b585-877b7c9704c1.png",
       icon: Train
@@ -27,14 +41,28 @@ const Transport = () => {
     {
       id: 2,
       title: "Tranvía 28",
-      description: "Icónico tranvía amarillo que recorre el casco antiguo de Lisboa. Una experiencia turística imprescindible que conecta Martim Moniz con Campo Ourique.",
+      description: "Icónico tranvía amarillo que recorre el casco antiguo de Lisboa. Una experiencia turística imprescindible que conecta Martim Moniz con Campo Ourique. Utiliza la misma tarjeta Viva Viagem del metro.",
       location: "Ruta por el centro histórico",
       rating: 4.8,
-      price: "€3.80/viaje | €6.45/día",
+      price: {
+        single: "€3.00",
+        daily: "€6.85",
+        tourist: {
+          "24h": "€6.85",
+          "72h": "€16.50",
+          "7 días": "€27.00"
+        }
+      },
       schedule: "07:00 - 22:30",
       duration: "Recorrido: 40-50 min",
       category: "Public",
-      features: ["Histórico", "Panorámico", "Centro ciudad", "Climatizado"],
+      features: [
+        "Tarjeta Viva Viagem obligatoria (€0.50)",
+        "Histórico",
+        "Panorámico",
+        "Centro ciudad",
+        "Climatizado"
+      ],
       website: "https://www.carris.pt/descubra/carreiras/28e/",
       image: "/lovable-uploads/61e76d2d-c3dc-44fe-87bf-37e750cd24bd.png",
       icon: Train
@@ -42,14 +70,28 @@ const Transport = () => {
     {
       id: 3,
       title: "Autobuses Carris",
-      description: "Extensa red de autobuses urbanos que cubre toda Lisboa. Incluye servicios diurnos y nocturnos para una movilidad completa.",
+      description: "Extensa red de autobuses urbanos que cubre toda Lisboa. Incluye servicios diurnos y nocturnos. Usa la misma tarjeta Viva Viagem del metro y tranvía.",
       location: "Toda Lisboa y área metropolitana",
       rating: 4.2,
-      price: "€2.00/viaje | €6.45/día | €30.00/mes",
+      price: {
+        single: "€2.00",
+        daily: "€6.85",
+        tourist: {
+          "24h": "€6.85",
+          "72h": "€16.50",
+          "7 días": "€27.00"
+        }
+      },
       schedule: "05:30 - 00:00 (Buses nocturnos 00:00 - 05:30)",
       duration: "Según ruta",
       category: "Public",
-      features: ["Extenso", "Económico", "Servicio nocturno", "Aire acondicionado"],
+      features: [
+        "Tarjeta Viva Viagem obligatoria (€0.50)",
+        "Zapping disponible",
+        "Servicio nocturno",
+        "Aire acondicionado",
+        "Accesible"
+      ],
       website: "https://www.carris.pt",
       image: "/lovable-uploads/6197cbf6-b48f-4002-b555-3708613a58dd.png",
       icon: Bus
@@ -57,14 +99,25 @@ const Transport = () => {
     {
       id: 4,
       title: "Uber/Bolt/FreeNow",
-      description: "Servicios de transporte privado bajo demanda. Múltiples opciones disponibles, desde económico hasta premium.",
+      description: "Servicios de transporte privado bajo demanda. Múltiples opciones disponibles, desde económico hasta premium. Ideal para viajes al aeropuerto o zonas sin cobertura de transporte público.",
       location: "Disponible en toda la ciudad",
       rating: 4.6,
-      price: "Desde €5.00 (tarifa mínima)",
+      price: {
+        base: "€3.50",
+        minimum: "€5.00",
+        airport: "€15-20",
+        perKm: "€0.95/km"
+      },
       schedule: "24/7",
       duration: "Según destino",
       category: "Private",
-      features: ["Disponible 24h", "Pago con tarjeta", "Conductor privado", "Aire acondicionado"],
+      features: [
+        "Disponible 24h",
+        "Pago con tarjeta",
+        "Conductor privado",
+        "Aire acondicionado",
+        "Precio estimado en app"
+      ],
       website: "https://www.uber.com/pt/es-es/",
       image: "/lovable-uploads/9ca4d75d-f08e-4dfb-abb1-9d98bd0c42b7.png",
       icon: Car
@@ -75,11 +128,24 @@ const Transport = () => {
       description: "Sistema público de bicicletas compartidas con más de 100 estaciones. Incluye bicicletas eléctricas para facilitar los desplazamientos en las zonas con pendientes.",
       location: "Más de 100 estaciones en Lisboa",
       rating: 4.3,
-      price: "€2.00/día | €15.00/mes | €25.00/año",
+      price: {
+        casual: {
+          "24h": "€10.00",
+          "72h": "€15.00"
+        },
+        monthly: "€20.00",
+        annual: "€25.00"
+      },
       schedule: "24/7",
       duration: "Según necesidad",
       category: "Active",
-      features: ["Ecológico", "Bicicletas eléctricas", "App móvil", "Estaciones por toda la ciudad"],
+      features: [
+        "Bicicletas eléctricas",
+        "App móvil necesaria",
+        "Primer viaje gratis",
+        "45 minutos por viaje",
+        "Estaciones por toda la ciudad"
+      ],
       website: "https://www.gira-bicicletasdelisboa.pt",
       image: "/lovable-uploads/e0d4e676-8b90-46f8-8bae-3f3263415c6a.png",
       icon: Bike
@@ -87,14 +153,25 @@ const Transport = () => {
     {
       id: 6,
       title: "Aeropuerto Humberto Delgado",
-      description: "Principal aeropuerto internacional de Lisboa, conectado con el centro mediante metro (Línea Roja). A solo 20 minutos del centro de la ciudad.",
+      description: "Principal aeropuerto internacional de Lisboa, conectado con el centro mediante metro (Línea Roja). Múltiples opciones de transporte disponibles incluyendo metro, autobús y taxi.",
       location: "Alameda das Comunidades Portuguesas",
       rating: 4.4,
-      price: "Metro: €1.65 | Taxi: ~€15-20",
+      price: {
+        metro: "€1.80",
+        aerobus: "€4.00",
+        taxi: "€15-20",
+        uber: "€15-25"
+      },
       schedule: "24/7",
       duration: "20 min al centro (metro)",
       category: "Airport",
-      features: ["Metro directo", "Duty Free", "Conexiones globales", "Servicios 24h"],
+      features: [
+        "Metro directo al centro",
+        "Aerobus disponible",
+        "Parada de taxis 24h",
+        "Conexiones globales",
+        "Información turística"
+      ],
       website: "https://www.ana.pt/pt/lis/home",
       image: "/lovable-uploads/0bfef87d-4b78-4e81-933f-2f3c2de2fe6c.png",
       icon: Plane
@@ -112,13 +189,37 @@ const Transport = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#faf6ee]">
       <Navbar />
-      <main className="flex-1 container mx-auto px-4 pt-32 pb-8"> {/* Aumentado el padding top a 32 (8rem) */}
+      <main className="flex-1 container mx-auto px-4 pt-32 pb-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-4">Transporte en Lisboa</h1>
           <p className="text-muted-foreground text-center mb-8">
             Descubre las mejores opciones para moverte por la ciudad
           </p>
           
+          <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 className="text-2xl font-semibold mb-4">Tarjetas de Transporte</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-medium mb-2">Tarjeta Viva Viagem</h3>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>Coste de la tarjeta: €0.50 (recargable)</li>
+                  <li>Válida para metro, autobús, tranvía y trenes CP</li>
+                  <li>Opción Zapping: recarga desde €3.00 hasta €40.00</li>
+                  <li>Viajes individuales más económicos con Zapping (€1.80)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-medium mb-2">Pases Turísticos</h3>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>Pase 24h: €6.85 (ilimitado en red Carris/Metro)</li>
+                  <li>Pase 72h: €16.50 (ilimitado en red Carris/Metro)</li>
+                  <li>Lisboa Card: desde €20.00 (incluye museos y atracciones)</li>
+                  <li>Pase 7 días: €27.00 (ideal para estancias largas)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <TransportFilter
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}

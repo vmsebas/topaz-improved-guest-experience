@@ -3,13 +3,37 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Star, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+interface Price {
+  single?: string;
+  daily?: string;
+  tourist?: {
+    "24h"?: string;
+    "72h"?: string;
+    "7 días"?: string;
+  };
+  base?: string;
+  minimum?: string;
+  airport?: string;
+  perKm?: string;
+  casual?: {
+    "24h": string;
+    "72h": string;
+  };
+  monthly?: string;
+  annual?: string;
+  metro?: string;
+  aerobus?: string;
+  taxi?: string;
+  uber?: string;
+}
+
 interface TransportOption {
   id: number;
   title: string;
   description: string;
   location: string;
   rating: number;
-  price: string;
+  price: Price;
   schedule: string;
   duration: string;
   category: string;
@@ -39,6 +63,19 @@ export const TransportCard = ({ option }: TransportCardProps) => {
       default:
         return "bg-gray-100 text-gray-700";
     }
+  };
+
+  const renderPrice = (price: Price) => {
+    if ('single' in price) {
+      return `Desde ${price.single} por viaje`;
+    } else if ('base' in price) {
+      return `Tarifa base: ${price.base}`;
+    } else if ('casual' in price) {
+      return `${price.casual["24h"]}/día`;
+    } else if ('metro' in price) {
+      return `Metro: ${price.metro}`;
+    }
+    return "Consultar tarifas";
   };
 
   return (
@@ -85,12 +122,12 @@ export const TransportCard = ({ option }: TransportCardProps) => {
           ))}
         </div>
         <div className="flex justify-between items-center pt-2 border-t border-gray-100">
-          <span className="font-semibold text-lg text-primary">{option.price}</span>
+          <span className="font-semibold text-lg text-primary">{renderPrice(option.price)}</span>
           <Button 
             onClick={() => window.open(option.website, '_blank')}
             className="flex items-center gap-2 bg-[#D3E4FD] text-blue-700 hover:bg-blue-100"
           >
-            Learn More
+            Más Info
             <ExternalLink className="h-4 w-4" />
           </Button>
         </div>
