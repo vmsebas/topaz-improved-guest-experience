@@ -1,6 +1,7 @@
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Train, Bus, Ship, Car, Bike, Plane } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -80,91 +81,104 @@ const Transport = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h1 className="text-4xl font-bold mb-2">Getting Around Lisbon</h1>
-      <p className="text-muted-foreground mb-8">Your complete guide to transportation in the city</p>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow pt-16">
+        <section className="container py-12">
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className="text-4xl font-bold mb-4">Getting Around Lisboa</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Your complete guide to transportation in the city. From metro to bikes, 
+              find the best way to explore Lisboa.
+            </p>
+          </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {transportOptions.map((option, index) => (
-          <Card key={index} className="hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <option.icon className="h-6 w-6" />
-                <CardTitle>{option.title}</CardTitle>
-              </div>
-              <CardDescription>{option.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ScrollArea className="h-[200px]">
-                <div className="space-y-4">
-                  <div>
-                    <p className="font-medium">Hours</p>
-                    <p className="text-sm text-muted-foreground">{option.hours}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {transportOptions.map((option, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <option.icon className="h-6 w-6 text-primary" />
+                    <CardTitle>{option.title}</CardTitle>
                   </div>
-                  <div>
-                    <p className="font-medium">Prices</p>
-                    <ul className="text-sm text-muted-foreground">
-                      {option.prices.map((price, idx) => (
-                        <li key={idx}>
-                          {price.link ? (
-                            <a 
-                              href={price.link} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-primary hover:underline"
-                            >
-                              {price.type}
-                            </a>
-                          ) : (
-                            `${price.type}: ${price.price}`
-                          )}
-                        </li>
-                      ))}
-                    </ul>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">{option.description}</p>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-medium">Hours</p>
+                      <p className="text-sm text-muted-foreground">{option.hours}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">Prices</p>
+                      <ul className="text-sm text-muted-foreground">
+                        {option.prices.map((price, idx) => (
+                          <li key={idx}>
+                            {price.type}: {price.price}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-medium">Details</p>
+                      <p className="text-sm text-muted-foreground">{option.details}</p>
+                    </div>
+                    {option.link && (
+                      <Button asChild className="w-full">
+                        <a 
+                          href={option.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          Learn More
+                        </a>
+                      </Button>
+                    )}
                   </div>
-                  <div>
-                    <p className="font-medium">Details</p>
-                    <p className="text-sm text-muted-foreground">{option.details}</p>
-                  </div>
-                  {option.link && (
-                    <Button asChild className="w-full">
-                      <a 
-                        href={option.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Book Tickets
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </ScrollArea>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
 
-      <div className="mt-12 space-y-6">
-        <h2 className="text-3xl font-bold">Travel Tips</h2>
-        
-        <Card>
-          <CardHeader>
-            <CardTitle>Getting from the Airport</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>Take the metro (red line) directly from the airport to São Sebastião, then change to the blue line to Santa Apolónia. From there, it's a short walk to your destination.</p>
-          </CardContent>
-        </Card>
+          <div className="mt-12 space-y-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Travel Tips</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Plane className="h-5 w-5" />
+                    Getting from the Airport
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Take the metro (red line) directly from the airport to São Sebastião, 
+                    then change to the blue line to Santa Apolónia. From there, it's a 
+                    short walk to your destination.
+                  </p>
+                </CardContent>
+              </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Local Transport Cards</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>We recommend getting a Viva Viagem card for unlimited travel on public transport. Valid for 24h, 48h, or 72h. Available at any metro station or major bus terminal.</p>
-          </CardContent>
-        </Card>
-      </div>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Train className="h-5 w-5" />
+                    Local Transport Cards
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    We recommend getting a Viva Viagem card for unlimited travel on 
+                    public transport. Valid for 24h, 48h, or 72h. Available at any 
+                    metro station or major bus terminal.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
     </div>
   );
 };
