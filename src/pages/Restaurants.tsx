@@ -2,9 +2,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Star, Phone, Euro, ExternalLink, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Star, Phone, Euro, ExternalLink, MessageCircle, UtensilsCrossed, Fish, Building2, Pizza, Leaf, Globe } from "lucide-react";
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const restaurants = {
   portuguese: [
@@ -265,31 +264,63 @@ const Restaurants = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full mb-8">
-            <TabsList className="flex justify-center space-x-2 flex-wrap">
-              <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
-                All Restaurants
-              </TabsTrigger>
-              <TabsTrigger value="portuguese" onClick={() => setSelectedCategory("portuguese")}>
-                Portuguese
-              </TabsTrigger>
-              <TabsTrigger value="seafood" onClick={() => setSelectedCategory("seafood")}>
-                Seafood
-              </TabsTrigger>
-              <TabsTrigger value="pizza" onClick={() => setSelectedCategory("pizza")}>
-                Pizza
-              </TabsTrigger>
-              <TabsTrigger value="vegetarian" onClick={() => setSelectedCategory("vegetarian")}>
-                Vegetarian
-              </TabsTrigger>
-              <TabsTrigger value="markets" onClick={() => setSelectedCategory("markets")}>
-                Markets
-              </TabsTrigger>
-              <TabsTrigger value="international" onClick={() => setSelectedCategory("international")}>
-                International
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <Button
+              variant={selectedCategory === "all" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("all")}
+              className="bg-white hover:bg-gray-100"
+            >
+              All Restaurants
+            </Button>
+            <Button
+              variant={selectedCategory === "portuguese" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("portuguese")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <UtensilsCrossed className="mr-2 h-4 w-4" />
+              Portuguese
+            </Button>
+            <Button
+              variant={selectedCategory === "seafood" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("seafood")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Fish className="mr-2 h-4 w-4" />
+              Seafood
+            </Button>
+            <Button
+              variant={selectedCategory === "markets" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("markets")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Building2 className="mr-2 h-4 w-4" />
+              Markets
+            </Button>
+            <Button
+              variant={selectedCategory === "pizza" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("pizza")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Pizza className="mr-2 h-4 w-4" />
+              Pizza
+            </Button>
+            <Button
+              variant={selectedCategory === "vegetarian" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("vegetarian")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Leaf className="mr-2 h-4 w-4" />
+              Vegetarian
+            </Button>
+            <Button
+              variant={selectedCategory === "international" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("international")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Globe className="mr-2 h-4 w-4" />
+              International
+            </Button>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {getFilteredRestaurants().map((restaurant) => (

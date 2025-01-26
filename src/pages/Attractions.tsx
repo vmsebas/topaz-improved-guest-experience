@@ -2,10 +2,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Clock, Star, Filter, MessageCircle } from "lucide-react";
+import { MapPin, Calendar, Clock, Star, Landmark, Palette, Mountain, Building, Museum, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const attractions = [
   {
@@ -256,25 +255,47 @@ const Attractions = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="all" className="w-full mb-8">
-            <TabsList className="flex justify-center space-x-2">
-              <TabsTrigger value="all" onClick={() => setSelectedCategory("all")}>
-                All Attractions
-              </TabsTrigger>
-              <TabsTrigger value="Historical" onClick={() => setSelectedCategory("Historical")}>
-                Historical
-              </TabsTrigger>
-              <TabsTrigger value="Cultural" onClick={() => setSelectedCategory("Cultural")}>
-                Cultural
-              </TabsTrigger>
-              <TabsTrigger value="Viewpoints" onClick={() => setSelectedCategory("Viewpoints")}>
-                Viewpoints
-              </TabsTrigger>
-              <TabsTrigger value="Museums" onClick={() => setSelectedCategory("Museums")}>
-                Museums
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <Button
+              variant={selectedCategory === "all" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("all")}
+              className="bg-white hover:bg-gray-100"
+            >
+              All Attractions
+            </Button>
+            <Button
+              variant={selectedCategory === "Historical" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Historical")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Landmark className="mr-2 h-4 w-4" />
+              Historical
+            </Button>
+            <Button
+              variant={selectedCategory === "Cultural" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Cultural")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Palette className="mr-2 h-4 w-4" />
+              Cultural
+            </Button>
+            <Button
+              variant={selectedCategory === "Viewpoints" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Viewpoints")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Mountain className="mr-2 h-4 w-4" />
+              Viewpoints
+            </Button>
+            <Button
+              variant={selectedCategory === "Museums" ? "default" : "outline"}
+              onClick={() => setSelectedCategory("Museums")}
+              className="bg-white hover:bg-gray-100"
+            >
+              <Museum className="mr-2 h-4 w-4" />
+              Museums
+            </Button>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredAttractions.map((attraction) => (
