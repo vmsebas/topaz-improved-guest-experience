@@ -12,12 +12,10 @@ const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const handlePhoneClick = (phoneNumber: string, serviceName: string) => {
-    // Limpiar el número de teléfono y añadir prefijo si no lo tiene
     const cleanNumber = phoneNumber.split('(')[0].trim();
     const formattedNumber = cleanNumber.startsWith('+') ? cleanNumber : `+351${cleanNumber}`;
     const telLink = `tel:${formattedNumber}`;
     
-    // Mostrar advertencia para números 808
     if (cleanNumber.startsWith('808')) {
       toast({
         title: "Advertencia - Número de pago",
@@ -285,10 +283,10 @@ const Services = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredServices.map((service) => (
               <Card key={service.name} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in-up">
-                <div className="relative h-64">
+                <div className="relative h-48">
                   {service.image && (
                     <img
                       src={service.image}
@@ -304,12 +302,12 @@ const Services = () => {
                     {service.rating}
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
-                  <div className="space-y-2 mb-4">
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-semibold mb-2">{service.name}</h3>
+                  <div className="space-y-2 mb-3">
                     <div className="flex items-center text-sm">
                       <MapPin className="h-4 w-4 mr-2 text-primary" />
-                      <span>{service.address}</span>
+                      <span className="line-clamp-1">{service.address}</span>
                     </div>
                     <div className="flex items-center text-sm">
                       <Clock className="h-4 w-4 mr-2 text-primary" />
@@ -320,10 +318,10 @@ const Services = () => {
                       className="flex items-center text-sm text-primary hover:text-primary/80 transition-colors w-full"
                     >
                       <Phone className="h-4 w-4 mr-2" />
-                      <span className="underline">{service.contact}</span>
+                      <span className="underline line-clamp-1">{service.contact}</span>
                     </button>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-2">
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
                     {service.description}
                   </p>
                 </CardContent>
