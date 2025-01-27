@@ -33,8 +33,15 @@ const Services = () => {
     {
       name: "Número de Emergencia Europeo",
       number: "112",
-      description: "Policía, Bomberos, Ambulancia",
+      description: "Emergencias generales - Policía, Bomberos, Ambulancia",
       icon: <AlertCircle className="h-8 w-8" />,
+      isEmergency: true
+    },
+    {
+      name: "PSP - Policía de Segurança Pública",
+      number: "21 765 42 42",
+      description: "Policía Nacional de Portugal",
+      icon: <Shield className="h-8 w-8" />,
       isEmergency: true
     },
     {
@@ -42,13 +49,6 @@ const Services = () => {
       number: "808 215 215",
       description: "Bomberos de Lisboa",
       icon: <Shield className="h-8 w-8" />,
-      isEmergency: true
-    },
-    {
-      name: "INEM (Emergencias Médicas)",
-      number: "112",
-      description: "Instituto Nacional de Emergencia Médica",
-      icon: <AlertCircle className="h-8 w-8" />,
       isEmergency: true
     }
   ];
