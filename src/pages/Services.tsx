@@ -58,8 +58,8 @@ const Services = () => {
     },
     {
       name: "Bombeiros Sapadores de Lisboa",
-      number: "+351 808 215 215",
-      description: "Bomberos de Lisboa (Número de pago)",
+      number: "+351 21 346 1300",
+      description: "Bomberos de Lisboa",
       icon: <Shield className="h-8 w-8" />,
       isEmergency: true
     }
