@@ -12,12 +12,24 @@ const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const handlePhoneClick = (phoneNumber: string, serviceName: string) => {
+    // Limpiar el número de teléfono y añadir prefijo si no lo tiene
     const cleanNumber = phoneNumber.split('(')[0].trim();
-    const telLink = `tel:${cleanNumber}`;
+    const formattedNumber = cleanNumber.startsWith('+') ? cleanNumber : `+351${cleanNumber}`;
+    const telLink = `tel:${formattedNumber}`;
+    
+    // Mostrar advertencia para números 808
+    if (cleanNumber.startsWith('808')) {
+      toast({
+        title: "Advertencia - Número de pago",
+        description: "Este es un número de tarificación especial que puede tener costes adicionales.",
+        duration: 5000,
+      });
+    }
+    
     window.location.href = telLink;
     toast({
       title: "Llamando a " + serviceName,
-      description: cleanNumber,
+      description: formattedNumber,
       duration: 3000,
     });
   };
@@ -39,15 +51,15 @@ const Services = () => {
     },
     {
       name: "PSP - Policía de Segurança Pública",
-      number: "21 765 42 42",
+      number: "+351 21 765 42 42",
       description: "Policía Nacional de Portugal",
       icon: <Shield className="h-8 w-8" />,
       isEmergency: true
     },
     {
       name: "Bombeiros Sapadores de Lisboa",
-      number: "808 215 215",
-      description: "Bomberos de Lisboa",
+      number: "+351 808 215 215",
+      description: "Bomberos de Lisboa (Número de pago)",
       icon: <Shield className="h-8 w-8" />,
       isEmergency: true
     }
