@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Star, Phone, Shield, MessageCircle, AlertCircle } from "lucide-react";
+import { MapPin, Clock, Star, Phone, Shield, MessageCircle, AlertCircle, PhoneCall } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Service } from "@/types/services";
@@ -315,13 +315,14 @@ const Services = () => {
                       <Clock className="h-4 w-4 mr-2 text-primary" />
                       <span>{service.hours}</span>
                     </div>
-                    <button
+                    <Button
                       onClick={() => handlePhoneClick(service.contact, service.name)}
-                      className="flex items-center text-sm text-primary hover:text-primary/80 transition-colors w-full"
+                      className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2 py-6 mt-2"
+                      size="lg"
                     >
-                      <Phone className="h-4 w-4 mr-2" />
-                      <span className="underline line-clamp-1">{service.contact}</span>
-                    </button>
+                      <PhoneCall className="h-5 w-5" />
+                      <span className="font-medium">{service.contact}</span>
+                    </Button>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
                     {service.description}
