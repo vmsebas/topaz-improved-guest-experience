@@ -12,7 +12,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/b4f9c08c-3ddb-4781-8f16-ce8747cacdef.png')",
+          backgroundImage: "url('/lovable-uploads/e0d4e676-8b90-46f8-8bae-3f3263415c6a.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -48,7 +48,7 @@ export const Hero = () => {
           <Link to="/about">
             <Button 
               size="lg" 
-              className="min-w-[200px] bg-white hover:bg-white/90 text-black text-lg font-medium rounded-full shadow-lg"
+              className="min-w-[200px] bg-white text-black hover:bg-white/90 text-lg font-medium"
             >
               Discover More
             </Button>
@@ -57,7 +57,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="min-w-[200px] border-2 border-white text-white hover:bg-white/20 text-lg font-medium rounded-full shadow-lg"
+              className="min-w-[200px] border-2 border-white text-white hover:bg-white/20 text-lg font-medium"
             >
               Contact Us
             </Button>
