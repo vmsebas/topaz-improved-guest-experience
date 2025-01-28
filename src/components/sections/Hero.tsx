@@ -20,7 +20,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%)"
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)"
         }}
       />
       
@@ -48,7 +48,7 @@ export const Hero = () => {
           <Link to="/about">
             <Button 
               size="lg" 
-              className="min-w-[200px] bg-white/90 backdrop-blur-sm text-black hover:bg-white text-lg font-medium rounded-full"
+              className="min-w-[200px] bg-white hover:bg-white/90 text-black text-lg font-medium rounded-full shadow-lg"
             >
               Discover More
             </Button>
@@ -57,7 +57,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="min-w-[200px] border-2 border-white text-white hover:bg-white/10 text-lg font-medium rounded-full"
+              className="min-w-[200px] border-2 border-white text-white hover:bg-white/20 text-lg font-medium rounded-full shadow-lg"
             >
               Contact Us
             </Button>
