@@ -18,15 +18,15 @@ const Services = () => {
     
     if (cleanNumber.startsWith('808')) {
       toast({
-        title: "Advertencia - Número de pago",
-        description: "Este es un número de tarificación especial que puede tener costes adicionales.",
+        title: "Warning - Paid Number",
+        description: "This is a special rate number that may have additional costs.",
         duration: 5000,
       });
     }
     
     window.location.href = telLink;
     toast({
-      title: "Llamando a " + serviceName,
+      title: "Calling " + serviceName,
       description: formattedNumber,
       duration: 3000,
     });
@@ -34,30 +34,30 @@ const Services = () => {
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "+351123456789";
-    const message = "Hola, necesito información sobre servicios esenciales.";
+    const message = "Hello, I need information about essential services.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const emergencyServices = [
     {
-      name: "Número de Emergencia Europeo",
+      name: "European Emergency Number",
       number: "112",
-      description: "Emergencias generales - Policía, Bomberos, Ambulancia",
+      description: "General emergencies - Police, Fire, Ambulance",
       icon: <AlertCircle className="h-8 w-8" />,
       isEmergency: true
     },
     {
-      name: "PSP - Policía de Segurança Pública",
+      name: "PSP - Public Security Police",
       number: "+351 21 765 42 42",
-      description: "Policía Nacional de Portugal",
+      description: "National Police of Portugal",
       icon: <Shield className="h-8 w-8" />,
       isEmergency: true
     },
     {
-      name: "Bombeiros Sapadores de Lisboa",
+      name: "Lisbon Fire Department",
       number: "+351 21 346 1300",
-      description: "Bomberos de Lisboa",
+      description: "Lisbon Firefighters",
       icon: <Shield className="h-8 w-8" />,
       isEmergency: true
     }
@@ -219,7 +219,7 @@ const Services = () => {
       <main className="flex-grow pt-16">
         <section className="container py-8">
           <div className="bg-red-50 p-4 rounded-lg mb-8 animate-fade-in">
-            <h2 className="text-2xl font-bold text-red-700 mb-3">Números de Emergencia</h2>
+            <h2 className="text-2xl font-bold text-red-700 mb-3">Emergency Numbers</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {emergencyServices.map((service) => (
                 <button
@@ -241,9 +241,9 @@ const Services = () => {
           </div>
 
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Servicios Esenciales</h1>
+            <h1 className="text-4xl font-bold mb-4">Essential Services</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Encuentra servicios importantes cerca de Travessa da Trindade, incluyendo hospitales, farmacias, embajadas y comisarías.
+              Find important services near Travessa da Trindade, including hospitals, pharmacies, embassies, and police stations.
             </p>
           </div>
 
@@ -337,7 +337,7 @@ const Services = () => {
       <button
         onClick={handleWhatsAppClick}
         className="fixed bottom-24 right-6 z-40 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
-        aria-label="Contactar por WhatsApp"
+        aria-label="Contact via WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
