@@ -20,7 +20,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)"
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%)"
         }}
       />
       
@@ -35,12 +35,12 @@ export const Hero = () => {
 
       <div className="container relative z-10 flex flex-col items-center text-center gap-8 px-4">
         <h1 className="text-white space-y-4">
-          <span className={`${titleSize} font-bold tracking-tighter block`}>
+          <span className={`${titleSize} font-bold tracking-tighter block drop-shadow-lg`}>
             Lisbon
           </span>
         </h1>
         
-        <p className={`${descriptionSize} text-white font-medium max-w-[800px] leading-relaxed`}>
+        <p className={`${descriptionSize} text-white font-medium max-w-[800px] leading-relaxed drop-shadow-lg`}>
           Discover the charm of the city from our cozy apartment in the heart of historic Alfama
         </p>
 
@@ -48,7 +48,7 @@ export const Hero = () => {
           <Link to="/about">
             <Button 
               size="lg" 
-              className="min-w-[200px] bg-white text-black hover:bg-white/90 text-lg font-medium"
+              className="min-w-[200px] bg-[#1EAEDB] hover:bg-[#33C3F0] text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg font-medium"
             >
               Discover More
             </Button>
@@ -57,7 +57,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="min-w-[200px] border-2 border-white text-white hover:bg-white/20 text-lg font-medium"
+              className="min-w-[200px] border-2 border-white text-white bg-black/30 hover:bg-white/20 shadow-lg hover:shadow-xl transition-all duration-300 text-lg font-medium"
             >
               Contact Us
             </Button>
