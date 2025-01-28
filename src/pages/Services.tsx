@@ -39,6 +39,11 @@ const Services = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const handleGetDirections = (address: string) => {
+    const encodedAddress = encodeURIComponent(address + ", Lisboa, Portugal");
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+  };
+
   const emergencyServices = [
     {
       name: "European Emergency Number",
@@ -315,18 +320,31 @@ const Services = () => {
                       <Clock className="h-4 w-4 mr-2 text-primary" />
                       <span>{service.hours}</span>
                     </div>
-                    <Button
-                      onClick={() => handlePhoneClick(service.contact, service.name)}
-                      className="w-full bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2 py-6 mt-2"
-                      size="lg"
-                    >
-                      <PhoneCall className="h-5 w-5" />
-                      <span className="font-medium">{service.contact}</span>
-                    </Button>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
                     {service.description}
                   </p>
+                  <div className="space-y-2">
+                    <Button
+                      onClick={() => handlePhoneClick(service.contact, service.name)}
+                      className="w-full bg-green-500 hover:bg-green-600 text-white"
+                      size="lg"
+                    >
+                      <PhoneCall className="h-5 w-5 mr-2" />
+                      <span className="font-medium">{service.contact.split('(')[0].trim()}</span>
+                    </Button>
+                    <p className="text-xs text-center text-gray-500">
+                      {service.contact.includes('(') ? service.contact.split('(')[1].replace(')', '') : ''}
+                    </p>
+                    <Button
+                      onClick={() => handleGetDirections(service.address)}
+                      className="w-full bg-blue-500 hover:bg-blue-600 text-white"
+                      size="lg"
+                    >
+                      <MapPin className="h-5 w-5 mr-2" />
+                      Get Directions
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
