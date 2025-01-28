@@ -24,10 +24,10 @@ const About = () => {
           />
           <div className="container relative z-10">
             <h1 className="text-5xl font-bold text-white mb-4">
-              Sobre Lisbon Tiles
+              About Lisbon Tiles
             </h1>
             <p className="text-xl text-gray-200">
-              Tu auténtico hogar portugués en el corazón del histórico Alfama
+              Your authentic Portuguese home in the heart of historic Alfama
             </p>
           </div>
         </section>
@@ -37,18 +37,18 @@ const About = () => {
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Descubre Lisboa Como un Local</h2>
+                <h2 className="text-3xl font-bold mb-6">Experience Lisbon Like a Local</h2>
                 <p className="text-gray-600 mb-4">
-                  Ubicado en el corazón del histórico Alfama, Lisbon Tiles ofrece una auténtica experiencia portuguesa combinada con el confort y la comodidad moderna.
+                  Located in the heart of historic Alfama, Lisbon Tiles offers an authentic Portuguese experience combined with modern comfort and convenience.
                 </p>
                 <p className="text-gray-600">
-                  Nuestro alojamiento ha sido cuidadosamente restaurado para preservar su encanto tradicional mientras proporciona todas las comodidades que los viajeros modernos esperan. Desde los tradicionales azulejos que adornan nuestras paredes hasta las impresionantes vistas al río Tajo, cada detalle ha sido meticulosamente seleccionado.
+                  Our accommodation has been carefully restored to preserve its traditional charm while providing all the amenities modern travelers expect. From the traditional tiles adorning our walls to the stunning views of the Tagus River, every detail has been meticulously selected.
                 </p>
               </div>
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1501721358449-c0cdf814e5bc"
-                  alt="Interior del apartamento con azulejos tradicionales portugueses"
+                  src="https://images.unsplash.com/photo-1513735492246-483525079686"
+                  alt="Traditional Portuguese apartment interior with tiles"
                   className="w-full h-[400px] object-cover"
                 />
               </div>
@@ -62,18 +62,18 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg shadow-sm">
                 <Heart className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Experiencia Auténtica</h3>
-                <p className="text-gray-600">Vive como un local en el histórico Alfama</p>
+                <h3 className="text-xl font-semibold mb-2">Authentic Experience</h3>
+                <p className="text-gray-600">Live like a local in historic Alfama</p>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm">
                 <Star className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Servicio Premium</h3>
-                <p className="text-gray-600">Atención 24/7 para todos nuestros huéspedes</p>
+                <h3 className="text-xl font-semibold mb-2">Premium Service</h3>
+                <p className="text-gray-600">24/7 attention for all our guests</p>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm">
                 <Shield className="w-12 h-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Seguro y Protegido</h3>
-                <p className="text-gray-600">Seguridad moderna con encanto tradicional</p>
+                <h3 className="text-xl font-semibold mb-2">Safe and Secure</h3>
+                <p className="text-gray-600">Modern security with traditional charm</p>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ const About = () => {
       <button
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
-        aria-label="Contactar por WhatsApp"
+        aria-label="Contact via WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear">
