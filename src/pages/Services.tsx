@@ -90,7 +90,8 @@ const Services = () => {
         contact: "+351 217 104 400",
         rating: 4.6,
         description: "Modern private hospital with multilingual staff and international patient services.",
-        isEmergency: true
+        isEmergency: true,
+        image: "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=1iYUJXnd4vMYxbPpYeiRZg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=60.53379&pitch=0&thumbfov=100"
       },
       {
         name: "CUF Descobertas Hospital",
