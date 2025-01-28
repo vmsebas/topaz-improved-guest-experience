@@ -4,11 +4,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Hero = () => {
   const isMobile = useIsMobile();
-  const titleSize = isMobile ? "text-5xl md:text-6xl lg:text-7xl" : "text-4xl md:text-6xl lg:text-7xl";
-  const descriptionSize = isMobile ? "text-xl md:text-2xl lg:text-3xl" : "text-lg md:text-xl lg:text-2xl";
+  const titleSize = isMobile ? "text-6xl md:text-7xl lg:text-8xl" : "text-5xl md:text-7xl lg:text-8xl";
+  const descriptionSize = isMobile ? "text-xl md:text-2xl lg:text-3xl" : "text-lg md:text-2xl lg:text-3xl";
 
   return (
-    <section className="relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div 
         className="absolute inset-0 z-0"
         style={{
@@ -20,22 +20,35 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(0, 0, 0, 0.4) 40%)"
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)"
         }}
       />
-      <div className="container relative z-10 flex flex-col items-center text-center gap-6 px-4">
-        <h1 className={`${titleSize} font-bold tracking-tighter text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]`}>
-          Welcome to Lisbon
+      
+      {/* Logo */}
+      <div className="absolute top-8 left-8 z-20">
+        <img 
+          src="/lovable-uploads/7e1dd70d-a699-452d-b9a5-7bd879062b16.png" 
+          alt="Lisbon Tiles Suites Logo" 
+          className="h-16 md:h-20"
+        />
+      </div>
+
+      <div className="container relative z-10 flex flex-col items-center text-center gap-8 px-4">
+        <h1 className="text-white space-y-4">
+          <span className={`${titleSize} font-bold tracking-tighter block`}>
+            Lisbon
+          </span>
         </h1>
-        <p className={`${descriptionSize} text-white font-medium max-w-[800px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]`}>
+        
+        <p className={`${descriptionSize} text-white font-medium max-w-[800px] leading-relaxed`}>
           Discover the charm of the city from our cozy apartment in the heart of historic Alfama
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+
+        <div className="flex flex-col sm:flex-row gap-6 mt-8">
           <Link to="/about">
             <Button 
               size="lg" 
-              variant="default" 
-              className="w-full sm:w-auto bg-white text-black hover:bg-white/90 transition-all duration-300"
+              className="min-w-[200px] bg-white text-black hover:bg-white/90 text-lg font-medium"
             >
               Discover More
             </Button>
@@ -44,7 +57,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="w-full sm:w-auto bg-transparent border-white text-white hover:bg-white/20 transition-all duration-300"
+              className="min-w-[200px] border-2 border-white text-white hover:bg-white/20 text-lg font-medium"
             >
               Contact Us
             </Button>
