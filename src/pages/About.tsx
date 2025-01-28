@@ -47,8 +47,8 @@ const About = () => {
               </div>
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1580582932707-520aed937b7b"
-                  alt="Lisbon Tiles interior"
+                  src="https://images.unsplash.com/photo-1501721358449-c0cdf814e5bc"
+                  alt="Interior del apartamento con azulejos tradicionales portugueses"
                   className="w-full h-[400px] object-cover"
                 />
               </div>
