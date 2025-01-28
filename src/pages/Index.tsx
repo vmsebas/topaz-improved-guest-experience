@@ -22,7 +22,7 @@ const Index = () => {
       
       <button
         onClick={handleWhatsAppClick}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group scale-110"
+        className="fixed bottom-24 right-6 z-40 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group scale-110"
         aria-label="Contactar por WhatsApp"
       >
         <MessageCircle className="h-7 w-7" />
