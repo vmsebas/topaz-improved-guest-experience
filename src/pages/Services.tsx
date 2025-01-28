@@ -218,20 +218,22 @@ const Services = () => {
       <Navbar />
       <main className="flex-grow pt-16">
         <section className="container py-8">
-          <div className="bg-red-50 p-6 rounded-lg mb-12 animate-fade-in">
-            <h2 className="text-2xl font-bold text-red-700 mb-4">Números de Emergencia</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-red-50 p-4 rounded-lg mb-8 animate-fade-in">
+            <h2 className="text-2xl font-bold text-red-700 mb-3">Números de Emergencia</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {emergencyServices.map((service) => (
                 <button
                   key={service.name}
                   onClick={() => handlePhoneClick(service.number, service.name)}
-                  className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all flex flex-col items-center text-center space-y-3 border-2 border-red-200 hover:border-red-400"
+                  className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-all flex items-center space-x-3 border border-red-200 hover:border-red-400"
                 >
-                  {service.icon}
-                  <h3 className="font-bold text-xl text-red-700">{service.number}</h3>
-                  <div>
-                    <p className="font-semibold text-gray-800">{service.name}</p>
-                    <p className="text-sm text-gray-600">{service.description}</p>
+                  <div className="flex-shrink-0">
+                    {service.icon}
+                  </div>
+                  <div className="flex-grow text-left">
+                    <h3 className="font-bold text-lg text-red-700">{service.number}</h3>
+                    <p className="font-medium text-sm text-gray-800">{service.name}</p>
+                    <p className="text-xs text-gray-600 line-clamp-1">{service.description}</p>
                   </div>
                 </button>
               ))}
@@ -334,7 +336,7 @@ const Services = () => {
       
       <button
         onClick={handleWhatsAppClick}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
+        className="fixed bottom-24 right-6 z-40 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
         aria-label="Contactar por WhatsApp"
       >
         <MessageCircle className="h-6 w-6" />
