@@ -7,7 +7,8 @@ import { MessageCircle } from "lucide-react";
 
 const Index = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/351900123456', '_blank');
+    // Remove the colon from the URL and ensure proper formatting
+    window.open('https://wa.me/+351900123456', '_blank');
   };
 
   return (
