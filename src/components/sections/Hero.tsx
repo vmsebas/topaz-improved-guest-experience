@@ -12,7 +12,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/lovable-uploads/e0d4e676-8b90-46f8-8bae-3f3263415c6a.png')",
+          backgroundImage: "url('/images/lisbon-panorama-tram.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -20,19 +20,12 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%)"
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 70%, rgba(250,246,238,1) 100%)"
         }}
       />
       
-      {/* Logo */}
-      <div className="absolute top-8 left-8 z-20">
-        <img 
-          src="/lovable-uploads/7e1dd70d-a699-452d-b9a5-7bd879062b16.png" 
-          alt="Lisbon Tiles Suites Logo" 
-          className="h-16 md:h-20"
-        />
-      </div>
-
+      {/* Logo - Eliminado según solicitud */}
+      
       <div className="container relative z-10 flex flex-col items-center text-center gap-8 px-4">
         <h1 className="text-white space-y-4">
           <span className={`${titleSize} font-bold tracking-tighter block drop-shadow-lg`}>
@@ -41,7 +34,7 @@ export const Hero = () => {
         </h1>
         
         <p className={`${descriptionSize} text-white font-medium max-w-[800px] leading-relaxed drop-shadow-lg`}>
-          Discover the charm of the city from our cozy apartment in the heart of historic Alfama
+          Discover the charm of the city from our cozy apartments in the heart of Chiado, Lisbon's most elegant neighborhood
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 mt-8">
