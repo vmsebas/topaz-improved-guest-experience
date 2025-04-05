@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ExternalLink, PhoneCall, Mail, MapPin, Heart, Instagram, Facebook, Twitter, AlertCircle, FileText, Info } from "lucide-react";
+import { ExternalLink, PhoneCall, Mail, MapPin, Heart, Instagram, Facebook, Twitter, FileText, Info } from "lucide-react";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -45,17 +45,9 @@ export const Footer = () => {
                 <Info size={16} className="mr-2 shrink-0 text-[#f70759]" />
                 <h4 className={`${textSize} font-medium`}>Legal Information</h4>
               </div>
-              <div className="flex items-start mt-2">
-                <FileText size={14} className="mr-2 shrink-0 text-slate-500 mt-0.5" />
-                <a 
-                  href="https://www.livroreclamacoes.pt/inicio" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-slate-500 hover:text-[#f70759] transition-colors"
-                >
-                  <span className={smallTextSize}>Livro de Reclamações</span>
-                </a>
-              </div>
+              <p className={smallTextSize + " text-slate-500 mt-1"}>
+                All services provided are subject to Portuguese consumer protection laws.
+              </p>
             </div>
           </div>
           
@@ -184,7 +176,13 @@ export const Footer = () => {
         {/* Livro de Reclamações - Complaint Book Section */}
         <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
+            <a 
+              href="https://www.livroreclamacoes.pt/inicio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center mb-4 md:mb-0 hover:opacity-90 transition-opacity"
+              aria-label="Livro de Reclamações - Access the official Portuguese Complaint Book"
+            >
               <img 
                 src="/images/legal/livro-reclamacoes.png" 
                 alt="Livro de Reclamações" 
@@ -199,15 +197,8 @@ export const Footer = () => {
                 <p className={textSize + " font-medium text-slate-700"}>Livro de Reclamações</p>
                 <p className={smallTextSize + " text-slate-500"}>Portuguese Complaint Book</p>
               </div>
-            </div>
-            <Button
-              onClick={openComplaintBook}
-              variant="outline"
-              size="sm"
-              className="text-slate-700 border-slate-300 hover:bg-slate-100"
-            >
-              <AlertCircle size={14} className="mr-2" /> Submit a Complaint
-            </Button>
+            </a>
+            <FileText size={16} className="hidden md:block text-slate-500" />
           </div>
           <p className={smallTextSize + " text-slate-500 text-center mt-4 max-w-3xl mx-auto"}>
             In compliance with Portuguese law (Decreto-Lei n.º 156/2005), all service providers must provide access to the Livro de Reclamações (Complaint Book).
