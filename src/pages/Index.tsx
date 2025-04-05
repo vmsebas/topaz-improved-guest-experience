@@ -3,15 +3,10 @@ import { Hero } from "@/components/sections/Hero";
 import { Features } from "@/components/sections/Features";
 import { Footer } from "@/components/layout/Footer";
 import { CookieBanner } from "@/components/legal/CookieBanner";
-import { MessageCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 const Index = () => {
-  const handleWhatsAppClick = () => {
-    // Remove the colon from the URL and ensure proper formatting
-    window.open('https://wa.me/+351900123456', '_blank');
-  };
-
   // State to track the widget container's width for responsiveness
   const [containerWidth, setContainerWidth] = useState<number>(0);
   const widgetContainerRef = useRef<HTMLDivElement>(null);
@@ -63,16 +58,7 @@ const Index = () => {
       <Footer />
       <CookieBanner />
       
-      <button
-        onClick={handleWhatsAppClick}
-        className="fixed bottom-8 right-6 z-40 bg-[#25D366] hover:bg-[#128C7E] text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
-        aria-label="Contactar por WhatsApp"
-      >
-        <MessageCircle className="h-6 w-6" />
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-linear whitespace-nowrap font-medium">
-          <span className="pl-2">WhatsApp</span>
-        </span>
-      </button>
+      <WhatsAppButton phoneNumber="+351900123456" />
     </div>
   );
 };

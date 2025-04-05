@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ExternalLink, PhoneCall, Mail, MapPin, Heart, ArrowUpCircle, Instagram, Facebook, Twitter, AlertCircle, FileText, Info } from "lucide-react";
+import { ExternalLink, PhoneCall, Mail, MapPin, Heart, Instagram, Facebook, Twitter, AlertCircle, FileText, Info } from "lucide-react";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -183,12 +183,12 @@ export const Footer = () => {
         
         {/* Livro de Reclamações - Complaint Book Section */}
         <div className="mt-8 pt-6 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-            <div className="flex items-center">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
+            <div className="flex items-center mb-4 md:mb-0">
               <img 
                 src="/images/legal/livro-reclamacoes.png" 
                 alt="Livro de Reclamações" 
-                className="h-10 mr-3"
+                className="h-14 mr-3"
                 onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                   const target = e.currentTarget;
                   target.src = "https://www.consumidor.gov.pt/upload/membro.6093/ficheiros/488.image.2png";
@@ -215,16 +215,10 @@ export const Footer = () => {
           </p>
         </div>
         
-        <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
-          <p className={`text-center md:text-left ${textSize} text-slate-500`}>
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <p className={`text-center ${textSize} text-slate-500`}>
             &copy; {new Date().getFullYear()} Lisbon Tiles. All rights reserved.
           </p>
-          <button 
-            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-            className="mt-4 md:mt-0 flex items-center text-slate-500 hover:text-[#f70759] transition-colors"
-          >
-            <ArrowUpCircle size={16} className="mr-2" /> Back to top
-          </button>
         </div>
       </div>
       <ScrollToTop />
