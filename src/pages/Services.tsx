@@ -49,21 +49,21 @@ const Services = () => {
       name: "European Emergency Number",
       number: "112",
       description: "General emergencies - Police, Fire, Ambulance",
-      icon: <AlertCircle className="h-8 w-8" />,
+      icon: <AlertCircle className="h-10 w-10 text-red-600" />,
       isEmergency: true
     },
     {
       name: "PSP - Public Security Police",
       number: "+351 217 654 242",
       description: "National Police of Portugal",
-      icon: <Shield className="h-8 w-8" />,
+      icon: <Shield className="h-10 w-10 text-blue-600" />,
       isEmergency: true
     },
     {
       name: "Lisbon Fire Department",
       number: "+351 808 215 215",
       description: "Lisbon Firefighters Emergency Service",
-      icon: <Shield className="h-8 w-8" />,
+      icon: <PhoneCall className="h-10 w-10 text-orange-600" />,
       isEmergency: true
     }
   ];
@@ -213,22 +213,22 @@ const Services = () => {
       <Navbar />
       <main className="flex-grow pt-16">
         <section className="container py-8">
-          <div className="bg-red-50 p-4 rounded-lg mb-8 animate-fade-in">
-            <h2 className="text-2xl font-bold text-red-700 mb-3">Emergency Numbers</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="bg-red-50 p-6 rounded-lg mb-10 animate-fade-in shadow-md">
+            <h2 className="text-3xl font-bold text-red-700 mb-5 text-center">Emergency Numbers</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {emergencyServices.map((service) => (
                 <button
                   key={service.name}
                   onClick={() => handlePhoneClick(service.number, service.name)}
-                  className="bg-white p-4 rounded-lg shadow hover:shadow-md transition-all flex items-center space-x-3 border border-red-200 hover:border-red-400"
+                  className="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center space-x-4 border border-red-200 hover:border-red-400 hover:scale-105"
                 >
                   <div className="flex-shrink-0">
                     {service.icon}
                   </div>
                   <div className="flex-grow text-left">
-                    <h3 className="font-bold text-lg text-red-700">{service.number}</h3>
-                    <p className="font-medium text-sm text-gray-800">{service.name}</p>
-                    <p className="text-xs text-gray-600 line-clamp-1">{service.description}</p>
+                    <h3 className="font-bold text-xl text-red-700">{service.number}</h3>
+                    <p className="font-medium text-base text-gray-800">{service.name}</p>
+                    <p className="text-sm text-gray-600">{service.description}</p>
                   </div>
                 </button>
               ))}
