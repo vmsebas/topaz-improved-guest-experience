@@ -153,7 +153,8 @@ const Services = () => {
         contact: "+351 213 924 000",
         rating: 4.1,
         description: "Consular services for British citizens. Emergency assistance available 24/7.",
-        isEmergency: false
+        isEmergency: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1200px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
       },
       {
         name: "U.S. Embassy",
@@ -164,7 +165,8 @@ const Services = () => {
         contact: "+351 217 273 300",
         rating: 4.0,
         description: "Full consular services for U.S. citizens. Emergency services available 24/7.",
-        isEmergency: false
+        isEmergency: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"
       },
       {
         name: "German Embassy",
@@ -175,7 +177,44 @@ const Services = () => {
         contact: "+351 218 810 210",
         rating: 4.2,
         description: "German consular services and visa applications. Emergency assistance available.",
-        isEmergency: false
+        isEmergency: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png"
+      },
+      {
+        name: "Spanish Embassy",
+        type: "Embassy",
+        distance: "10 min by taxi",
+        address: "Rua do Salitre 1, 1269-052 Lisboa",
+        hours: "8:00 - 16:00 (Mon-Thu), 8:30 - 14:00 (Fri)",
+        contact: "+351 213 472 381",
+        rating: 4.3,
+        description: "Consular services for Spanish citizens and visa applications for Spain.",
+        isEmergency: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png"
+      },
+      {
+        name: "French Embassy",
+        type: "Embassy",
+        distance: "12 min by taxi",
+        address: "Rua Santos-o-Velho 5, 1249-079 Lisboa",
+        hours: "9:00 - 13:00, 14:00 - 17:00 (Mon-Fri)",
+        contact: "+351 213 939 100",
+        rating: 4.2,
+        description: "French consular services, visa applications and cultural affairs.",
+        isEmergency: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png"
+      },
+      {
+        name: "Italian Embassy",
+        type: "Embassy",
+        distance: "15 min by taxi",
+        address: "Largo Conde Pombeiro 6, 1150-100 Lisboa",
+        hours: "9:00 - 16:30 (Mon-Fri)",
+        contact: "+351 213 515 320",
+        rating: 4.1,
+        description: "Italian consular services, passport applications and cultural events.",
+        isEmergency: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png"
       }
     ],
     police: [
