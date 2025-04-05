@@ -1,69 +1,70 @@
-# Welcome to your Lovable project
+# Lisbon Tiles - Guía Turística de Lisboa
 
-## Project info
+## Descripción del Proyecto
 
-**URL**: https://lovable.dev/projects/291a1c8f-d46c-46d4-841f-ce2536be1466
+Lisbon Tiles es una aplicación web completa diseñada para turistas y visitantes de Lisboa. Proporciona información detallada sobre restaurantes, atracciones turísticas, servicios de transporte y consejos locales para mejorar la experiencia de los visitantes en la ciudad.
 
-## How can I edit this code?
+### Características Principales
 
-There are several ways of editing your application.
+- **Restaurantes y Gastronomía**: Listado detallado de restaurantes por categorías (portugueses, mariscos, mercados, pizzerías, vegetarianos e internacionales).
+- **Atracciones Turísticas**: Información sobre los principales puntos de interés en Lisboa.
+- **Transporte**: Guía completa de opciones de transporte público y privado en la ciudad.
+- **Blog**: Artículos y consejos sobre la cultura, historia y experiencias en Lisboa.
+- **Servicios**: Información sobre servicios disponibles para turistas.
+- **Contacto**: Formulario para consultas y asistencia.
 
-**Use Lovable**
+### Estructura del Proyecto
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/291a1c8f-d46c-46d4-841f-ce2536be1466) and start prompting.
+- **Páginas principales**: Inicio, Atracciones, Restaurantes, Transporte, Servicios, Blog, Contacto
+- **Componentes reutilizables**: Tarjetas de información, filtros, navegación, pie de página
+- **Diseño responsivo**: Adaptado para dispositivos móviles, tablets y escritorio
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tecnologías Utilizadas
 
-**Use your preferred IDE**
+Este proyecto está construido con:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Vite**: Entorno de desarrollo rápido para React
+- **TypeScript**: Lenguaje tipado para mayor robustez del código
+- **React**: Biblioteca para construir interfaces de usuario
+- **shadcn-ui**: Componentes de UI reutilizables y accesibles
+- **Tailwind CSS**: Framework CSS para diseño rápido y responsivo
+- **React Router**: Navegación entre páginas
+- **React Query**: Gestión de estado y datos
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Cómo ejecutar el proyecto
 
-Follow these steps:
+Para ejecutar este proyecto localmente:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Paso 1: Clonar el repositorio
+git clone <URL_DEL_REPOSITORIO>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Paso 2: Navegar al directorio del proyecto
+cd lisbon-tiles-topaz
 
-# Step 3: Install the necessary dependencies.
+# Paso 3: Instalar las dependencias necesarias
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Paso 4: Iniciar el servidor de desarrollo
 npm run dev
 ```
 
-## Deploying to Netlify
+## Despliegue
 
-To deploy this project to Netlify:
+### Despliegue en Netlify
 
-1. Push your code to GitHub
-2. Log in to Netlify
-3. Click "New site from Git"
-4. Choose your repository
-5. Build command: `npm run build`
-6. Publish directory: `dist`
-7. Click "Deploy site"
+Para desplegar este proyecto en Netlify:
 
-The build settings are already configured in the netlify.toml file.
+1. Sube tu código a GitHub
+2. Inicia sesión en Netlify
+3. Haz clic en "New site from Git"
+4. Elige tu repositorio
+5. Comando de construcción: `npm run build`
+6. Directorio de publicación: `dist`
+7. Haz clic en "Deploy site"
 
-## What technologies are used for this project?
+La configuración de construcción ya está configurada en el archivo netlify.toml.
 
-This project is built with:
+## Uso de dominio personalizado
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/291a1c8f-d46c-46d4-841f-ce2536be1466) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Para usar un dominio personalizado, recomendamos utilizar Netlify u otro servicio de alojamiento que permita configurar dominios personalizados.
