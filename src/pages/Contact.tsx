@@ -4,11 +4,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Contact = () => {
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  
   const handleWhatsAppClick = () => {
     window.open('https://wa.me/351900123456', '_blank');
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#faf6ee]">
@@ -84,6 +97,29 @@ const Contact = () => {
                     Enviar Mensaje
                   </Button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Civitatis Featured Activities Widget Section - Detailed Style */}
+        <section className="w-full bg-white py-10 px-4 md:px-8">
+          <div className="container mx-auto">
+            <div className="mb-6 text-center">
+              <h2 className="text-2xl font-bold text-slate-800">Top-Rated Lisbon Experiences</h2>
+              <p className="text-slate-600 mt-2">Get detailed information about the best tours and activities</p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center">
+                <iframe 
+                  className="civitatis-iframe"
+                  title="Civitatis Featured Activities"
+                  src={`https://www.civitatis.com/widget-activities/?agencyId=41769&display=${windowWidth < 768 ? 'compact' : 'detailed'}&cant=${windowWidth < 768 ? '1' : '2'}&lang=en&currency=EUR&zone=404&transfer=1&cmp=Widget_Lisbon_Contact_EN&width=100%&height=${windowWidth < 768 ? '300' : '500'}px&hideButton=0&centerContent=1&typeSelection=toprated&color=f70759&typography=Montserrat&removeBackground=1&showShadow=1&roundedButtons=1`}
+                  width="100%"
+                  height={windowWidth < 768 ? '300px' : '500px'}
+                  frameBorder="0"
+                  style={{ maxWidth: '100%', margin: '0 auto' }}
+                ></iframe>
               </div>
             </div>
           </div>

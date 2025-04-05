@@ -9,4 +9,7 @@ export interface Service {
   description: string;
   isEmergency: boolean;
   image?: string;
+  category?: string;
+  features?: string[];
+  price?: string;
 }

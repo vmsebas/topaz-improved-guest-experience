@@ -155,6 +155,29 @@ const Attractions = () => {
             ))}
           </div>
         </section>
+
+        {/* Civitatis Tours Widget Section - Minimal Style */}
+        <section className="w-full bg-white py-8 px-4 md:px-8">
+          <div className="container mx-auto">
+            <div className="mb-6 text-center">
+              <h2 className="text-2xl font-bold text-slate-800">Guided Tours for These Attractions</h2>
+              <p className="text-slate-600 mt-2">Skip the lines and enhance your experience with these selected tours</p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center">
+                <iframe 
+                  className="civitatis-iframe"
+                  title="Civitatis Top Tours"
+                  src={`https://www.civitatis.com/widget-activities/?agencyId=41769&display=minimal&cant=${window.innerWidth < 768 ? '2' : '3'}&lang=en&currency=EUR&zone=404&transfer=0&cmp=Widget_Lisbon_Attractions_EN&width=100%&height=${window.innerWidth < 768 ? '350' : '400'}px&hideButton=0&centerContent=1&typeSelection=all&color=f70759&typography=Montserrat&removeBackground=1&showShadow=1&roundedButtons=1`}
+                  width="100%"
+                  height={window.innerWidth < 768 ? '350px' : '400px'}
+                  frameBorder="0"
+                  style={{ maxWidth: '100%', margin: '0 auto' }}
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
       
