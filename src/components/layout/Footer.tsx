@@ -188,7 +188,7 @@ export const Footer = () => {
               <img 
                 src="/images/legal/livro-reclamacoes.png" 
                 alt="Livro de Reclamações" 
-                className="h-14 mr-3"
+                className="h-16 mr-3 object-contain"
                 onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                   const target = e.currentTarget;
                   target.src = "https://www.consumidor.gov.pt/upload/membro.6093/ficheiros/488.image.2png";
